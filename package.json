@@ -4,6 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "dependencies": {
+    "p5": "^1.1.9",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-hot-loader": "^4.12.21"
@@ -23,12 +24,13 @@
     "react-test-renderer": "^16.13.1",
     "webpack": "^4.44.1",
     "webpack-cli": "^3.3.12",
-    "webpack-dev-server": "^3.11.0"
+    "webpack-dev-server": "^3.11.0",
+    "webpack-merge": "^5.1.2"
   },
   "scripts": {
-    "start": "webpack-dev-server --hot",
+    "start": "webpack-dev-server --hot --config webpack.dev.js",
     "lint": "eslint ./src",
     "test": "jest --colors -be -e --logHeapUsage",
-    "build": "webpack --mode production" 
+    "build": "webpack --config webpack.prod.js"
   }
 }

@@ -12,15 +12,15 @@ module.exports = {
                 test: /\.js|jsx$/,
                 exclude: /node_modules/,
                 use: { loader: 'babel-loader' }
+            },
+            {
+                test: /\.css/,
+                use: [
+                    "style-loader",
+                    "css-loader"
+                ]
             }
         ]
-    },
-    mode: 'development',
-    devServer: {
-        historyApiFallback: true,
-        compress: true,
-        port: 3030,
-        open: true
     },
     plugins: [
         HtmlWebPackPluginConfig
