@@ -7,19 +7,38 @@ const Tree = (props) => {
     let myP5;
 
     const s = (sketch) => {
-        let x = 100;
-        let y = 100;
+        let slider;
+        let angle = 0;
 
         sketch.setup = () => {
-            sketch.createCanvas(200, 200);
+            sketch.createCanvas(400, 400);
+            slider = sketch.createSlider(0, sketch.TWO_PI, sketch.PI/4, 0.01);
         };
 
         sketch.draw = () => {
-            sketch.background(0);
-            sketch.fill(255);
-            sketch.rect(x,y,50,75);
+            sketch.background(51);
+            angle = slider.value();
+            sketch.stroke(255);
+            sketch.translate(200, 400);
+            branch(100);
         };
+
+        function branch(len){
+            sketch.line(0, 0, 0, - len);
+            sketch.translate(0, -len);
+            if(len > 5) {
+                sketch.push();
+                sketch.rotate(angle);
+                branch(len * 0.67);
+                sketch.pop();
+                sketch.push();
+                sketch.rotate(-angle);
+                branch(len * 0.67);
+                sketch.pop();
+            }
+        }
     }
+
 
     useEffect(() => {
        myP5 = new p5(s, treeContainer.current);
