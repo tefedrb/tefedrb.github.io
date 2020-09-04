@@ -19,7 +19,7 @@ const Tree = (props) => {
             sketch.background(51);
             angle = slider.value();
             sketch.stroke(255);
-            sketch.translate(200, 400);
+            sketch.translate(200, sketch.height);
             branch(100);
         };
 
@@ -38,7 +38,6 @@ const Tree = (props) => {
             }
         }
     }
-
 
     useEffect(() => {
        myP5 = new p5(s, treeContainer.current);
