@@ -1,48 +1,60 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const Border = styled.div`
+
+// we need to pass in dynamic height and width to pull this off...
+// we need to isolate all the properties that will change...
+
+const FileGraphic2 = styled.div`
     position: relative;
-    width: 0;
-    height: 0;
-    // this.borderBottom - (before.borderBottom )
-    border-top: 200px solid rgba(42, 227, 42, 0.48);
-    // this.borderBottom - (before.borderBottom ) ??
-    border-bottom: 200px solid rgba(42, 227, 42, 0.48);
-    border-left: 250px solid rgba(42, 227, 42, 0.48);
-    border-right: 250px solid rgba(42, 227, 42, 0.48);
-    font-size: 20px;
-
-    &:before {
-        position: absolute;
-        content: "";
-        height: 0;
-        width: 0;
-        // parent.borderTop plus 100px (this.bottom & top)
-        top: -300px;
-        left: -250px;
-        border-top: 50px solid rgba(42, 227, 42, 0.48);
-        border-left: 250px solid rgba(42, 227, 42, 0.48);
-        // parent.borderRight - after.borderBottom
-        border-right: 150px solid rgba(42, 227, 42, 0.48);
-        border-bottom: 50px solid rgba(42, 227, 42, 0.48);
-    }
-
-    &:after {
-        content: "";
-        position: absolute;
-        width: 0;
-        height: 0;
-        // parent.borderTop plus 100px (this.bottom & top)
-        top: -300px;
-        left: 250px;
-        transform: translate(-100%, 0px); 
-        border-right: 100px solid transparent;
-        border-bottom: 100px solid rgb(42, 227, 42);
-    }
+    height: 85%;
+    width: 100%;
+    background-color: rgba(42, 227, 42, 0.48);
 `
 
+const GraphicHead = styled.div`
+    width: 100%;
+    height: 100%%;
+    background-color: rgba(42, 227, 42, 0.48);
+`
+const Flap = styled.div`
+    width: 0;
+    height: 0;
+    border-right: 75px solid transparent;
+    border-bottom: 75px solid rgb(42, 227, 42);
+`
+const FileWrapper = styled.div`
+    // background-color: rgba(198, 194, 71, 0.56);
+    width: 500px;
+    height: 500px;
+`
+const HeadWrapper = styled.div`
+    display: flex;
+    height: 15%;
+`
 const File = () => {
+    const scaling = {
+        body: {
+            top: "200px",
+            bottom: "200px",
+            right: "250px",
+            left: "250px"
+        }
+    }
+
+    const placement = {
+        flap: {
+            top: "-300px",
+            left: "250px"
+        },
+        header: {
+            
+        }
+    }
+    // <FileWrapper>
+    //             <FileGraphic scaling={scaling}>
+    //             </FileGraphic>
+    //         </FileWrapper>
     
     return (
         <div style={
@@ -50,12 +62,18 @@ const File = () => {
                     height: "500px", 
                     display: "flex", 
                     alignItems: "center", 
-                    justifyContent: "center",
-                    marginTop: "200px"
+                    justifyContent: "center"
                 }
             }
         >
-            <Border></Border>
+            <FileWrapper>
+                <HeadWrapper>
+                    <GraphicHead name={"head"}/>
+                    <Flap name={"flap"} />
+                </HeadWrapper>
+                <FileGraphic2 name={"graphic"}/>
+            </FileWrapper>
+            
         </div>
     )
 }
