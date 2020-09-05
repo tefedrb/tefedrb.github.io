@@ -5,7 +5,7 @@ const FileGraphic = styled.div`
     position: relative;
     height: 85%;
     width: 100%;
-    background-color: rgba(42, 227, 42, 0.48);
+    background-color: ${props => props.color};
 `
 const GraphicHead = styled.div`
     width: 100%;
@@ -27,8 +27,12 @@ const HeadWrapper = styled.div`
     display: flex;
     height: 15%;
 `
-const File = () => {
-    
+const File = (props) => {
+
+    function changeColor(){
+        return props.color == "green" ? "rgba(42, 227, 42, 0.48)" : "white"
+    }
+
     return (
         <div style={
                 {
@@ -44,7 +48,7 @@ const File = () => {
                     <GraphicHead name={"head"}/>
                     <Fold name={"flap"} />
                 </HeadWrapper>
-                <FileGraphic name={"graphic"}/>
+                <FileGraphic color={changeColor} name={"graphic"}/>
             </GraphicWrapper>
         </div>
     )

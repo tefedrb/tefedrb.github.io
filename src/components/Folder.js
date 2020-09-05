@@ -5,6 +5,9 @@ const FolderWrapper = styled.div`
     position: relative;
     width: 150px;
     height: 100px;
+    &:hover {
+        cursor: pointer;
+    }
 `
 const FolderTab = styled.div`
     height: 10%;
@@ -69,7 +72,7 @@ const Folder = (props) => {
             <FolderBack />
             <Paper name={"paper"} toggle={folderProperties} />
             <FolderFront name={"folder front"} toggle={folderProperties}>
-                <Contents>{props.content}</Contents>
+                <Contents>{props.title}</Contents>
             </FolderFront>
         </FolderWrapper>
     )
