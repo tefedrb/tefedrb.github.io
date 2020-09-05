@@ -20,7 +20,6 @@ const Fold = styled.div`
     box-shadow: -7px 3px 7px -4px rgba(00,00,00,0.40);
 `
 const GraphicWrapper = styled.div`
-    // background-color: rgba(198, 194, 71, 0.56);
     width: 500px;
     height: 500px;
 `
