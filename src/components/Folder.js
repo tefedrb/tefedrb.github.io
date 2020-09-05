@@ -6,26 +6,14 @@ const FolderWrapper = styled.div`
     width: 150px;
     height: 100px;
 `
-const FolderBack = styled.div`
-    height: 90%;
-    width: 100%;
-    background-color: rgba(190, 186, 63, 1);
-`
-const FolderFront = styled.div`
-    position: absolute;
-    // border: solid 1px red;
-    height: 80%;
-    bottom: 0;
-    // plus 8px (below)
-    left: ${props => props.toggle.folderFront.left};
-    width: 100%;
-    // minus 10deg (below)
-    transform: ${props => props.toggle.folderFront.trans};
-    background-color: rgba(216, 212, 79, 1);
-`
 const FolderTab = styled.div`
     height: 10%;
     width: 25px;
+    background-color: rgba(190, 186, 63, 1);
+`
+const FolderBack = styled.div`
+    height: 90%;
+    width: 100%;
     background-color: rgba(190, 186, 63, 1);
 `
 const Paper = styled.div`
@@ -36,9 +24,27 @@ const Paper = styled.div`
     bottom: ${props => props.toggle.paper.bottom};
     left: 5px;
 `
-const Folder = () => {
+const FolderFront = styled.div`
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    // border: solid 1px red;
+    height: 80%;
+    bottom: 0;
+    // plus 8px (below)
+    left: ${props => props.toggle.folderFront.left};
+    width: 100%;
+    // minus 10deg (below)
+    transform: ${props => props.toggle.folderFront.trans};
+    background-color: rgba(216, 212, 79, 1);
+`
+const Contents = styled.p`
+    
+`
+const Folder = (props) => {
     const [openFolder, toggleState] = useState(false);
-    const [folderProperties, toggleProps ] = useState(setFolderProp());
+    const [folderProperties, toggleProps] = useState(setFolderProp());
 
     const handleClick = () => {
         toggleState(prevState => !prevState);
@@ -62,7 +68,9 @@ const Folder = () => {
             <FolderTab />
             <FolderBack />
             <Paper name={"paper"} toggle={folderProperties} />
-            <FolderFront toggle={folderProperties} />
+            <FolderFront name={"folder front"} toggle={folderProperties}>
+                <Contents>{props.content}</Contents>
+            </FolderFront>
         </FolderWrapper>
     )
 }
