@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import File from './File';
-import Folder from './Folder';
 import FileNav from './FileNav';
 
 const Screen = styled.div`
@@ -13,12 +12,15 @@ const Screen = styled.div`
     height: 100%;
     width: 100%;
 `
-
 const MainDisplay = (props) => {
     return (
         <Screen name={"screen"}>
-            <FileNav name={"fileNav"}/>
-            <File color={"green"} name={"file"} />
+            <FileNav files={props?.allFiles} name={"fileNav"} />
+            <File 
+                color={"green"} 
+                name={"file"}
+                size={{width: "63%", height: "78%"}}
+            />
         </Screen>
     )
 }

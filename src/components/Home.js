@@ -15,11 +15,25 @@ const HomeWrapper = styled.div`
 // Info needs to go from navigation through MainDisplay
 // into files component
 const Home = () => {
-    const [ openFolder, changeFolder ] = useState({});
+    const [ openFolder, changeFolder ] = useState("about");
+
+    const allFiles = {
+        projects: ["equipped.js","bookshop-crutch.js", "movie-db.js"],
+        about: ["about.java"],
+        contact: ["contact.js"]
+    }
+
     return (
         <HomeWrapper name={"home wrapper"}>
-            <NavigationPanel changeFolder={changeFolder} name={"navigation"}/>
-            <MainDisplay openFolder={openFolder} name={"main display"}/>
+            <NavigationPanel 
+                changeFolder={changeFolder} 
+                name={"navigation"}
+            />
+            <MainDisplay
+                openFolder={openFolder} 
+                allFiles={allFiles[openFolder]}
+                name={"main display"}
+            />
         </HomeWrapper>
     )
 }

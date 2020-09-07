@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 
 const FolderWrapper = styled.div`
@@ -24,7 +24,7 @@ const Paper = styled.div`
     height: 75%;
     width: 90%;
     background-color: white;
-    bottom: ${props => props.toggle.paper.bottom};
+    bottom: ${props => props?.toggle?.paper?.bottom || "14px"};
     left: 5px;
 `
 const FolderFront = styled.div`
@@ -36,10 +36,10 @@ const FolderFront = styled.div`
     height: 80%;
     bottom: 0;
     // plus 8px (below)
-    left: ${props => props.toggle.folderFront.left};
+    left: ${props => props?.toggle?.folderFront?.left || "15px"};
     width: 100%;
     // minus 10deg (below)
-    transform: ${props => props.toggle.folderFront.trans};
+    transform: ${props => props?.toggle?.folderFront?.trans || "skew(-20deg)"};
     background-color: rgba(216, 212, 79, 1);
 `
 const Contents = styled.p`
@@ -47,15 +47,15 @@ const Contents = styled.p`
 `
 const Folder = (props) => {
     const [openFolder, toggleState] = useState(false);
-    const [folderProperties, toggleProps] = useState(setFolderProp());
+    const [styledCompProps, changeStyledProps] = useState();
 
     const handleClick = () => {
         toggleState(prevState => !prevState);
-        toggleProps(setFolderProp());
+        props.changeOpenFolder(props.title);
     }
 
     function setFolderProp(){
-        return {
+            return {
             folderFront: {
                trans: `${openFolder ? "skew(-20deg)" : "skew(-10deg)"}`,
                left: `${openFolder ? "15px" : "8px"}`
@@ -66,12 +66,22 @@ const Folder = (props) => {
         }
     }
 
+    useEffect(() => {
+        if(props?.title === props?.openFolder){
+            toggleState(true);
+        } else { 
+            toggleState(false);
+        }
+        changeStyledProps(setFolderProp());
+    }, [props.openFolder, openFolder]);
+
+
     return (  
         <FolderWrapper name={"wrapper"} onClick={handleClick}>
             <FolderTab />
             <FolderBack />
-            <Paper name={"paper"} toggle={folderProperties} />
-            <FolderFront name={"folder front"} toggle={folderProperties}>
+            <Paper name={"paper"} toggle={styledCompProps} />
+            <FolderFront name={"folder front"} toggle={styledCompProps}>
                 <Contents>{props.title}</Contents>
             </FolderFront>
         </FolderWrapper>

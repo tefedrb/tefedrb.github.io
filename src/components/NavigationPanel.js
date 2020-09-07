@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Folder from './Folder';
 import styled from 'styled-components';
 
@@ -12,11 +12,25 @@ const NavWrapper = styled.nav`
     width: 325px;
 `
 const NavigationPanel = () => {
+    const [openFolder, changeOpenFolder] = useState("About");
+
     return (
         <NavWrapper>
-            <Folder title={"Projects"} />
-            <Folder title={"About"} />
-            <Folder title={"Contact"} />
+            <Folder 
+                changeOpenFolder={changeOpenFolder} 
+                openFolder={openFolder} 
+                title={"Projects"} 
+            />
+            <Folder 
+                changeOpenFolder={changeOpenFolder} 
+                openFolder={openFolder} 
+                title={"About"} 
+            />
+            <Folder 
+                changeOpenFolder={changeOpenFolder} 
+                openFolder={openFolder} 
+                title={"Contact"} 
+            />
         </NavWrapper>
     )
 }

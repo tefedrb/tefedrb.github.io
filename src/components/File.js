@@ -3,54 +3,58 @@ import styled from 'styled-components';
 
 const FileGraphic = styled.div`
     position: relative;
-    height: 85%;
+    height: 100%;
     width: 100%;
-    background-color: ${props => props.color};
+    background-color: ${props => props.userColor};
 `
 const GraphicHead = styled.div`
     width: 100%;
-    height: 100%%;
-    background-color: rgba(42, 227, 42, 0.48);
+    height: 100%;
+    background-color: ${props => props.userColor};
 `
 const Fold = styled.div`
     width: 0;
     height: 0;
-    border-right: 75px solid transparent;
-    border-bottom: 75px solid rgb(42, 227, 42);
-    box-shadow: -7px 3px 7px -4px rgba(00,00,00,0.40);
+    border-right: ${props => props?.foldSize || "75px"} solid transparent;
+    border-bottom: ${props => props?.foldSize || "75px"} solid ${props => props.foldColor};
+    box-shadow: ${props => props.boxShadow} rgba(00,00,00,0.40);
 `
 const GraphicWrapper = styled.div`
-    width: 500px;
-    height: 500px;
+    width: ${props => props.size.width};
+    height: ${props => props.size.height};
 `
 const HeadWrapper = styled.div`
     display: flex;
-    height: 15%;
+    height: ${props => props?.foldSize || "75px"};
 `
 const File = (props) => {
 
-    function changeColor(){
-        return props.color == "green" ? "rgba(42, 227, 42, 0.48)" : "white"
+    const changeColor = () => {
+        return props.color == "green" ? "rgba(42, 227, 42, 0.48)" : "rgba(255, 255, 255, 0.83)";
     }
 
+    const changeFoldColor = () => {
+        return props.color == "green" ? "rgb(42, 227, 42)" : "white";
+    }
+
+    const changeBoxShadow = () => {
+        return props.mainDisplay === true ? "-7px 3px 7px -4px" : "-7px 3px 7px -4px";
+    }
+
+    console.log(props.foldSize || "75px", "FOLD")
     return (
-        <div style={
-                {
-                    height: "500px", 
-                    display: "flex", 
-                    alignItems: "center", 
-                    justifyContent: "center"
-                }
-            }
-        >
-            <GraphicWrapper>
-                <HeadWrapper>
-                    <GraphicHead name={"head"}/>
-                    <Fold name={"flap"} />
-                </HeadWrapper>
-                <FileGraphic color={changeColor} name={"graphic"}/>
-            </GraphicWrapper>
-        </div>
+        <GraphicWrapper name={"graphic wrapper  "} size={props.size}>
+            <HeadWrapper foldSize={props.foldSize}>
+                <GraphicHead userColor={changeColor} name={"head"} />
+                <Fold 
+                    name={"flap"}
+                    foldSize={props.foldSize} 
+                    foldColor={changeFoldColor}
+                    boxShadow={changeBoxShadow}
+                />
+            </HeadWrapper>
+            <FileGraphic userColor={changeColor} name={"graphic"} />
+        </GraphicWrapper>
     )
 }
 
