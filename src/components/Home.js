@@ -11,16 +11,17 @@ const HomeWrapper = styled.div`
     width: 100vw;
     margin: 0;
     background-color: black;
+    overflow: hidden;
 `
 // Info needs to go from navigation through MainDisplay
 // into files component
 const Home = () => {
-    const [ openFolder, changeFolder ] = useState("about");
+    const [ openFolder, changeFolder ] = useState("About");
 
     const allFiles = {
-        projects: ["equipped.js","bookshop-crutch.js", "movie-db.js"],
-        about: ["about.java"],
-        contact: ["contact.js"]
+        "Projects": ["equipped.js","bookshop-crutch.js", "movie-db.js"],
+        "About": ["about.java"],
+        "Contact": ["contact.js"]
     }
 
     return (
@@ -31,7 +32,7 @@ const Home = () => {
             />
             <MainDisplay
                 openFolder={openFolder} 
-                allFiles={allFiles[openFolder]}
+                fileNames={allFiles[openFolder]}
                 name={"main display"}
             />
         </HomeWrapper>

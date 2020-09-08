@@ -2,8 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 const FileGraphic = styled.div`
-    position: relative;
-    height: 100%;
+    height: 90%;
     width: 100%;
     background-color: ${props => props.userColor};
 `
@@ -22,10 +21,11 @@ const Fold = styled.div`
 const GraphicWrapper = styled.div`
     width: ${props => props.size.width};
     height: ${props => props.size.height};
+    margin-bottom: ${props => parseInt(props.size.height) <= 35 ? "0" : "40px"};
 `
 const HeadWrapper = styled.div`
     display: flex;
-    height: ${props => props?.foldSize || "75px"};
+    height: ${props => props?.foldSize || "10%"};
 `
 const File = (props) => {
 
@@ -43,8 +43,8 @@ const File = (props) => {
 
     console.log(props.foldSize || "75px", "FOLD")
     return (
-        <GraphicWrapper name={"graphic wrapper  "} size={props.size}>
-            <HeadWrapper foldSize={props.foldSize}>
+        <GraphicWrapper name={"file GraphicWrapper"} size={props.size}>
+            <HeadWrapper name={"file HeadWrapper"} foldSize={props.foldSize}>
                 <GraphicHead userColor={changeColor} name={"head"} />
                 <Fold 
                     name={"flap"}
@@ -53,7 +53,7 @@ const File = (props) => {
                     boxShadow={changeBoxShadow}
                 />
             </HeadWrapper>
-            <FileGraphic userColor={changeColor} name={"graphic"} />
+            <FileGraphic userColor={changeColor} name={"FileGraphic"} />
         </GraphicWrapper>
     )
 }
