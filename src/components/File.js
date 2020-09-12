@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import styled from 'styled-components';
+import useViewportHeight from './hooks/useViewportHeight';
 
 const FileGraphic = styled.div`
     height: 90%;
@@ -15,7 +16,7 @@ const Fold = styled.div`
     width: 0;
     height: 0;
     border-right: ${props => props?.foldSize || "75px"} solid transparent;
-    border-bottom: ${props => props?.foldSize || "75px"} solid ${props => props.foldColor};
+    border-bottom: ${props => `${props?.dynamicHeight}px`} solid ${props => props.foldColor};
     box-shadow: ${props => props.boxShadow} rgba(00,00,00,0.40);
 `
 const GraphicWrapper = styled.div`
@@ -27,7 +28,23 @@ const HeadWrapper = styled.div`
     display: flex;
     height: ${props => props?.foldSize || "10%"};
 `
+
 const File = (props) => {
+    const [loaded, confirmLoaded] = useState(false);
+    useViewportHeight();
+    const headerEl = useRef("75");
+
+    const getDynamicFoldHeight = () => {
+        return headerEl.current.offsetHeight;
+    }
+
+    useEffect(() => {
+        // I need to re-render the component because when I first mount I don't have a reference
+        // to the node I need for the dynamicFoldHeight property...
+        if(!loaded){ 
+            confirmLoaded(true);
+        }
+    }, []);
 
     const changeColor = () => {
         return props.color == "green" ? "rgba(42, 227, 42, 0.48)" : "rgba(255, 255, 255, 0.83)";
@@ -41,14 +58,14 @@ const File = (props) => {
         return props.mainDisplay === true ? "-7px 3px 7px -4px" : "-7px 3px 7px -4px";
     }
 
-    console.log(props.foldSize || "75px", "FOLD")
     return (
         <GraphicWrapper name={"file GraphicWrapper"} size={props.size}>
-            <HeadWrapper name={"file HeadWrapper"} foldSize={props.foldSize}>
+            <HeadWrapper ref={headerEl} name={"file HeadWrapper"} foldSize={props.foldSize}>
                 <GraphicHead userColor={changeColor} name={"head"} />
                 <Fold 
                     name={"flap"}
-                    foldSize={props.foldSize} 
+                    foldSize={props.foldSize}
+                    dynamicHeight={getDynamicFoldHeight()}
                     foldColor={changeFoldColor}
                     boxShadow={changeBoxShadow}
                 />
