@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { throttle } from 'lodash';
 
-const useViewportHeight = (action) => {
+const useViewportHeight = () => {
 
     const getViewportHeight = () => {
         let e = window, a = "inner";
@@ -9,7 +9,6 @@ const useViewportHeight = (action) => {
             a = "client";
             e = document.documentElement || document.body;
         }
-        
         return e[a+"Height"];
     }
 

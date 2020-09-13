@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useContext, useState, useEffect, useRef } from 'react';
 import styled from 'styled-components';
+import { Context } from '../context';
 
 const FolderWrapper = styled.div`
     position: relative;
@@ -48,10 +49,17 @@ const Contents = styled.p`
 const Folder = (props) => {
     const [openFolder, toggleState] = useState(false);
     const [styledCompProps, changeStyledProps] = useState();
-
+    const folderNode = useRef(null);
+    const context = useContext(Context);
+    const { state, saveSelectedFolderY } = context;
+    
     const handleClick = () => {
         toggleState(prevState => !prevState);
         props.changeOpenFolder(props.title);
+    }
+
+    const getFolderLocation = () => {
+        return folderNode.current.offsetTop;
     }
 
     function setFolderProp(){
@@ -67,6 +75,9 @@ const Folder = (props) => {
     }
 
     useEffect(() => {
+        if(openFolder){
+            saveSelectedFolderY(getFolderLocation());
+        }
         if(props?.title === props?.openFolder){
             toggleState(true);
         } else { 
@@ -77,7 +88,7 @@ const Folder = (props) => {
 
 
     return (  
-        <FolderWrapper name={"wrapper"} onClick={handleClick}>
+        <FolderWrapper ref={folderNode} name={"wrapper"} onClick={handleClick}>
             <FolderTab />
             <FolderBack />
             <Paper name={"paper"} toggle={styledCompProps} />

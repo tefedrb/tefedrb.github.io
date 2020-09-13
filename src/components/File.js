@@ -20,6 +20,7 @@ const Fold = styled.div`
     box-shadow: ${props => props.boxShadow} rgba(00,00,00,0.40);
 `
 const GraphicWrapper = styled.div`
+    z-index: 2;
     width: ${props => props.size.width};
     height: ${props => props.size.height};
     margin-bottom: ${props => parseInt(props.size.height) <= 35 ? "0" : "40px"};

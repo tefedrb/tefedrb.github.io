@@ -13,16 +13,17 @@ const FileNavWrapper = styled.nav`
     width: 100%;
     height: 62px;
     padding: 22px;
-    background-color: blue;
+    z-index: 3;
+    // background-color: blue;
 `
 const FileWrapper = styled.nav`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+    margin: 0 25px;
 `
 const FileNav = (props) => {
-    console.log(props, "PROPS")
     const filesInFolder = props?.files.map((file, key) =>
         <FileWrapper key={key}>
             <File  
