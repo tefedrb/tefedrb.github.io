@@ -1,11 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 import File from './File';
-import FileNav from './FileNav';
 import PathToFile from './svgs/PathToFile';
 
 const Screen = styled.div`
-    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -14,8 +12,7 @@ const Screen = styled.div`
     width: 100%;
 `
 
-const MainDisplay = (props) => {
-    console.log(props, "props!")
+const MainDisplay = () => {
     return (
         <Screen name={"screen"}>
             <File 

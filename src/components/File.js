@@ -8,6 +8,7 @@ const GraphicWrapper = styled.div`
     // height: ${props => props.mini ? "35px" : props.size.height};
     height: 100%;
     margin-bottom: ${props => parseInt(props.mini ? "35px" : props.size.height) <= 35 ? "0" : "40px"};
+    margin-top: ${props => props.mini ? "0" : "40px"}
 `
 const HeadWrapper = styled.div`
     display: flex;
@@ -24,8 +25,7 @@ const Fold = styled.div`
     box-shadow: ${props => props.boxShadow} rgba(00,00,00,0.40);
 `
 const FileGraphic = styled.div`
-    // height: 90%;
-    height: ${props => props.mini ? "35px" : props.size.height};
+    height: ${props => props.mini ? "35px" : "90%"};
     width: 100%;
     background-color: ${props => props.userColor};
 `

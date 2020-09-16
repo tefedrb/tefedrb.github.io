@@ -54,14 +54,6 @@ const PathToFile = (props) => {
 
     const displayPath = (xyArr) => {
         
-        // updateSizes(prev => {
-        //     return {
-        //         ...prev,
-        //         folderY: prev.folderY + (prev.originalScrnSize[1] - xyArr[1]),
-        //         xValue: prev.xValue + (prev.originalScrnSize[1] - xyArr[0])
-        //     }
-        // });
-        console.log(sizes?.xValue, "VALUE HERE")
         const x = sizes?.xValue - (sizes?.originalScrnSize?.[0] - xyArr[0]) + 50;
         const y = sizes?.folderY - (sizes?.originalScrnSize?.[1] - xyArr[1]) + 10;
         
@@ -72,7 +64,6 @@ const PathToFile = (props) => {
                 <path d={dString} fill="transparent" stroke="white" />
             </Lines> : <p></p>
         )
-
         return linePath
     }
 

@@ -1,7 +1,7 @@
 import React, { useContext, useState, useEffect, useRef } from 'react';
 import styled from 'styled-components';
 import { Context } from '../context';
-import File from '../components/File';
+import FileDropDown from '../components/FileDropDown';
 
 const FolderWrapper = styled.div`
     display: flex;
@@ -57,18 +57,20 @@ const Folder = (props) => {
     const [styledCompProps, changeStyledProps] = useState();
     const folderNode = useRef(null);
     const context = useContext(Context);
-    const { state, saveSelectedFolderY } = context;
+    // const { state, saveSelectedFolderY } = context;
     
     const handleClick = () => {
+        if(!openFolder){
         toggleState(prevState => !prevState);
-        props.changeOpenFolder(props.title);
+            props.changeOpenFolder(props.title);
+        }
     }
 
     const getFolderLocation = () => {
         return folderNode.current.offsetTop;
     }
 
-    function setFolderProp(){
+    const setFolderProp = () => {
             return {
             folderFront: {
                trans: `${openFolder ? "skew(-20deg)" : "skew(-10deg)"}`,
@@ -81,9 +83,9 @@ const Folder = (props) => {
     }
 
     useEffect(() => {
-        if(openFolder){
-            saveSelectedFolderY(getFolderLocation());
-        }
+        // if(openFolder){
+        //     saveSelectedFolderY(getFolderLocation());
+        // }
         if(props?.title === props?.openFolder){
             toggleState(true);
         } else { 
@@ -92,13 +94,7 @@ const Folder = (props) => {
         changeStyledProps(setFolderProp());
     }, [props.openFolder, openFolder]);
 
-    // FILES NEED TO GO WITHIN
-    const files = props?.files.map(fileData => (
-        <File 
-            data={fileData} 
-            mini={true} 
-        />
-    ));
+    // FILES NEED TO GO WITHIN - Create a component - FileDropDown
 
     return (  
         <FolderWrapper name={"folderWrap"}>
@@ -110,7 +106,7 @@ const Folder = (props) => {
                     <Contents>{props.title}</Contents>
                 </FolderFront>
             </FolderInnerWrap>
-            {files}
+            <FileDropDown files={props.files} display={openFolder}/>
         </FolderWrapper>
     )
 }
