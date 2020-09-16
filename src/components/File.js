@@ -3,10 +3,15 @@ import styled from 'styled-components';
 import useViewportHeight from './hooks/useViewportHeight';
 import { Context } from '../context';
 
-const FileGraphic = styled.div`
-    height: 90%;
-    width: 100%;
-    background-color: ${props => props.userColor};
+const GraphicWrapper = styled.div`
+    width: ${props => props.mini ? "30px" : props.size.width};
+    // height: ${props => props.mini ? "35px" : props.size.height};
+    height: 100%;
+    margin-bottom: ${props => parseInt(props.mini ? "35px" : props.size.height) <= 35 ? "0" : "40px"};
+`
+const HeadWrapper = styled.div`
+    display: flex;
+    height: ${props => props.mini ? "10px" : props?.foldSize || "10%"};
 `
 const GraphicHead = styled.div`
     width: 100%;
@@ -14,26 +19,20 @@ const GraphicHead = styled.div`
     background-color: ${props => props.userColor};
 `
 const Fold = styled.div`
-    width: 0;
-    height: 0;
-    border-right: ${props => props?.foldSize || "75px"} solid transparent;
+    border-right: ${props => props.mini ? "10px" : props?.foldSize || "75px"} solid transparent;
     border-bottom: ${props => `${props?.dynamicHeight}px`} solid ${props => props.foldColor};
     box-shadow: ${props => props.boxShadow} rgba(00,00,00,0.40);
 `
-const GraphicWrapper = styled.div`
-    width: ${props => props.size.width};
-    height: ${props => props.size.height};
-    margin-bottom: ${props => parseInt(props.size.height) <= 35 ? "0" : "40px"};
+const FileGraphic = styled.div`
+    // height: 90%;
+    height: ${props => props.mini ? "35px" : props.size.height};
+    width: 100%;
+    background-color: ${props => props.userColor};
 `
-const HeadWrapper = styled.div`
-    display: flex;
-    height: ${props => props?.foldSize || "10%"};
-`
-
 const File = (props) => {
     const context = useContext(Context);
     const { saveFileX } = context;
-    const [loaded, confirmLoaded] = useState(false);
+    const [ loaded, confirmLoaded ] = useState(false);
     useViewportHeight();
     const headerEl = useRef("75");
 
@@ -65,18 +64,36 @@ const File = (props) => {
     }
 
     return (
-        <GraphicWrapper name={"file GraphicWrapper"} size={props.size}>
-            <HeadWrapper ref={headerEl} name={"file HeadWrapper"} foldSize={props.foldSize}>
-                <GraphicHead userColor={changeColor} name={"head"} />
+        <GraphicWrapper 
+            name={"file GraphicWrapper"} 
+            size={props.size} 
+            mini={props.mini}
+        >
+            <HeadWrapper 
+                ref={headerEl} 
+                name={"file HeadWrapper"}
+                foldSize={props.foldSize} 
+                mini={props.mini}
+            >
+                <GraphicHead 
+                    userColor={changeColor} 
+                    name={"head"} 
+                />
                 <Fold 
                     name={"flap"}
                     foldSize={props.foldSize}
+                    mini={props.mini}
                     dynamicHeight={getDynamicFoldHeight()}
                     foldColor={changeFoldColor}
                     boxShadow={changeBoxShadow}
                 />
             </HeadWrapper>
-            <FileGraphic userColor={changeColor} name={"FileGraphic"} />
+            <FileGraphic
+                userColor={changeColor} 
+                name={"FileGraphic"} 
+                size={props.size} 
+                mini={props.mini}
+            />
         </GraphicWrapper>
     )
 }

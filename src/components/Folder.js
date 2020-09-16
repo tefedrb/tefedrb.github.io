@@ -1,8 +1,11 @@
 import React, { useContext, useState, useEffect, useRef } from 'react';
 import styled from 'styled-components';
 import { Context } from '../context';
+import File from '../components/File';
 
 const FolderWrapper = styled.div`
+    display: flex;
+    flex-direction: column;
     width: 55%;
 `
 const FolderInnerWrap = styled.div`
@@ -89,6 +92,13 @@ const Folder = (props) => {
         changeStyledProps(setFolderProp());
     }, [props.openFolder, openFolder]);
 
+    // FILES NEED TO GO WITHIN
+    const files = props?.files.map(fileData => (
+        <File 
+            data={fileData} 
+            mini={true} 
+        />
+    ));
 
     return (  
         <FolderWrapper name={"folderWrap"}>
@@ -100,6 +110,7 @@ const Folder = (props) => {
                     <Contents>{props.title}</Contents>
                 </FolderFront>
             </FolderInnerWrap>
+            {files}
         </FolderWrapper>
     )
 }

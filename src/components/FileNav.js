@@ -29,7 +29,7 @@ const FileNav = (props) => {
                 mini={true} 
                 size={{width: "30px", height: "35px"}}
                 foldSize={"10px"}
-            />  
+            />
             {file}
         </FileWrapper> 
     )

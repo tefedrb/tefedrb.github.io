@@ -19,24 +19,34 @@ const NavigationPanel = (props) => {
     
     useEffect(() => {
         props.changeFolder(openFolder);
-    }, [openFolder])
+    }, [openFolder]);
 
+    const files = {
+        "Projects": ["equipped.js","bookshop-crutch.js", "movie-db.js"],
+        "About": ["about.java"],
+        "Contact": ["contact.js"]
+    }
+
+    // We will pass files in here...
     return (
         <NavWrapper name={"navWrapper"}>
             <Folder 
                 changeOpenFolder={changeOpenFolder} 
                 openFolder={openFolder} 
                 title={"Projects"}
+                files={files["Projects"]}
             />
             <Folder 
                 changeOpenFolder={changeOpenFolder} 
                 openFolder={openFolder} 
-                title={"About"} 
+                title={"About"}
+                files={files["About"]}
             />
             <Folder 
                 changeOpenFolder={changeOpenFolder} 
-                openFolder={openFolder} 
-                title={"Contact"} 
+                openFolder={openFolder}
+                title={"Contact"}
+                files={files["Contact"]}
             />
         </NavWrapper>
     )

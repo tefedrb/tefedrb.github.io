@@ -21,7 +21,7 @@ const Home = () => {
     const [ openFile, changeFile ] = useState(null);
 
     const allFiles = {
-        "Projects": ["equipped.js","bookshop-crutch.js", "movie-db.js"],
+        "Projects": ["equipped.js", "bookshop-crutch.js", "movie-db.js"],
         "About": ["about.java"],
         "Contact": ["contact.js"]
     }
