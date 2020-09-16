@@ -1,25 +1,17 @@
 import { useState, useEffect } from 'react';
 import { throttle } from 'lodash';
+import { getViewportXY } from '../helperFunctions/helperFunctions';
 
-const useViewportHeight = () => {
+const useViewportHeight = (cb) => {
 
-    const getViewportHeight = () => {
-        let e = window, a = "inner";
-        if(!("innerHeight" in window)){
-            a = "client";
-            e = document.documentElement || document.body;
-        }
-        return e[a+"Height"];
-    }
-
-    // Depending on action, we either keep track of viewportheight or just use
-    // this hook for it's event listener
-    // const monitorHeight = action === "monitor" ? "" : getViewportHeight();
-
-    const [viewportHeight, setViewportHeight] = useState(getViewportHeight());
+    const [viewportHeight, setViewportHeight] = useState(cb ? cb(getViewportXY()) : getViewportXY());
 
     useEffect(() => {
-        const updateViewportState = () => setViewportHeight(getViewportHeight());
+        console.log('using');
+        const updateViewportState = () => setViewportHeight(getViewportXY());
+
+        console.log(cb ? cb(getViewportXY()) : "nope", "VIEWPORT hurr")
+
         const throttled = throttle(updateViewportState, 100, {loading: true, trailing: true});
         window.addEventListener('resize', throttled);
 
@@ -28,7 +20,8 @@ const useViewportHeight = () => {
         }
     }, []);
 
-    return viewportHeight;
+    
+    return cb ? cb(viewportHeight) : viewportHeight;
 }
 
 export default useViewportHeight;

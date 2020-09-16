@@ -10,17 +10,19 @@ const NavWrapper = styled.nav`
     background-color: rgba(79, 79, 79, 0.73);
     height: 100%;
     width: 325px;
-    z-index: 3;
 `
+// The folder will hold it's own files, and will inform the NavigationPanel
+// that it's open or closed.
+
 const NavigationPanel = (props) => {
-    const [openFolder, changeOpenFolder] = useState("About");
+    const [ openFolder, changeOpenFolder ] = useState("About");
     
     useEffect(() => {
         props.changeFolder(openFolder);
     }, [openFolder])
 
     return (
-        <NavWrapper>
+        <NavWrapper name={"navWrapper"}>
             <Folder 
                 changeOpenFolder={changeOpenFolder} 
                 openFolder={openFolder} 

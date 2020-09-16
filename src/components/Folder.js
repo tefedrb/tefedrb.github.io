@@ -3,16 +3,19 @@ import styled from 'styled-components';
 import { Context } from '../context';
 
 const FolderWrapper = styled.div`
+    width: 55%;
+`
+const FolderInnerWrap = styled.div`
     position: relative;
-    width: 150px;
     height: 100px;
+    width: 100%;
     &:hover {
         cursor: pointer;
     }
 `
 const FolderTab = styled.div`
     height: 10%;
-    width: 25px;
+    width: 15%;
     background-color: rgba(190, 186, 63, 1);
 `
 const FolderBack = styled.div`
@@ -88,13 +91,15 @@ const Folder = (props) => {
 
 
     return (  
-        <FolderWrapper ref={folderNode} name={"wrapper"} onClick={handleClick}>
-            <FolderTab />
-            <FolderBack />
-            <Paper name={"paper"} toggle={styledCompProps} />
-            <FolderFront name={"folder front"} toggle={styledCompProps}>
-                <Contents>{props.title}</Contents>
-            </FolderFront>
+        <FolderWrapper name={"folderWrap"}>
+            <FolderInnerWrap ref={folderNode} name={"folderInnerWrap"} onClick={handleClick}>
+                <FolderTab />
+                <FolderBack />
+                <Paper name={"paper"} toggle={styledCompProps} />
+                <FolderFront name={"folder front"} toggle={styledCompProps}>
+                    <Contents>{props.title}</Contents>
+                </FolderFront>
+            </FolderInnerWrap>
         </FolderWrapper>
     )
 }

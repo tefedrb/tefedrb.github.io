@@ -1,6 +1,7 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useContext, useState, useRef, useEffect } from 'react';
 import styled from 'styled-components';
 import useViewportHeight from './hooks/useViewportHeight';
+import { Context } from '../context';
 
 const FileGraphic = styled.div`
     height: 90%;
@@ -20,7 +21,6 @@ const Fold = styled.div`
     box-shadow: ${props => props.boxShadow} rgba(00,00,00,0.40);
 `
 const GraphicWrapper = styled.div`
-    z-index: 2;
     width: ${props => props.size.width};
     height: ${props => props.size.height};
     margin-bottom: ${props => parseInt(props.size.height) <= 35 ? "0" : "40px"};
@@ -31,6 +31,8 @@ const HeadWrapper = styled.div`
 `
 
 const File = (props) => {
+    const context = useContext(Context);
+    const { saveFileX } = context;
     const [loaded, confirmLoaded] = useState(false);
     useViewportHeight();
     const headerEl = useRef("75");
@@ -42,6 +44,9 @@ const File = (props) => {
     useEffect(() => {
         // I need to re-render the component because when I first mount I don't have a reference
         // to the node I need for the dynamicFoldHeight property...
+        if(props.mini){
+            saveFileX(headerEl.current.offsetLeft);
+        }
         if(!loaded){ 
             confirmLoaded(true);
         }

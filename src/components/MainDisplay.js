@@ -18,13 +18,11 @@ const MainDisplay = (props) => {
     console.log(props, "props!")
     return (
         <Screen name={"screen"}>
-            <FileNav files={props?.fileNames} name={"fileNav"} />
             <File 
                 color={"green"} 
                 name={"file"}
                 size={{width: "63%", height: "100%"}}
             /> 
-            <PathToFile />
         </Screen>
     )
 }

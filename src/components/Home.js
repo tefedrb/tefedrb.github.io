@@ -17,12 +17,16 @@ const HomeWrapper = styled.div`
 // into files component
 const Home = () => {
     const [ openFolder, changeFolder ] = useState("About");
+    // File information
+    const [ openFile, changeFile ] = useState(null);
 
     const allFiles = {
         "Projects": ["equipped.js","bookshop-crutch.js", "movie-db.js"],
         "About": ["about.java"],
         "Contact": ["contact.js"]
     }
+
+    // Home will know which file is open - will let MainDisplay know
 
     return (
         <HomeWrapper name={"home wrapper"}>
@@ -31,7 +35,8 @@ const Home = () => {
                 name={"navigation"}
             />
             <MainDisplay
-                openFolder={openFolder} 
+                openFolder={openFolder}
+                openFile={openFile}
                 fileNames={allFiles[openFolder]}
                 name={"main display"}
             />

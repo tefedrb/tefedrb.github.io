@@ -13,7 +13,6 @@ const FileNavWrapper = styled.nav`
     width: 100%;
     height: 62px;
     padding: 22px;
-    z-index: 3;
     // background-color: blue;
 `
 const FileWrapper = styled.nav`
@@ -26,7 +25,8 @@ const FileWrapper = styled.nav`
 const FileNav = (props) => {
     const filesInFolder = props?.files.map((file, key) =>
         <FileWrapper key={key}>
-            <File  
+            <File 
+                mini={true} 
                 size={{width: "30px", height: "35px"}}
                 foldSize={"10px"}
             />  
