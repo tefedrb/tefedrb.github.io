@@ -64,23 +64,31 @@ const PathToFile = (props) => {
                 <path d={dString} fill="transparent" stroke="white" />
             </Lines> : <p></p>
         )
-        return linePath
+        return linePath;
     }
 
-    const buildLine = () => {
-        
+    const buildPath = () => {
+        const length = props.numOfFiles;
+
+        return (
+            <svg style={{height: "100%", width:"100%"}}>
+                <path d={`M 10 10 V 35 H 12 H 10 V 70 H 12`} fill="red" stroke="white" />
+            </svg>
+        )
     }
 
-    const square = (
-        <svg style={{height:"100vh", width:"100vw", position: "absolute"}}>
-            <path d="M 10 10 H 200 V 200 H 10 Z" fill="transparent" stroke="blue"/>
-            <path d="M 30 20 H 210 V 190 H 30 Z" fill="transparent" stroke="red"/>
-        </svg>
-    )
+    // const square = (
+    //     <svg style={{height:"100vh", width:"100vw", position: "absolute"}}>
+    //         <path d="M 10 10 H 200 V 200 H 10 Z" fill="transparent" stroke="blue"/>
+    //         <path d="M 30 20 H 210 V 190 H 30 Z" fill="transparent" stroke="red"/>
+    //     </svg>
+    // )
+
+    // {useViewportHeight(displayPath)}
 
     return (
         <PathWrap name={"PathWrap"}>
-            {useViewportHeight(displayPath)}
+            {buildPath()}
         </PathWrap>
     )
 }

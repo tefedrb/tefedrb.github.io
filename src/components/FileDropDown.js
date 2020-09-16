@@ -32,10 +32,12 @@ const FileDropDown = (props) => {
 
     // I can use the length of the files array and the height to determine
     // our file path svg.
+    const path = <PathToFile numOfFiles={props?.files.length} />;
 
     return (
         <FileDropDownWrap name={"fileDropDown"}>
             {props.display ? files : ""}
+            {props.display ? <PathToFile /> : ""}
         </FileDropDownWrap>
     )
 }
