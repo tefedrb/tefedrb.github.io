@@ -5,11 +5,7 @@ import { getViewportXY } from '../helperFunctions/helperFunctions';
 import useViewportHeight from '../hooks/useViewportHeight';
 
 const PathWrap = styled.div`
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100vh;
-    width: 100vw;
+  
 `
 
 const Lines = styled.svg`
@@ -69,22 +65,23 @@ const PathToFile = (props) => {
 
     const buildPath = () => {
         const length = props.numOfFiles;
+        // Increments of 88.5 vertically:
+        const buildString = () => {
+            let output = "";
+            let increment = 128.5;
+            for(let i = 1; i < length; i++){
+                output += ` H 10 V ${increment} H 20`;
+                increment += 88.5;
+            }
+            return output
+        }
 
         return (
-            <svg style={{height: "100%", width:"100%"}}>
-                <path d={`M 10 10 V 35 H 12 H 10 V 70 H 12`} fill="red" stroke="white" />
+            <svg style={{height: "100%", width:"20px"}}>
+                <path d={`M 10 10 V 40 H 20${buildString()}`} fill="transparent" stroke="white" />
             </svg>
         )
     }
-
-    // const square = (
-    //     <svg style={{height:"100vh", width:"100vw", position: "absolute"}}>
-    //         <path d="M 10 10 H 200 V 200 H 10 Z" fill="transparent" stroke="blue"/>
-    //         <path d="M 30 20 H 210 V 190 H 30 Z" fill="transparent" stroke="red"/>
-    //     </svg>
-    // )
-
-    // {useViewportHeight(displayPath)}
 
     return (
         <PathWrap name={"PathWrap"}>

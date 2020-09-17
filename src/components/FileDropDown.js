@@ -5,9 +5,15 @@ import PathToFile from './svgs/PathToFile';
 
 const FileDropDownWrap = styled.div`
     display: flex;
-    flex-direction: column;
     height: 100%;
     width: 100%;
+`
+
+const AllFilesWrap = styled.div`
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    
 `
 const FileWrapper = styled.nav`
     display: flex;
@@ -28,7 +34,8 @@ const FileDropDown = (props) => {
             />
             {fileData}
         </FileWrapper>
-    ));
+    )
+);
 
     // I can use the length of the files array and the height to determine
     // our file path svg.
@@ -36,8 +43,10 @@ const FileDropDown = (props) => {
 
     return (
         <FileDropDownWrap name={"fileDropDown"}>
-            {props.display ? files : ""}
-            {props.display ? <PathToFile /> : ""}
+            {props.display ? <PathToFile numOfFiles={props?.files.length}/> : ""}
+            <AllFilesWrap>
+                {props.display ? files : ""}
+            </AllFilesWrap>
         </FileDropDownWrap>
     )
 }
