@@ -27,19 +27,15 @@ const FileWrapper = styled.nav`
 `
 const FileDropDown = (props) => {
     const files = props?.files.map((fileData, key) => (
-        <FileWrapper key={key}>
-            <File 
-                data={fileData}
-                mini={true} 
-            />
-            {fileData}
-        </FileWrapper>
-    )
-);
-
-    // I can use the length of the files array and the height to determine
-    // our file path svg.
-    const path = <PathToFile numOfFiles={props?.files.length} />;
+            <FileWrapper key={key}>
+                <File 
+                    data={fileData}
+                    mini={true} 
+                />
+                {fileData}
+            </FileWrapper>
+        )
+    );
 
     return (
         <FileDropDownWrap name={"fileDropDown"}>

@@ -77,7 +77,7 @@ const PathToFile = (props) => {
         }
 
         return (
-            <svg style={{height: "100%", width:"20px"}}>
+            <svg style={{height: `${props.numOfFiles == 1 ? "50px" : "100%"}`, width: "20px"}}>
                 <path d={`M 10 10 V 40 H 20${buildString()}`} fill="transparent" stroke="white" />
             </svg>
         )

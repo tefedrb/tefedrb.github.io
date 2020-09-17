@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import MainDisplay from './MainDisplay';
 import NavigationPanel from './NavigationPanel';
 import styled from 'styled-components';
+import Project from './Project';
 
 const HomeWrapper = styled.div`
     display: flex;
@@ -20,25 +21,25 @@ const Body = styled.div`
 `
 
 // Info needs to go from navigation through MainDisplay
-// into files component
+
 const Home = () => {
     const [ openFolder, changeFolder ] = useState("About");
     // File information
     const [ openFile, changeFile ] = useState(null);
-
     // Home will know which file is open - will let MainDisplay know
 
     return (
         <HomeWrapper name={"home wrapper"}>
-                <NavigationPanel 
-                    changeFolder={changeFolder} 
-                    name={"navigation"}
-                />
-                <MainDisplay
-                    openFolder={openFolder}
-                    openFile={openFile}
-                    name={"main display"}
-                />
+            <NavigationPanel 
+                changeFolder={changeFolder} 
+                name={"navigation"}
+            />
+            <MainDisplay
+                openFolder={openFolder}
+                openFile={openFile}
+                name={"main display"}
+                content={<Project></Project>}
+            />
         </HomeWrapper>
     )
 }

@@ -12,14 +12,15 @@ const Screen = styled.div`
     width: 100%;
 `
 
-const MainDisplay = () => {
+const MainDisplay = (props) => {
     return (
         <Screen name={"screen"}>
             <File 
                 color={"green"} 
                 name={"file"}
                 size={{width: "63%", height: "100%"}}
-            /> 
+                content={props.content}
+            />
         </Screen>
     )
 }

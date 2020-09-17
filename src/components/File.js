@@ -25,6 +25,9 @@ const Fold = styled.div`
     box-shadow: ${props => props.boxShadow} rgba(00,00,00,0.40);
 `
 const FileGraphic = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
     height: ${props => props.mini ? "35px" : "90%"};
     width: 100%;
     background-color: ${props => props.userColor};
@@ -93,7 +96,9 @@ const File = (props) => {
                 name={"FileGraphic"} 
                 size={props.size} 
                 mini={props.mini}
-            />
+            > 
+                {props.content}
+            </FileGraphic>
         </GraphicWrapper>
     )
 }
