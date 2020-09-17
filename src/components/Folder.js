@@ -106,7 +106,7 @@ const Folder = (props) => {
                     <Contents>{props.title}</Contents>
                 </FolderFront>
             </FolderInnerWrap>
-            <FileDropDown files={props.files} display={openFolder}/>
+            <FileDropDown files={props.files} display={openFolder} />
         </FolderWrapper>
     )
 }

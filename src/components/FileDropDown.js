@@ -32,7 +32,7 @@ const FileDropDown = (props) => {
                     data={fileData}
                     mini={true} 
                 />
-                {fileData}
+                {fileData.name}
             </FileWrapper>
         )
     );

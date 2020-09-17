@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Project from './components/Project';
 
 export const Context = React.createContext();
 
@@ -16,6 +17,18 @@ export const Provider = (props) => {
             
         })
     }
+
+    const files = {
+        "Projects": [{name:"equipped.js"},{name:"bookshop-crutch.js"}, {name:"movie-db.js"}],
+        "About": [{name:"about.java"}],
+        "Contact": [{name:"contact.js"}]
+    }
+
+    const projects = {
+
+    }
+
+    const [ fileOpen, openFile ] = useState(files["About"][0].name);
 
     const saveFileX = (xValue) => {
         setState(prev => {
@@ -43,7 +56,11 @@ export const Provider = (props) => {
 
     return (
         <Context.Provider 
-            value={{ state, 
+            value={{ state,
+                fileOpen, 
+                files,
+                projects,
+                openFile,
                 saveSelectedFolderY, 
                 saveFileX, 
                 saveElementPosition, 

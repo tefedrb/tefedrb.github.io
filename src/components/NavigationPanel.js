@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import Folder from './Folder';
 import styled from 'styled-components';
+import { Context } from '../context';
 
 const NavWrapper = styled.nav`
     display: flex;
@@ -15,17 +16,13 @@ const NavWrapper = styled.nav`
 // that it's open or closed.
 
 const NavigationPanel = (props) => {
+    const context = useContext(Context);
     const [ openFolder, changeOpenFolder ] = useState("About");
+    const { files } = context;
     
     useEffect(() => {
         props.changeFolder(openFolder);
     }, [openFolder]);
-
-    const files = {
-        "Projects": ["equipped.js","bookshop-crutch.js", "movie-db.js"],
-        "About": ["about.java"],
-        "Contact": ["contact.js"]
-    }
 
     // We will pass files in here...
     return (

@@ -25,6 +25,7 @@ const Fold = styled.div`
     box-shadow: ${props => props.boxShadow} rgba(00,00,00,0.40);
 `
 const FileGraphic = styled.div`
+    cursor: ${props => props.mini ? "pointer" : ""};
     display: flex;
     justify-content: center;
     align-items: center;
@@ -34,7 +35,7 @@ const FileGraphic = styled.div`
 `
 const File = (props) => {
     const context = useContext(Context);
-    const { saveFileX } = context;
+    const { saveFileX, fileOpen, openFile } = context;
     const [ loaded, confirmLoaded ] = useState(false);
     useViewportHeight();
     const headerEl = useRef("75");
@@ -46,8 +47,8 @@ const File = (props) => {
     useEffect(() => {
         // I need to re-render the component because when I first mount I don't have a reference
         // to the node I need for the dynamicFoldHeight property...
-        if(props.mini){
-            saveFileX(headerEl.current.offsetLeft);
+        if(props.mini && loaded){
+            
         }
         if(!loaded){ 
             confirmLoaded(true);
@@ -64,6 +65,17 @@ const File = (props) => {
 
     const changeBoxShadow = () => {
         return props.mainDisplay === true ? "-7px 3px 7px -4px" : "-7px 3px 7px -4px";
+    }
+
+    // If mini - use click handler that reaches into context and tells it
+    // to change it's state as to what file is displayed on the main display
+
+    const clickOpen = (e) => {
+        e.preventDefault();
+        console.log("clicked");
+        if(props.mini){
+            openFile(props.data.name);
+        }
     }
 
     return (
@@ -92,6 +104,7 @@ const File = (props) => {
                 />
             </HeadWrapper>
             <FileGraphic
+                onClick={clickOpen}
                 userColor={changeColor} 
                 name={"FileGraphic"} 
                 size={props.size} 

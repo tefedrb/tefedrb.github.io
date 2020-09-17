@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 const Display = styled.div`
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 500px;
@@ -10,10 +11,12 @@ const Display = styled.div`
     border: 5px solid blue;
 `
 
-const Project = () => {
+const Project = (props) => {
+    console.log(props.fileName)
     return (
         <Display>
             <p>TESTING!</p>
+            <p>{props.fileName}</p>
         </Display>
     )
 }
