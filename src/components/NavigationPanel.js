@@ -4,15 +4,24 @@ import styled from 'styled-components';
 import { Context } from '../context';
 
 const NavWrapper = styled.nav`
+    position: relative; 
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
     background-color: rgba(79, 79, 79, 0.73);
-    height: 95%;
+    height: 80%;
     margin: 20px;
-    width: 325px;
+    width: 200px;
+    overflow: hidden;
+`
 
+const ControlHeader = styled.section`
+    position: absolute;
+    top: 0;
+    height: 25px;
+    width: 100%;
+    background: blue;
 `
 // The folder will hold it's own files, and will inform the NavigationPanel
 // that it's open or closed.

@@ -7,6 +7,7 @@ const FolderWrapper = styled.div`
     display: flex;
     flex-direction: column;
     width: 55%;
+    margin-right: 18px;
 `
 const FolderInnerWrap = styled.div`
     position: relative;
