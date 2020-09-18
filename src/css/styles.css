@@ -1,12 +1,18 @@
+@font-face {
+    font-family: 'Clacon';
+    src: url('../fonts/clacon.ttf') format('truetype');
+}
+
+html, body {
+    font-family: 'Clacon';
+    margin: 0 auto;
+    height: 100%;
+    width: 100%;
+}
+
 .canvas {
     display: flex;
     flex-direction: column;
     align-items: center;
     margin-top: 200px;
-}
-
-html, body {
-    margin: 0;
-    height: 100%;
-    width: 100%;
 }

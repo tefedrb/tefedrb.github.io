@@ -3,10 +3,13 @@ import PropTypes from 'prop-types';
 import { hot } from 'react-hot-loader';
 import Home from './Home';
 import { Provider } from '../context';
+import Monitor from './Monitor';
 
 const App = () => (
     <Provider>
-        <Home />
+        <Monitor>
+            <Home />
+        </Monitor>
     </Provider>
 );
 

@@ -29,10 +29,10 @@ module.exports = {
                 ]
             },
             {
-                test: /\.ttf$/,
+                test: /\.(ttf)/,
                 use: [
                     {
-                        loader: 'ttf-loader'
+                        loader: 'file-loader'
                     }
                 ]
             }

@@ -12,6 +12,7 @@ const Screen = styled.div`
     background-color: transparent;
     height: 100%;
     width: 100%;
+    overflow: auto;
 `
 
 const MainDisplay = (props) => {

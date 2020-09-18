@@ -4,13 +4,15 @@ import styled from 'styled-components';
 import { Context } from '../context';
 
 const NavWrapper = styled.nav`
+    pointer-events: auto;
     position: relative; 
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
     background-color: rgba(79, 79, 79, 0.73);
-    height: 80%;
+    box-shadow: 1px -5px 27px -7px rgba(79,79,79,0.73);
+    min-height: 95%;
     margin: 20px;
     width: 200px;
     overflow: hidden;

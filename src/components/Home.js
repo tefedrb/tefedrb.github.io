@@ -4,7 +4,7 @@ import NavigationPanel from './NavigationPanel';
 import styled, { keyframes } from 'styled-components';
 import Project from './Project';
 import { Context } from '../context';
-import paper from '../imgs/paper.png'
+import paper from '../imgs/paper.png';
 
 const grain = keyframes` 
     0%, 100% { transform:translate(0, 0) }
@@ -23,8 +23,8 @@ const HomeWrapper = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    width: 100vw;
+    height: 100%;
+    width: 100%;
     margin: 0;
     background-color: black;
 
@@ -41,15 +41,6 @@ const HomeWrapper = styled.div`
         animation: ${grain} 8s steps(10) infinite;
     }
 `
-    // animation: ${blink} .5s infinite 5s;
-
-const Body = styled.div` 
-    display: flex;
-    justify-content: center;
-    min-height: 100vh;
-    width: 100vw;
-    margin: 0 auto;
-`
 // Info needs to go from navigation through MainDisplay
 
 const Home = () => {
@@ -60,16 +51,16 @@ const Home = () => {
     // Home will know which file is open - will let MainDisplay know
 
     return (
-        <HomeWrapper name={"home wrapper"}>
-            <NavigationPanel 
-                changeFolder={changeFolder} 
-                name={"navigation"}
-            />
-            <MainDisplay
-                openFolder={openFolder}
-                name={"main display"}
-            />
-        </HomeWrapper>
+            <HomeWrapper name={"home wrapper"}>
+                <NavigationPanel 
+                    changeFolder={changeFolder} 
+                    name={"navigation"}
+                />
+                <MainDisplay
+                    openFolder={openFolder}
+                    name={"main display"}
+                />
+            </HomeWrapper>
     )
 }
 
