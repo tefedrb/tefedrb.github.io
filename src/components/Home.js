@@ -1,18 +1,29 @@
 import React, { useState, useContext, useEffect } from 'react';
 import MainDisplay from './MainDisplay';
 import NavigationPanel from './NavigationPanel';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import Project from './Project';
 import { Context } from '../context';
 
+// const blink = keyframes`
+//     from {
+
+//     } to {
+
+//     }
+//     {70%{opacity: 0.7;}}
+// `;
 const HomeWrapper = styled.div`
     display: flex;
     justify-content: center;
+    align-items: center;
     height: 100vh;
     width: 100vw;
     margin: 0;
     background-color: black;
 `
+    // animation: ${blink} .5s infinite 5s;
+
 const Body = styled.div` 
     display: flex;
     justify-content: center;
@@ -20,7 +31,6 @@ const Body = styled.div`
     width: 100vw;
     margin: 0 auto;
 `
-
 // Info needs to go from navigation through MainDisplay
 
 const Home = () => {

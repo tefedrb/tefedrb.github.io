@@ -9,8 +9,10 @@ const NavWrapper = styled.nav`
     align-items: center;
     justify-content: space-around;
     background-color: rgba(79, 79, 79, 0.73);
-    height: 100%;
+    height: 95%;
+    margin: 20px;
     width: 325px;
+
 `
 // The folder will hold it's own files, and will inform the NavigationPanel
 // that it's open or closed.

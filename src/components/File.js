@@ -15,6 +15,7 @@ const HeadWrapper = styled.div`
     height: ${props => props.mini ? "10px" : props?.foldSize || "10%"};
 `
 const GraphicHead = styled.div`
+    box-shadow: 1px -5px 27px -7px rgba(42,160,42,1);
     width: 100%;
     height: 100%;
     background-color: ${props => props.userColor};
@@ -31,6 +32,7 @@ const FileGraphic = styled.div`
     align-items: center;
     height: ${props => props.mini ? "35px" : "90%"};
     width: 100%;
+    box-shadow: 1px -5px 27px -7px ${props => props.mini ? "transparent" : props.userColor};
     background-color: ${props => props.userColor};
 `
 const File = (props) => {
@@ -56,7 +58,7 @@ const File = (props) => {
     }, []);
 
     const changeColor = () => {
-        return props.color == "green" ? "rgba(42, 227, 42, 0.48)" : "rgba(255, 255, 255, 0.83)";
+        return props.color == "green" ? "rgba(42, 160, 42, 1)" : "rgba(255, 255, 255, 0.83)";
     }
 
     const changeFoldColor = () => {
