@@ -21,10 +21,18 @@ const grain = keyframes`
 
 const HomeWrapper = styled.div`
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100%;
-    width: 100%;
+    height: 100vh;
+`
+
+const InnerHome = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 118px);
+    width: calc(100% - 90px);
     margin: 0;
     background-color: black;
 
@@ -51,7 +59,8 @@ const Home = () => {
     // Home will know which file is open - will let MainDisplay know
 
     return (
-            <HomeWrapper name={"home wrapper"}>
+        <HomeWrapper>
+            <InnerHome name={"home wrapper"}>
                 <NavigationPanel 
                     changeFolder={changeFolder} 
                     name={"navigation"}
@@ -60,7 +69,8 @@ const Home = () => {
                     openFolder={openFolder}
                     name={"main display"}
                 />
-            </HomeWrapper>
+            </InnerHome>
+        </HomeWrapper>
     )
 }
 

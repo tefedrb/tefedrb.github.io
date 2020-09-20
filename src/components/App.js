@@ -7,9 +7,8 @@ import Monitor from './Monitor';
 
 const App = () => (
     <Provider>
-        <Monitor>
-            <Home />
-        </Monitor>
+        <Monitor />
+        <Home />
     </Provider>
 );
 
