@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import File from './File';
 import { Context } from '../context';
 import Project from './Project';
-import PathToFile from './svgs/PathToFile';
 
 const Screen = styled.div`
     display: flex;
@@ -15,7 +14,7 @@ const Screen = styled.div`
     overflow: auto;
 `
 
-const MainDisplay = (props) => {
+const MainDisplay = () => {
     const context = useContext(Context);
     const { fileOpen } = context;
 

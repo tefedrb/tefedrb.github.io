@@ -10,11 +10,11 @@ const FolderWrapper = styled.div`
     height: 100%;
     margin-right: 12%;
     @media (max-width: 950px){
-        width: 100%;
+        width: auto;
         height: 100%;
         margin-right:0;
         flex-direction: row;
-        justify-content: center;
+        justify-content: space-around;
         align-items: center;
     }
 `
@@ -75,6 +75,7 @@ const Folder = (props) => {
     const context = useContext(Context);
     const { verticalDisplay } = context;
     
+    // console.log(props, "PROPS!")
     const handleClick = () => {
         if(!openFolder){
         toggleState(prevState => !prevState);
@@ -104,33 +105,30 @@ const Folder = (props) => {
     }, [props.openFolder, openFolder]);
     // FILES NEED TO GO WITHIN - Create a component - FileDropDown
 
-    const verticalDisplayAdapter = () => {
-        return verticalDisplay ? 
-            <FileDropDown 
-                name={"drop down"} 
-                files={props.files} 
-                display={openFolder} 
-            /> :
-            <div></div>
-    }
+    // const verticalDisplayAdapter = () => {
+    //     return verticalDisplay ? 
+    //         <FileDropDown 
+    //             name={"drop down"} 
+    //             files={props.files} 
+    //             display={openFolder} 
+    //         /> :
+    //         <div></div>
+    // }
 
     const displayDropDown = () => {
         return ( 
-            openFolder 
-                ? 
-                <FileDropDown 
-                    name={"drop down"} 
-                    files={props.files} 
-                    display={openFolder} 
-                /> 
-                :
-                ""
+            openFolder ? 
+            <FileDropDown 
+                name={"drop down"} 
+                files={props.files} 
+                display={openFolder}
+            /> :
+            ""
         )
     };
 
     return (  
         <FolderWrapper name={"folderWrap"}>
-
             <FolderInnerWrap ref={folderNode} name={"folderInnerWrap"} onClick={handleClick}>
                 <FolderTab name={"tab"}/>
                 <FolderBack name={"folder back"}/>

@@ -6,7 +6,11 @@ import PathToFile from './svgs/PathToFile';
 const FileDropDownWrap = styled.div`
     display: flex;
     height: 100%;
-    width: 100%;
+    width: 50%;
+    @media (max-width: 950px){
+        flex-direction: column;
+            justify-content: center;
+    }
 `
 const AllFilesWrap = styled.div`
     display: flex;
@@ -14,9 +18,11 @@ const AllFilesWrap = styled.div`
     width: 100%;
     @media (max-width: 950px){
         flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
     }
 `
-const FileWrapper = styled.nav`
+const FileWrapper = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -25,15 +31,35 @@ const FileWrapper = styled.nav`
     width: 100%;
     color: green;
     font-size: 12px;
+    @media (max-width: 950px){
+        margin: 0;
+        justify-content: center;
+    }
 `
+
+const FileName = styled.p`
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    white-space: nowrap;
+    @media (max-width: 950px){
+        margin-right: 5px;
+        margin-left: 5px;
+    }
+`
+
+// Instead of using media queries, we can use the event listener info to switch
+// from the vertical version of our nav to the horizontal version.
 const FileDropDown = (props) => {
+
     const files = props?.files.map((fileData, key) => (
-            <FileWrapper key={key}>
+            <FileWrapper name={"fileWrapper"} key={key}>
                 <File 
                     data={fileData}
-                    mini={true} 
+                    mini={true}
                 />
-                {fileData.name}
+                <FileName>{fileData.name}</FileName>
             </FileWrapper>
         )
     );
@@ -41,7 +67,10 @@ const FileDropDown = (props) => {
     return (
         <FileDropDownWrap name={"fileDropDown"}>
             {props.display ? <PathToFile numOfFiles={props?.files.length}/> : ""}
-            <AllFilesWrap name={"AllFilesWrap"}>
+            <AllFilesWrap 
+                numOfFiles={props?.files.length} 
+                name={"AllFilesWrap"}
+            >
                 {props.display ? files : ""}
             </AllFilesWrap>
         </FileDropDownWrap>

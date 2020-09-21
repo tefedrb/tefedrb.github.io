@@ -26,7 +26,6 @@ const NavWrapper = styled.nav`
         min-height: 130px;
     }
 `  
-
 const ControlHeader = styled.section`
     position: absolute;
     top: 0;
@@ -46,7 +45,6 @@ const NavigationPanel = (props) => {
         props.changeFolder(openFolder);
     }, [openFolder]);
 
-    // We will pass files in here...
     return (
         <NavWrapper name={"navWrapper"}>
             <Folder 

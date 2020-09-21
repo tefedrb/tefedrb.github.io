@@ -2,12 +2,12 @@ import { useState, useEffect } from 'react';
 import { throttle } from 'lodash';
 import { getViewportXY } from '../helperFunctions/helperFunctions';
 
-const useViewportHeight = (cb) => {
+const useViewportListener = (cb) => {
 
-    const [viewportHeight, setViewportHeight] = useState(cb ? cb(getViewportXY()) : getViewportXY());
+    const [viewportXY, setViewportXY] = useState(cb ? cb(getViewportXY()) : getViewportXY());
 
     useEffect(() => {
-        const updateViewportState = () => setViewportHeight(getViewportXY());
+        const updateViewportState = () => setViewportXY(getViewportXY());
         const throttled = throttle(updateViewportState, 100, {loading: true, trailing: true});
         window.addEventListener('resize', throttled);
 
@@ -15,9 +15,8 @@ const useViewportHeight = (cb) => {
             window.removeEventListener('resize', throttled);
         }
     }, []);
-
     
-    return cb ? cb(viewportHeight) : viewportHeight;
+    return cb ? cb(viewportXY) : viewportXY;
 }
 
-export default useViewportHeight;
+export default useViewportListener;

@@ -2,7 +2,6 @@ import React, { useState, useEffect, useContext } from 'react';
 import styled from 'styled-components';
 import { Context } from '../../context';
 import { getViewportXY } from '../helperFunctions/helperFunctions';
-import useViewportHeight from '../hooks/useViewportHeight';
 
 const PathWrap = styled.div`
   
@@ -97,8 +96,12 @@ const PathToFile = (props) => {
         }
 
         return (
-            <svg style={{height: `${props.numOfFiles == 1 ? "50px" : "100%"}`, width: "20px"}}>
-                <path d={`M 10 10 H ${length * 35}`} fill="transparent" stroke="white" />
+            <svg style={{height: "20px", width: "100%"}}>
+                <path 
+                    d={`M 10 10 H ${70}`} 
+                    fill="transparent" 
+                    stroke="white" 
+                />
             </svg>
         )
     }

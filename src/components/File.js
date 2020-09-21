@@ -1,12 +1,11 @@
 import React, { useContext, useState, useRef, useEffect } from 'react';
 import styled from 'styled-components';
-import useViewportHeight from './hooks/useViewportHeight';
+import useViewportListener from './hooks/useViewportListener';
 import { Context } from '../context';
 
 const GraphicWrapper = styled.div`
     width: ${props => props.mini ? "30px" : props.size.width};
-    // height: ${props => props.mini ? "35px" : props.size.height};
-    height: 100%;
+    height: ${props => props.mini ? "auto" : "100%"};
     margin-bottom: ${props => parseInt(props.mini ? "35px" : props.size.height) <= 35 ? "0" : "40px"};
     margin-top: ${props => props.mini ? "0" : "40px"}
 `
@@ -37,11 +36,11 @@ const FileGraphic = styled.div`
 `
 const File = (props) => {
     const context = useContext(Context);
-    const { saveFileX, fileOpen, openFile, updateDisplay, verticalDisplay } = context;
+    const { openFile, updateDisplay, verticalDisplay } = context;
     const [ loaded, confirmLoaded ] = useState(false);
     // Might want to consider inserting an if/else statement to avoid running
     // useEffect more than needed.
-    const viewPortHeight = useViewportHeight();
+    let viewPort = props.mini ? null : useViewportListener();
     const headerEl = useRef("75");
 
     const getDynamicFoldHeight = () => {
@@ -50,11 +49,10 @@ const File = (props) => {
 
     useEffect(() => {
         // If viewport width is less than 950
-        // 
-        if(viewPortHeight[0] > 950 && verticalDisplay){
+        if(viewPort?.[0] > 950 && verticalDisplay){
             updateDisplay(false);
         }
-        if(viewPortHeight[0] < 950 && !verticalDisplay){
+        if(viewPort?.[0] < 950 && !verticalDisplay){
             updateDisplay(true);
         }
         if(props.mini && loaded){
@@ -63,7 +61,7 @@ const File = (props) => {
         if(!loaded){ 
             confirmLoaded(true);
         }
-    }, [viewPortHeight, verticalDisplay]);
+    }, [viewPort, verticalDisplay]);
 
     const changeColor = () => {
         return props.color == "green" ? "rgba(42, 160, 42, 1)" : "rgba(255, 255, 255, 0.83)";
@@ -82,7 +80,6 @@ const File = (props) => {
 
     const clickOpen = (e) => {
         e.preventDefault();
-        console.log("clicked");
         if(props.mini){
             openFile(props.data.name);
         }

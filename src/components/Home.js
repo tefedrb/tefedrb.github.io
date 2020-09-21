@@ -49,18 +49,18 @@ const InnerHome = styled.div`
     }
 
     @media (max-width: 950px){
-        flex-direction: column;
+        flex-direction: column-reverse;
     }
 `
 // Info needs to go from navigation through MainDisplay
 
 const Home = () => {
     const context = useContext(Context);
-    const { files, projects, fileOpen} = context;
+    const { files, projects, fileOpen } = context;
     const [ openFolder, changeFolder ] = useState("About");
     // File information
     // Home will know which file is open - will let MainDisplay know
-
+    console.log("event listener affecting home");
     return (
         <HomeWrapper name={"home wrapper"}>
             <InnerHome name={"inner home"}>
