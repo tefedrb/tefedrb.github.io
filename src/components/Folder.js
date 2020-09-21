@@ -7,15 +7,30 @@ const FolderWrapper = styled.div`
     display: flex;
     flex-direction: column;
     width: 55%;
-    margin-right: 18px;
+    height: 100%;
+    margin-right: 12%;
+    @media (max-width: 950px){
+        width: 100%;
+        height: 100%;
+        margin-right:0;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
 `
 const FolderInnerWrap = styled.div`
     position: relative;
     height: 100px;
-    width: 100%;
+    width: 75px;
     &:hover {
         cursor: pointer;
     }
+    // @media (max-height: 810px){
+    //     height: 80px;
+    // }
+    // @media (max-height: 695px){
+    //     height: 40px;
+    // }
 `
 const FolderTab = styled.div`
     height: 10%;
@@ -34,33 +49,31 @@ const Paper = styled.div`
     width: 90%;
     background-color: white;
     bottom: ${props => props?.toggle?.paper?.bottom || "14px"};
-    left: 5px;
+    left: 5%;
 `
 const FolderFront = styled.div`
     position: absolute;
     display: flex;
     align-items: center;
     justify-content: center;
-    // border: solid 1px red;
     height: 80%;
     bottom: 0;
     box-shadow: 1px -5px 16px -7px rgba(216,212,79,1);
     // plus 8px (below)
-    left: ${props => props?.toggle?.folderFront?.left || "15px"};
+    left: ${props => props?.toggle?.folderFront?.left || "10%"};
     width: 100%;
-    // minus 10deg (below)
     transform: ${props => props?.toggle?.folderFront?.trans || "skew(-20deg)"};
     background-color: rgba(216, 212, 79, 1);
 `
 const Contents = styled.p`
-    
+    // width: 1032px;
 `
 const Folder = (props) => {
     const [openFolder, toggleState] = useState(false);
     const [styledCompProps, changeStyledProps] = useState();
     const folderNode = useRef(null);
     const context = useContext(Context);
-    // const { state, saveSelectedFolderY } = context;
+    const { verticalDisplay } = context;
     
     const handleClick = () => {
         if(!openFolder){
@@ -69,26 +82,19 @@ const Folder = (props) => {
         }
     }
 
-    const getFolderLocation = () => {
-        return folderNode.current.offsetTop;
-    }
-
     const setFolderProp = () => {
-            return {
+        return {
             folderFront: {
                trans: `${openFolder ? "skew(-20deg)" : "skew(-10deg)"}`,
-               left: `${openFolder ? "15px" : "8px"}`
+               left: `${openFolder ? "20%" : "10%"}`
             },
             paper: {
-                bottom: `${openFolder ? "14px" : "0"}`,
+                bottom: `${openFolder ? "12%" : "0"}`,
             }
         }
     }
 
     useEffect(() => {
-        // if(openFolder){
-        //     saveSelectedFolderY(getFolderLocation());
-        // }
         if(props?.title === props?.openFolder){
             toggleState(true);
         } else { 
@@ -96,20 +102,44 @@ const Folder = (props) => {
         }
         changeStyledProps(setFolderProp());
     }, [props.openFolder, openFolder]);
-
     // FILES NEED TO GO WITHIN - Create a component - FileDropDown
+
+    const verticalDisplayAdapter = () => {
+        return verticalDisplay ? 
+            <FileDropDown 
+                name={"drop down"} 
+                files={props.files} 
+                display={openFolder} 
+            /> :
+            <div></div>
+    }
+
+    const displayDropDown = () => {
+        return ( 
+            openFolder 
+                ? 
+                <FileDropDown 
+                    name={"drop down"} 
+                    files={props.files} 
+                    display={openFolder} 
+                /> 
+                :
+                ""
+        )
+    };
 
     return (  
         <FolderWrapper name={"folderWrap"}>
+
             <FolderInnerWrap ref={folderNode} name={"folderInnerWrap"} onClick={handleClick}>
-                <FolderTab />
-                <FolderBack />
+                <FolderTab name={"tab"}/>
+                <FolderBack name={"folder back"}/>
                 <Paper name={"paper"} toggle={styledCompProps} />
                 <FolderFront name={"folder front"} toggle={styledCompProps}>
                     <Contents>{props.title}</Contents>
                 </FolderFront>
             </FolderInnerWrap>
-            <FileDropDown files={props.files} display={openFolder} />
+            {displayDropDown()}
         </FolderWrapper>
     )
 }

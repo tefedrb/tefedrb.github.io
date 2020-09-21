@@ -6,8 +6,8 @@ const Display = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 500px;
-    height: 500px;
+    width: 90%;
+    height: 90%;
     border: 5px solid blue;
 `
 

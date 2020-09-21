@@ -14,9 +14,18 @@ const NavWrapper = styled.nav`
     box-shadow: 1px -5px 27px -7px rgba(79,79,79,0.73);
     min-height: 95%;
     margin: 20px;
-    width: 200px;
+    min-width: 150px;
     overflow: hidden;
-`
+
+    @media (max-width: 1245px){
+        min-width: 135px;
+    }
+    @media (max-width: 950px){
+        flex-direction: row;
+        min-width: 95%;
+        min-height: 130px;
+    }
+`  
 
 const ControlHeader = styled.section`
     position: absolute;

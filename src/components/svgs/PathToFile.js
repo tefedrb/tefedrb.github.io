@@ -25,7 +25,7 @@ const Lines = styled.svg`
 
 const PathToFile = (props) => {
     const context = useContext(Context);
-    const { state } = context;
+    const { state, verticalDisplay } = context;
     const [ sizes, updateSizes ] = useState({});
 
    useEffect(() => {
@@ -83,9 +83,29 @@ const PathToFile = (props) => {
         )
     }
 
+    const buildHorizPath = () => {
+        const length = props.numOfFiles;
+
+        const buildString = () => {
+            let output = "";
+            let increment = 128.5;
+            for(let i = 1; i < length; i++){
+                output += ` H 10 V ${increment} H 20`;
+                increment += 88.5;
+            }
+            return output
+        }
+
+        return (
+            <svg style={{height: `${props.numOfFiles == 1 ? "50px" : "100%"}`, width: "20px"}}>
+                <path d={`M 10 10 H ${length * 35}`} fill="transparent" stroke="white" />
+            </svg>
+        )
+    }
+
     return (
         <PathWrap name={"PathWrap"}>
-            {buildPath()}
+            {verticalDisplay ? buildHorizPath() : buildPath()}
         </PathWrap>
     )
 }

@@ -1,8 +1,7 @@
-import React, { useState, useContext, useEffect } from 'react';
+import React, { useState, useContext } from 'react';
 import MainDisplay from './MainDisplay';
 import NavigationPanel from './NavigationPanel';
 import styled, { keyframes } from 'styled-components';
-import Project from './Project';
 import { Context } from '../context';
 import paper from '../imgs/paper.png';
 
@@ -48,6 +47,10 @@ const InnerHome = styled.div`
         background-image: url(${paper});
         animation: ${grain} 8s steps(10) infinite;
     }
+
+    @media (max-width: 950px){
+        flex-direction: column;
+    }
 `
 // Info needs to go from navigation through MainDisplay
 
@@ -59,8 +62,8 @@ const Home = () => {
     // Home will know which file is open - will let MainDisplay know
 
     return (
-        <HomeWrapper>
-            <InnerHome name={"home wrapper"}>
+        <HomeWrapper name={"home wrapper"}>
+            <InnerHome name={"inner home"}>
                 <NavigationPanel 
                     changeFolder={changeFolder} 
                     name={"navigation"}

@@ -37,9 +37,11 @@ const FileGraphic = styled.div`
 `
 const File = (props) => {
     const context = useContext(Context);
-    const { saveFileX, fileOpen, openFile } = context;
+    const { saveFileX, fileOpen, openFile, updateDisplay, verticalDisplay } = context;
     const [ loaded, confirmLoaded ] = useState(false);
-    useViewportHeight();
+    // Might want to consider inserting an if/else statement to avoid running
+    // useEffect more than needed.
+    const viewPortHeight = useViewportHeight();
     const headerEl = useRef("75");
 
     const getDynamicFoldHeight = () => {
@@ -47,15 +49,21 @@ const File = (props) => {
     }
 
     useEffect(() => {
-        // I need to re-render the component because when I first mount I don't have a reference
-        // to the node I need for the dynamicFoldHeight property...
+        // If viewport width is less than 950
+        // 
+        if(viewPortHeight[0] > 950 && verticalDisplay){
+            updateDisplay(false);
+        }
+        if(viewPortHeight[0] < 950 && !verticalDisplay){
+            updateDisplay(true);
+        }
         if(props.mini && loaded){
             
         }
         if(!loaded){ 
             confirmLoaded(true);
         }
-    }, []);
+    }, [viewPortHeight, verticalDisplay]);
 
     const changeColor = () => {
         return props.color == "green" ? "rgba(42, 160, 42, 1)" : "rgba(255, 255, 255, 0.83)";

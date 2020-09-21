@@ -7,6 +7,7 @@ export const Provider = (props) => {
     // Here is our state that the rest of the app will share
     const [ state, setState ] = useState({});
     const [ filePositions, updatePositions ] = useState({});
+    const [ verticalDisplay, updateDisplay ] = useState(false);
     // Below are functions that our app state will hold
     const saveSelectedFolderY = (yValue) => {
         setState(prev => {
@@ -60,6 +61,8 @@ export const Provider = (props) => {
                 fileOpen, 
                 files,
                 projects,
+                verticalDisplay,
+                updateDisplay,
                 openFile,
                 saveSelectedFolderY, 
                 saveFileX, 

@@ -1,17 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const MonitorEdge = styled.div` 
-    background-color: transparent;
-    pointer-events: none;
-    height: 100vh;
-    border-top: 60px solid rgb(227,219,188);
-    border-bottom: 60px solid rgb(227,219,188);
-    border-left: 45px solid rgb(227,219,188);
-    border-right: 45px solid rgb(227,219,188);
-    box-sizing: border-box;
-`
 const MonitorWrapper = styled.div`
+    pointer-events: none;
     position: fixed;
     display: flex;
     flex-direction: column;
@@ -21,21 +12,42 @@ const MonitorWrapper = styled.div`
     justify-content: space-between;
     z-index: 1;
 `
+
 const MonitorTop = styled.div`
     position: relative;
     display: flex;
+    flex-direction: column;
     justify-content: center;
-    align-items: flex-end;
+    align-items: center;
     z-index: 1;
-    height: 65px;
+    height: 75px;
     width: 100vw;
     background: linear-gradient(to right, rgb(227,219,188), rgb(227,219,188));
     color: black;
     box-shadow: 15px 9px 5px -5px black;
 `
-const InnerTopWrap = styled.div`
-    width: 100%;
+const MonitorInfo = styled.div`
     display: flex;
+    width: 100%;
+    justify-content: space-between;
+    font-family: 'Open Sans', sans-serif;
+    color: #755D4F;
+    font-size: 13px;
+`
+const MonitorVersion = styled.p`
+    margin-right: 50px;
+    margin-top: 24px;
+    margin-bottom: 10px;
+`
+const MonitorName = styled.p`
+    margin-left: 50px;
+    margin-top: 24px;
+    margin-bottom: 10px;
+`
+const TopWrap = styled.div`
+    display: flex;
+    z-index: 0;
+    width: 100vw;
 `
 const InnerTop = styled.div`
     width: 100%;
@@ -47,14 +59,22 @@ const InnerTop = styled.div`
 `
 const Bumper = styled.div`
     width: 37px;
+    height: 10px;
 `
 const MonitorBottom = styled.div`
     display: flex;
-    z-index: 0;
-    height: 65px;
-    width: 100vw;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     background: linear-gradient(to right, rgb(227,219,188), rgb(227,219,188));
     box-shadow: 15px 9px 5px 12px black;
+    height: 65px;
+`
+const BottomWrap = styled.div`
+    display: flex;
+    z-index: 0;
+    width: 100vw;
+    height: 100%;
 `
 const InnerBottom = styled.div` 
     align-self: flex-start;
@@ -65,23 +85,27 @@ const InnerBottom = styled.div`
     border-right: 10px solid transparent;
     box-sizing: border-box;
 `
+
+const Logo = styled.p`
+    font-family: 'Diplomata', cursive;
+    color: #755D4F;
+    margin-top: 0;
+`
 const InnerMonitor = styled.div`
     z-index: 1;
     display: flex;
     width: 100%;
     justify-content: space-between;
-    height: 100%;
+    height: 105%;
 `
 const MonitorRight = styled.div`
+    pointer-events: none;
     display: flex;
     z-index: 1;
     background: linear-gradient(to right, rgb(227,219,188), rgb(227,219,188));
     width: 45px;
     height: 100%;
     box-shadow: -9px 0px 8px -8px black;
-`
-const InnerRightWrap = styled.div`
-
 `
 const InnerRight = styled.div`
     height: 100%;
@@ -109,13 +133,20 @@ const InnerLeft = styled.div`
     border-bottom: 10px solid transparent;
     transform: translate(0px, -10px);
 `
-const Monitor = (props) => {
+
+const Monitor = () => {
     return (
         <MonitorWrapper name={"Monitor Wrap"}>
-            <MonitorTop>
-                <Bumper name={"Right Bumper"}/>
-                <InnerTop/>
-                <Bumper name={"Left Bumper"}/>
+            <MonitorTop name={"Monitor Top"}>
+                <MonitorInfo>
+                    <MonitorName>Minitron</MonitorName>
+                    <MonitorVersion>Multiscan <span style={{fontWeight: 800}}>A18</span></MonitorVersion>
+                </MonitorInfo>
+                <TopWrap name={"Top Wrap"}>
+                    <Bumper name={"Right Bumper"}/>
+                    <InnerTop name={"Inner Top"}/>
+                    <Bumper name={"Left Bumper"}/>
+                </TopWrap>
             </MonitorTop>
             <InnerMonitor>
                 <MonitorLeft>
@@ -125,10 +156,13 @@ const Monitor = (props) => {
                     <InnerRight name={"Inner Right"}/>
                 </MonitorRight>
             </InnerMonitor>
-            <MonitorBottom>
-                <Bumper name={"Right Bumper 2"}/>
-                <InnerBottom />
-                <Bumper name={"Left Bumper 2"}/>
+            <MonitorBottom name={"Monitor Bottom"}>
+                <BottomWrap name={"Bottom Wrap"}>
+                    <Bumper name={"Right Bumper 2"}/>
+                    <InnerBottom />
+                    <Bumper name={"Left Bumper 2"}/>
+                </BottomWrap>
+                <Logo>PONY</Logo>
             </MonitorBottom>
         </MonitorWrapper>
     )

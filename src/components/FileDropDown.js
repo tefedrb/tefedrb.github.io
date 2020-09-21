@@ -8,12 +8,13 @@ const FileDropDownWrap = styled.div`
     height: 100%;
     width: 100%;
 `
-
 const AllFilesWrap = styled.div`
     display: flex;
     flex-direction: column;
     width: 100%;
-    
+    @media (max-width: 950px){
+        flex-direction: row;
+    }
 `
 const FileWrapper = styled.nav`
     display: flex;
@@ -40,7 +41,7 @@ const FileDropDown = (props) => {
     return (
         <FileDropDownWrap name={"fileDropDown"}>
             {props.display ? <PathToFile numOfFiles={props?.files.length}/> : ""}
-            <AllFilesWrap>
+            <AllFilesWrap name={"AllFilesWrap"}>
                 {props.display ? files : ""}
             </AllFilesWrap>
         </FileDropDownWrap>

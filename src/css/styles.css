@@ -3,6 +3,8 @@
     src: url('../fonts/clacon.ttf') format('truetype');
 }
 
+@import url(//fonts.googleapis.com/css2?family=Diplomata&family=Open+Sans:wght@700;800&display=swap);
+
 html, body {
     font-family: 'Clacon';
     margin: 0 auto;
