@@ -72,10 +72,8 @@ const Folder = (props) => {
     const [openFolder, toggleState] = useState(false);
     const [styledCompProps, changeStyledProps] = useState();
     const folderNode = useRef(null);
-    const context = useContext(Context);
-    const { verticalDisplay } = context;
+    const { verticalDisplay } = useContext(Context);
     
-    // console.log(props, "PROPS!")
     const handleClick = () => {
         if(!openFolder){
         toggleState(prevState => !prevState);
@@ -117,10 +115,10 @@ const Folder = (props) => {
 
     const displayDropDown = () => {
         return ( 
-            openFolder ? 
-            <FileDropDown 
+            openFolder && !verticalDisplay? 
+            <FileDropDown
                 name={"drop down"} 
-                files={props.files} 
+                files={props.files}
                 display={openFolder}
             /> :
             ""

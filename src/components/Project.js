@@ -12,7 +12,6 @@ const Display = styled.div`
 `
 
 const Project = (props) => {
-    console.log(props.fileName)
     return (
         <Display>
             <p>TESTING!</p>

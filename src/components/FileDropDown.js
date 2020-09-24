@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import File from './File';
 import styled from 'styled-components';
 import PathToFile from './svgs/PathToFile';
+import { Context } from '../context';
 
 const FileDropDownWrap = styled.div`
     display: flex;
@@ -9,7 +10,9 @@ const FileDropDownWrap = styled.div`
     width: 50%;
     @media (max-width: 950px){
         flex-direction: column;
-            justify-content: center;
+        justify-content: center;
+        // background-color: rgba(79, 79, 79, 0.73);
+        background-color: blue;
     }
 `
 const AllFilesWrap = styled.div`
@@ -52,6 +55,7 @@ const FileName = styled.p`
 // Instead of using media queries, we can use the event listener info to switch
 // from the vertical version of our nav to the horizontal version.
 const FileDropDown = (props) => {
+    const { globalState } = useContext(Context);
 
     const files = props?.files.map((fileData, key) => (
             <FileWrapper name={"fileWrapper"} key={key}>

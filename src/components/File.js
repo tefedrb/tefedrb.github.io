@@ -9,7 +9,7 @@ const GraphicWrapper = styled.div`
     margin-bottom: ${props => parseInt(props.mini ? "35px" : props.size.height) <= 35 ? "0" : "40px"};
     margin-top: ${props => props.mini ? "0" : "40px"}
 `
-const HeadWrapper = styled.div`
+const GraphicHeadWrapper = styled.div`
     display: flex;
     height: ${props => props.mini ? "10px" : props?.foldSize || "10%"};
 `
@@ -19,12 +19,12 @@ const GraphicHead = styled.div`
     height: 100%;
     background-color: ${props => props.userColor};
 `
-const Fold = styled.div`
+const GraphicFold = styled.div`
     border-right: ${props => props.mini ? "10px" : props?.foldSize || "75px"} solid transparent;
     border-bottom: ${props => `${props?.dynamicHeight}px`} solid ${props => props.foldColor};
     box-shadow: ${props => props.boxShadow} rgba(00,00,00,0.40);
 `
-const FileGraphic = styled.div`
+const GraphicBody = styled.div`
     cursor: ${props => props.mini ? "pointer" : ""};
     display: flex;
     justify-content: center;
@@ -36,11 +36,11 @@ const FileGraphic = styled.div`
 `
 const File = (props) => {
     const context = useContext(Context);
-    const { openFile, updateDisplay, verticalDisplay } = context;
+    const { openFile, updateDisplay, verticalDisplay, updateViewport } = context;
     const [ loaded, confirmLoaded ] = useState(false);
     // Might want to consider inserting an if/else statement to avoid running
     // useEffect more than needed.
-    let viewPort = props.mini ? null : useViewportListener();
+    let viewport = props.mini ? null : useViewportListener();
     const headerEl = useRef("75");
 
     const getDynamicFoldHeight = () => {
@@ -49,11 +49,12 @@ const File = (props) => {
 
     useEffect(() => {
         // If viewport width is less than 950
-        if(viewPort?.[0] > 950 && verticalDisplay){
+        if(viewport?.[0] > 950 && verticalDisplay){
             updateDisplay(false);
         }
-        if(viewPort?.[0] < 950 && !verticalDisplay){
+        if(viewport?.[0] < 950 && !verticalDisplay){
             updateDisplay(true);
+            updateViewport(viewport);
         }
         if(props.mini && loaded){
             
@@ -61,7 +62,7 @@ const File = (props) => {
         if(!loaded){ 
             confirmLoaded(true);
         }
-    }, [viewPort, verticalDisplay]);
+    }, [viewport, verticalDisplay, loaded]);
 
     const changeColor = () => {
         return props.color == "green" ? "rgba(42, 160, 42, 1)" : "rgba(255, 255, 255, 0.83)";
@@ -91,7 +92,7 @@ const File = (props) => {
             size={props.size} 
             mini={props.mini}
         >
-            <HeadWrapper 
+            <GraphicHeadWrapper 
                 ref={headerEl} 
                 name={"file HeadWrapper"}
                 foldSize={props.foldSize} 
@@ -101,7 +102,7 @@ const File = (props) => {
                     userColor={changeColor} 
                     name={"head"} 
                 />
-                <Fold 
+                <GraphicFold 
                     name={"flap"}
                     foldSize={props.foldSize}
                     mini={props.mini}
@@ -109,8 +110,8 @@ const File = (props) => {
                     foldColor={changeFoldColor}
                     boxShadow={changeBoxShadow}
                 />
-            </HeadWrapper>
-            <FileGraphic
+            </GraphicHeadWrapper>
+            <GraphicBody
                 onClick={clickOpen}
                 userColor={changeColor} 
                 name={"FileGraphic"} 
@@ -118,7 +119,7 @@ const File = (props) => {
                 mini={props.mini}
             > 
                 {props.content}
-            </FileGraphic>
+            </GraphicBody>
         </GraphicWrapper>
     )
 }

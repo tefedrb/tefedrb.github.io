@@ -1,25 +1,23 @@
 import React, { useState } from 'react';
-import useViewPortListener from './components/hooks/useViewportListener';
 
 export const Context = React.createContext();
 
 export const Provider = (props) => {
     // Here is our state that the rest of the app will share
-    const [ state, setState ] = useState({});
+    const [ globalState, setGlobalState ] = useState({});
     const [ verticalDisplay, updateDisplay ] = useState(false);
     // Below are functions that our app state will hold
     const saveSelectedFolderY = (yValue) => {
-        setState(prev => {
+        setGlobalState(prev => {
             return {
                 ...prev,
                 folderY: yValue
             }
-            
         })
     }
 
     const updateViewport = (viewportXY) => {
-        setState(prev => {
+        setGlobalState(prev => {
             return {
                 ...prev,
                 viewport: viewportXY 
@@ -45,7 +43,7 @@ export const Provider = (props) => {
 
     return (
         <Context.Provider 
-            value={{ state,
+            value={{ globalState,
                 fileOpen, 
                 files,
                 projects,

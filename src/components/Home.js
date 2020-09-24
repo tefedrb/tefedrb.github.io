@@ -1,6 +1,7 @@
 import React, { useState, useContext } from 'react';
 import MainDisplay from './MainDisplay';
 import NavigationPanel from './NavigationPanel';
+import MobileNavAdapter from './MobileNavAdapter';
 import styled, { keyframes } from 'styled-components';
 import { Context } from '../context';
 import paper from '../imgs/paper.png';
@@ -52,21 +53,23 @@ const InnerHome = styled.div`
         flex-direction: column-reverse;
     }
 `
+
+
 // Info needs to go from navigation through MainDisplay
 
 const Home = () => {
-    const context = useContext(Context);
-    const { files, projects, fileOpen } = context;
+    const { files, projects, fileOpen, globalState } = useContext(Context);
     const [ openFolder, changeFolder ] = useState("About");
     // File information
     // Home will know which file is open - will let MainDisplay know
-    console.log("event listener affecting home");
+    // Create mobile option
+
     return (
         <HomeWrapper name={"home wrapper"}>
             <InnerHome name={"inner home"}>
-                <NavigationPanel 
-                    changeFolder={changeFolder} 
-                    name={"navigation"}
+                <MobileNavAdapter 
+                    changeFolder={changeFolder}
+                    name={"mobileNav"}
                 />
                 <MainDisplay
                     openFolder={openFolder}

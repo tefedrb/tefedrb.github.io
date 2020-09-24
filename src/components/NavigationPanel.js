@@ -33,18 +33,23 @@ const ControlHeader = styled.section`
     width: 100%;
     background: blue;
 `
+
+
 // The folder will hold it's own files, and will inform the NavigationPanel
 // that it's open or closed.
 
 const NavigationPanel = (props) => {
-    const context = useContext(Context);
     const [ openFolder, changeOpenFolder ] = useState("About");
-    const { files } = context;
-    
+    const { files } = useContext(Context);
+    // We need to tell our folder components not to render dropdowns
+    // if our global verticalDisplay is set to true
+
     useEffect(() => {
         props.changeFolder(openFolder);
+        
     }, [openFolder]);
 
+    // create a mobile view
     return (
         <NavWrapper name={"navWrapper"}>
             <Folder 
