@@ -69,8 +69,8 @@ const Contents = styled.p`
     // width: 1032px;
 `
 const Folder = (props) => {
-    const [openFolder, toggleState] = useState(false);
-    const [styledCompProps, changeStyledProps] = useState();
+    const [ openFolder, toggleState ] = useState(false);
+    const [ styledCompProps, changeStyledProps ] = useState();
     const folderNode = useRef(null);
     const { verticalDisplay, saveFolderLoc } = useContext(Context);
     
@@ -95,23 +95,13 @@ const Folder = (props) => {
 
     useEffect(() => {
         if(props?.title === props?.openFolder){
+            props.listFiles ? props.listFiles(props.files) : null;
             toggleState(true);
         } else { 
             toggleState(false);
         }
         changeStyledProps(setFolderProp());
     }, [props.openFolder, openFolder]);
-    // FILES NEED TO GO WITHIN - Create a component - FileDropDown
-
-    // const verticalDisplayAdapter = () => {
-    //     return verticalDisplay ? 
-    //         <FileDropDown 
-    //             name={"drop down"} 
-    //             files={props.files} 
-    //             display={openFolder} 
-    //         /> :
-    //         <div></div>
-    // }
 
     const displayDropDown = () => {
         return ( 
@@ -126,7 +116,6 @@ const Folder = (props) => {
     };
 
     const trackFolder = (e) => {
-        console.log("tracking...")
         saveFolderLoc(props.getFolderLoc(e));
     }
 

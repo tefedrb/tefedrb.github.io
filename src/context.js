@@ -4,28 +4,6 @@ export const Context = React.createContext();
 
 export const Provider = (props) => {
     // Here is our state that the rest of the app will share
-    const [ globalState, setGlobalState ] = useState({folder: [100, 20]});
-    const [ verticalDisplay, updateDisplay ] = useState(false);
-    // Below are functions that our app state will hold
-    const saveFolderLoc = (loc) => {
-        console.log(loc, "LOC");
-        setGlobalState(prev => {
-            return {
-                ...prev,
-                folder: loc
-            }
-        })
-    }
-
-    const updateViewport = (viewportXY) => {
-        setGlobalState(prev => {
-            return {
-                ...prev,
-                viewport: viewportXY 
-            }
-        })
-    }
-
     const files = {
         "Projects": [
             {name:"equipped.js"},
@@ -36,6 +14,41 @@ export const Provider = (props) => {
         "Contact": [{name:"contact.js"}]
     }
 
+    const [ globalState, setGlobalState ] = useState({
+        folderLoc: [100, 20],
+        filesDisplayed: [{name:"about.java"}]
+    });
+    
+    const [ verticalDisplay, updateDisplay ] = useState(false);
+    // Below are functions that our app state will hold
+    const saveFolderLoc = (loc) => {
+        console.log(loc, "LOC");
+        setGlobalState(prev => {
+            return {
+                ...prev,
+                folderLoc: loc
+            }
+        })
+    }
+
+    const filesFromFolder = (files) => {
+        setGlobalState(prev => {
+            return {
+                ...prev,
+                filesDisplayed: files
+            }
+        })
+    }
+    
+    const updateViewport = (viewportXY) => {
+        setGlobalState(prev => {
+            return {
+                ...prev,
+                viewport: viewportXY 
+            }
+        })
+    }
+
     const [ fileOpen, openFile ] = useState(files["About"][0].name);
 
     const projects = {
@@ -44,7 +57,8 @@ export const Provider = (props) => {
 
     return (
         <Context.Provider 
-            value={{ globalState,
+            value={{ 
+                globalState,
                 fileOpen, 
                 files,
                 projects,
@@ -53,6 +67,7 @@ export const Provider = (props) => {
                 updateDisplay,
                 openFile,
                 saveFolderLoc,
+                filesFromFolder
              }}
         >
             { props.children }
