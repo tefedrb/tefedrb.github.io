@@ -33,8 +33,6 @@ const ControlHeader = styled.section`
     width: 100%;
     background: blue;
 `
-
-
 // The folder will hold it's own files, and will inform the NavigationPanel
 // that it's open or closed.
 
@@ -52,19 +50,22 @@ const NavigationPanel = (props) => {
     // create a mobile view
     return (
         <NavWrapper name={"navWrapper"}>
-            <Folder 
+            <Folder
+                getFolderLoc={props.getFolderLoc}
                 changeOpenFolder={changeOpenFolder} 
                 openFolder={openFolder} 
                 title={"Projects"}
                 files={files["Projects"]}
             />
             <Folder 
+                getFolderLoc={props.getFolderLoc}
                 changeOpenFolder={changeOpenFolder} 
                 openFolder={openFolder} 
                 title={"About"}
                 files={files["About"]}
             />
             <Folder 
+                getFolderLoc={props.getFolderLoc}
                 changeOpenFolder={changeOpenFolder} 
                 openFolder={openFolder}
                 title={"Contact"}

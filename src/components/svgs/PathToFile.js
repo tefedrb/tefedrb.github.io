@@ -85,16 +85,6 @@ const PathToFile = (props) => {
     const buildHorizPath = () => {
         const length = props.numOfFiles;
 
-        const buildString = () => {
-            let output = "";
-            let increment = 128.5;
-            for(let i = 1; i < length; i++){
-                output += ` H 10 V ${increment} H 20`;
-                increment += 88.5;
-            }
-            return output
-        }
-
         return (
             <svg style={{height: "20px", width: "100%"}}>
                 <path 

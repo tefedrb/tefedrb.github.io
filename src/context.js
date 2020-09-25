@@ -4,14 +4,15 @@ export const Context = React.createContext();
 
 export const Provider = (props) => {
     // Here is our state that the rest of the app will share
-    const [ globalState, setGlobalState ] = useState({});
+    const [ globalState, setGlobalState ] = useState({folder: [100, 20]});
     const [ verticalDisplay, updateDisplay ] = useState(false);
     // Below are functions that our app state will hold
-    const saveSelectedFolderY = (yValue) => {
+    const saveFolderLoc = (loc) => {
+        console.log(loc, "LOC");
         setGlobalState(prev => {
             return {
                 ...prev,
-                folderY: yValue
+                folder: loc
             }
         })
     }
@@ -51,7 +52,7 @@ export const Provider = (props) => {
                 updateViewport,
                 updateDisplay,
                 openFile,
-                saveSelectedFolderY,
+                saveFolderLoc,
              }}
         >
             { props.children }

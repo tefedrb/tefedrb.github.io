@@ -72,7 +72,7 @@ const Folder = (props) => {
     const [openFolder, toggleState] = useState(false);
     const [styledCompProps, changeStyledProps] = useState();
     const folderNode = useRef(null);
-    const { verticalDisplay } = useContext(Context);
+    const { verticalDisplay, saveFolderLoc } = useContext(Context);
     
     const handleClick = () => {
         if(!openFolder){
@@ -115,7 +115,7 @@ const Folder = (props) => {
 
     const displayDropDown = () => {
         return ( 
-            openFolder && !verticalDisplay? 
+            openFolder && !verticalDisplay ? 
             <FileDropDown
                 name={"drop down"} 
                 files={props.files}
@@ -125,9 +125,14 @@ const Folder = (props) => {
         )
     };
 
+    const trackFolder = (e) => {
+        console.log("tracking...")
+        saveFolderLoc(props.getFolderLoc(e));
+    }
+
     return (  
-        <FolderWrapper name={"folderWrap"}>
-            <FolderInnerWrap ref={folderNode} name={"folderInnerWrap"} onClick={handleClick}>
+        <FolderWrapper name={"folderWrap"} onClick={trackFolder}>
+            <FolderInnerWrap id="innerWrap" ref={folderNode} name={"folderInnerWrap"} onClick={handleClick}>
                 <FolderTab name={"tab"}/>
                 <FolderBack name={"folder back"}/>
                 <Paper name={"paper"} toggle={styledCompProps} />
