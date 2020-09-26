@@ -77,12 +77,12 @@ const PathToFile = (props) => {
 
         return (
             <svg style={{height: `${props.numOfFiles == 1 ? "50px" : "100%"}`, width: "20px"}}>
-                <path d={`M 10 10 V 40 H 20${buildString()}`} fill="transparent" stroke="white" />
+                <path d={`M 10 10 V 40 H 20${buildString()}`} fill="transparent" stroke="rgba(255, 255, 255, .3)" />
             </svg>
         )
     }
 
-    const buildHorizPath = () => {
+    const buildAltPath = () => {
         const length = props.numOfFiles;
 
         return (
@@ -98,7 +98,7 @@ const PathToFile = (props) => {
 
     return (
         <PathWrap name={"PathWrap"}>
-            {verticalDisplay ? buildHorizPath() : buildPath()}
+            {verticalDisplay ? buildAltPath() : buildPath()}
         </PathWrap>
     )
 }

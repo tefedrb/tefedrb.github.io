@@ -12,7 +12,6 @@ const MonitorWrapper = styled.div`
     justify-content: space-between;
     z-index: 1;
 `
-
 const MonitorTop = styled.div`
     position: relative;
     display: flex;

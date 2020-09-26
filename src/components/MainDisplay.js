@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import styled from 'styled-components';
 import File from './File';
 import { Context } from '../context';
-import Project from './Project';
+import Project from './Projects/Project';
 
 const Screen = styled.div`
     display: flex;
@@ -18,8 +18,9 @@ const MainDisplay = () => {
     const context = useContext(Context);
     const { fileOpen } = context;
 
+    console.log(fileOpen, "OPEN FILE")
     const displayProject = () => {
-        return <Project fileName={fileOpen}></Project>
+        return <Project file={fileOpen}></Project>
     }
 
     return (

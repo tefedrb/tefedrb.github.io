@@ -23,7 +23,8 @@ const NavWrapper = styled.nav`
     @media (max-width: 950px){
         flex-direction: row;
         min-width: 95%;
-        min-height: 130px;
+        min-height: 85px;
+        margin-top: 0px
     }
 `  
 const ControlHeader = styled.section`
@@ -47,35 +48,24 @@ const NavigationPanel = (props) => {
         filesFromFolder(files[openFolder]);
     }, [openFolder]);
 
-    const getFolderLoc = (e) => {
-        // find element with 
-        const parentElement = e.target.parentElement;
-        if(parentElement.id === "innerWrap"){
-            const x = parentElement.offsetLeft;
-            const y = parentElement.offsetTop;
-            return [x, y];
-        }
-    }
-
     // create a mobile view
     return (
         <NavWrapper name={"navWrapper"}>
             <Folder
-                getFolderLoc={getFolderLoc}
                 changeOpenFolder={changeOpenFolder} 
                 openFolder={openFolder} 
                 title={"Projects"}
                 files={files["Projects"]}
             />
             <Folder 
-                getFolderLoc={getFolderLoc}
+                
                 changeOpenFolder={changeOpenFolder} 
                 openFolder={openFolder} 
                 title={"About"}
                 files={files["About"]}
             />
             <Folder 
-                getFolderLoc={getFolderLoc}
+                
                 changeOpenFolder={changeOpenFolder} 
                 openFolder={openFolder}
                 title={"Contact"}

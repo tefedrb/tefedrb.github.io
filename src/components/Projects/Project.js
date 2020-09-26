@@ -8,14 +8,16 @@ const Display = styled.div`
     align-items: center;
     width: 90%;
     height: 90%;
-    border: 5px solid blue;
+    align-text: center;
+    // border: 5px solid blue;
 `
 
 const Project = (props) => {
     return (
         <Display>
-            <p>TESTING!</p>
-            <p>{props.fileName}</p>
+            {props.file.data}
+    
+            <p>{props.file.name}</p>
         </Display>
     )
 }

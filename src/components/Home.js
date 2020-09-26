@@ -1,9 +1,7 @@
-import React, { useState, useContext } from 'react';
+import React, { useState } from 'react';
 import MainDisplay from './MainDisplay';
-import NavigationPanel from './NavigationPanel';
 import MobileNavAdapter from './MobileNavAdapter';
 import styled, { keyframes } from 'styled-components';
-import { Context } from '../context';
 import paper from '../imgs/paper.png';
 
 const grain = keyframes` 
@@ -58,7 +56,6 @@ const InnerHome = styled.div`
 // Info needs to go from navigation through MainDisplay
 
 const Home = () => {
-    const { files, projects, fileOpen, globalState } = useContext(Context);
     const [ openFolder, changeFolder ] = useState("About");
     // File information
     // Home will know which file is open - will let MainDisplay know

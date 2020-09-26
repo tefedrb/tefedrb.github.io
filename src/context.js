@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import About from './components/Projects/About';
+import Equipped from './components/Projects/Equipped';
 
 export const Context = React.createContext();
 
@@ -6,11 +8,11 @@ export const Provider = (props) => {
     // Here is our state that the rest of the app will share
     const files = {
         "Projects": [
-            {name:"equipped.js"},
+            {name:"equipped.js", data: <Equipped />},
             {name:"bookshop-crutch.js"}, 
             {name:"movie-db.js"}
         ],
-        "About": [{name:"about.java"}],
+        "About": [{name:"about.java", data: <About />}],
         "Contact": [{name:"contact.js"}]
     }
 
@@ -18,7 +20,7 @@ export const Provider = (props) => {
         folderLoc: [100, 20],
         filesDisplayed: [{name:"about.java"}]
     });
-    
+
     const [ verticalDisplay, updateDisplay ] = useState(false);
     // Below are functions that our app state will hold
     const saveFolderLoc = (loc) => {
@@ -49,7 +51,7 @@ export const Provider = (props) => {
         })
     }
 
-    const [ fileOpen, openFile ] = useState(files["About"][0].name);
+    const [ fileOpen, openFile ] = useState(files["About"][0]);
 
     const projects = {
 

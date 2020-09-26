@@ -25,9 +25,10 @@ const FolderInnerWrap = styled.div`
     &:hover {
         cursor: pointer;
     }
-    // @media (max-height: 810px){
-    //     height: 80px;
-    // }
+    @media (max-width: 950px){
+        height: 65px;
+        width: 55px;
+    }
     // @media (max-height: 695px){
     //     height: 40px;
     // }
@@ -115,17 +116,13 @@ const Folder = (props) => {
         )
     };
 
-    const trackFolder = (e) => {
-        saveFolderLoc(props.getFolderLoc(e));
-    }
-
     return (  
-        <FolderWrapper name={"folderWrap"} onClick={trackFolder}>
+        <FolderWrapper name={"folderWrap"}>
             <FolderInnerWrap id="innerWrap" ref={folderNode} name={"folderInnerWrap"} onClick={handleClick}>
                 <FolderTab name={"tab"}/>
                 <FolderBack name={"folder back"}/>
                 <Paper name={"paper"} toggle={styledCompProps} />
-                <FolderFront name={"folder front"} toggle={styledCompProps}>
+                <FolderFront id="folderFront" name={"folder front"} toggle={styledCompProps}>
                     <Contents>{props.title}</Contents>
                 </FolderFront>
             </FolderInnerWrap>

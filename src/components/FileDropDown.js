@@ -25,7 +25,7 @@ const AllFilesWrap = styled.div`
         align-items: center;
     }
 `
-const FileWrapper = styled.div`
+export const FileWrapper = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -37,15 +37,17 @@ const FileWrapper = styled.div`
     @media (max-width: 950px){
         margin: 0;
         justify-content: center;
+        padding: 2px;
     }
 `
 
-const FileName = styled.p`
+export const FileName = styled.p`
     width: 100%;
     display: flex;
     justify-content: center;
-    margin: 0;
+    margin: 2px;
     white-space: nowrap;
+    font-size: 14px;
     @media (max-width: 950px){
         margin-right: 5px;
         margin-left: 5px;

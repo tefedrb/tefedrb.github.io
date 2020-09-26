@@ -7,7 +7,11 @@ const GraphicWrapper = styled.div`
     width: ${props => props.mini ? "30px" : props.size.width};
     height: ${props => props.mini ? "auto" : "100%"};
     margin-bottom: ${props => parseInt(props.mini ? "35px" : props.size.height) <= 35 ? "0" : "40px"};
-    margin-top: ${props => props.mini ? "0" : "40px"}
+    margin-top: ${props => props.mini ? "0" : "40px"};
+    @media (max-width: 950px){
+       width: ${props => props.mini ? "20px" : props.size.width};
+       margin-bottom: ${props => props.mini ? "0" : "20px"};
+    }
 `
 const GraphicHeadWrapper = styled.div`
     display: flex;
@@ -33,6 +37,9 @@ const GraphicBody = styled.div`
     width: 100%;
     box-shadow: 1px -5px 27px -7px ${props => props.mini ? "transparent" : props.userColor};
     background-color: ${props => props.userColor};
+    @media (max-width: 950px){
+        height: ${props => props.mini ? "20px" : "90%"};
+     }
 `
 const File = (props) => {
     const context = useContext(Context);
@@ -81,8 +88,9 @@ const File = (props) => {
 
     const clickOpen = (e) => {
         e.preventDefault();
+        console.log("clicked")
         if(props.mini){
-            openFile(props.data.name);
+            openFile(props.data);
         }
     }
 
@@ -114,7 +122,7 @@ const File = (props) => {
             <GraphicBody
                 onClick={clickOpen}
                 userColor={changeColor} 
-                name={"FileGraphic"} 
+                name={"GraphicBody"} 
                 size={props.size} 
                 mini={props.mini}
             > 
