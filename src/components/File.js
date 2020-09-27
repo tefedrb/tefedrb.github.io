@@ -6,16 +6,19 @@ import { Context } from '../context';
 const GraphicWrapper = styled.div`
     width: ${props => props.mini ? "30px" : "90%"};
     max-width: 900px;
-    height: ${props => props.mini ? "auto" : "100%"};
+    height: ${props => props.mini ? "auto" : "95%"};
     margin-bottom: ${props => parseInt(props.mini ? "35px" : props.size.height) <= 35 ? "0" : "20px"};
     margin-top: ${props => props.mini ? "0" : "20px"};
     @media (max-width: 950px){
        width: ${props => props.mini ? "20px" : "90%"};
        margin-bottom: ${props => props.mini ? "0" : "10px"};
-       margin-top: ${props => props.mini ? "0" : "30px"};
+       margin-top: ${props => props.mini ? "0" : "25px"};
     }
     @media (max-width: 950px){
         height: ${props => props.mini ? "auto" : "93%"};
+    }
+    @media (max-width: 650px){
+        width: ${props => props.mini ? "18px" : "90%"};
     }
 `
 const GraphicHeadWrapper = styled.div`
@@ -49,6 +52,10 @@ const GraphicBody = styled.div`
     }
     @media(max-height: 885px){
         overflow: auto;
+    }
+    @media(max-width: 650px){
+        font-size: .75em;
+        height: ${props => props.mini ? "15px" : "90%"};
     }
 `
 const File = (props) => {

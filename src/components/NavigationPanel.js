@@ -26,6 +26,10 @@ const NavWrapper = styled.nav`
         min-height: 85px;
         margin-top: 0px
     }
+
+    @media(max-width: 650px){
+        min-height: 45px;
+    }
 `  
 const ControlHeader = styled.section`
     position: absolute;
@@ -57,8 +61,7 @@ const NavigationPanel = (props) => {
                 title={"Projects"}
                 files={files["Projects"]}
             />
-            <Folder 
-                
+            <Folder      
                 changeOpenFolder={changeOpenFolder} 
                 openFolder={openFolder} 
                 title={"About"}

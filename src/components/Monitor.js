@@ -65,6 +65,12 @@ const InnerTop = styled.div`
 const Bumper = styled.div`
     width: 37px;
     height: 10px;
+    @media (max-width: 650px){
+        width: 16px;
+    }
+    // @media (max-width: 650px){
+    //     width: 38px;
+    // }
 `
 const MonitorBottom = styled.div`
     display: flex;
@@ -102,7 +108,11 @@ const InnerBottom = styled.div`
 const Logo = styled.p`
     font-family: 'Diplomata', cursive;
     color: #755D4F;
-    margin-top: 0;
+    margin-top: 0px;
+    @media (max-height: 825px){
+        margin-bottom: 11px;
+        margin-top: 6px;
+    }
 `
 const InnerMonitor = styled.div`
     z-index: 1;
@@ -119,6 +129,9 @@ const MonitorRight = styled.div`
     width: 45px;
     height: 100%;
     box-shadow: -9px 0px 8px -8px black;
+    @media (max-width: 650px){
+        width: 25px;
+    }
 `
 const InnerRight = styled.div`
     height: 100%;
@@ -131,13 +144,9 @@ const InnerRight = styled.div`
         border-bottom: 2px solid transparent;
     }
 `
-const MonitorLeft = styled.div`
-    display: flex;
+const MonitorLeft = styled(MonitorRight)`
     justify-content: flex-end;
-    z-index: 1;
     background: linear-gradient(to right, rgb(227,219,188), rgb(227,219,188));
-    width: 45px;
-    height: 100%;
     box-shadow: 10px 0px 8px -8px black;
 `
 const InnerLeft = styled.div`
@@ -167,11 +176,11 @@ const Monitor = () => {
                     <Bumper name={"Left Bumper"}/>
                 </TopWrap>
             </MonitorTop>
-            <InnerMonitor>
-                <MonitorLeft>
+            <InnerMonitor name={"Inner Monitor"}>
+                <MonitorLeft name={"Monitor Left"}>
                     <InnerLeft name={"Inner Left"}/>
                 </MonitorLeft>   
-                <MonitorRight>
+                <MonitorRight name={"Monitor Right"}>
                     <InnerRight name={"Inner Right"}/>
                 </MonitorRight>
             </InnerMonitor>

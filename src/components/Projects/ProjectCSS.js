@@ -1,14 +1,14 @@
 import styled from 'styled-components';
 
 export const TextWrap = styled.div`
-    max-width: 600px;
+    max-width: 780px;
     margin: 0 auto;
     @media(max-height: 825px){
         margin: 0 auto;
     }
 `
 export const Text = styled.p`
-    font-size: 1.5em;
+    font-size: 1.4em;
     text-align: center;
 `
 export const DisplayWrap = styled.div`

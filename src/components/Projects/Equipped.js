@@ -6,6 +6,8 @@ import { TextWrap, Text } from './ProjectCSS';
 const EquippedUI = styled.img`
     height: auto;
     width: 100%;
+    margin: 0 auto;
+    max-width: 620px;
     display: block;
 `
 const Equipped = () => {

@@ -16,6 +16,7 @@ const MobileFilePopUp = styled.div`
         align-items: center;
         justify-content: space-around;
         color: white;
+        // transform: translateY(-6px);
     }
 `
 const MobileNavAdapter = (props) => {
