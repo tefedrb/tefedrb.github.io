@@ -73,7 +73,7 @@ const Folder = (props) => {
     const [ openFolder, toggleState ] = useState(false);
     const [ styledCompProps, changeStyledProps ] = useState();
     const folderNode = useRef(null);
-    const { verticalDisplay, saveFolderLoc } = useContext(Context);
+    const { verticalDisplay } = useContext(Context);
     
     const handleClick = () => {
         if(!openFolder){

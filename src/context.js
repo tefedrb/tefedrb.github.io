@@ -12,7 +12,7 @@ export const Provider = (props) => {
             {name:"bookshop-crutch.js"}, 
             {name:"movie-db.js"}
         ],
-        "About": [{name:"about.java", data: <About />}],
+        "About": [{name:"about.java", data: <About />, flexbox: true}],
         "Contact": [{name:"contact.js"}]
     }
 

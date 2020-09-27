@@ -53,7 +53,6 @@ export const FileName = styled.p`
         margin-left: 5px;
     }
 `
-
 // Instead of using media queries, we can use the event listener info to switch
 // from the vertical version of our nav to the horizontal version.
 const FileDropDown = (props) => {

@@ -15,10 +15,8 @@ const Screen = styled.div`
 `
 
 const MainDisplay = () => {
-    const context = useContext(Context);
-    const { fileOpen } = context;
+    const { fileOpen } = useContext(Context);
 
-    console.log(fileOpen, "OPEN FILE")
     const displayProject = () => {
         return <Project file={fileOpen}></Project>
     }

@@ -24,6 +24,9 @@ const MonitorTop = styled.div`
     background: linear-gradient(to right, rgb(227,219,188), rgb(227,219,188));
     color: black;
     box-shadow: 15px 9px 5px -5px black;
+    @media (max-height: 825px){
+       height: 45px;
+    }
 `
 const MonitorInfo = styled.div`
     display: flex;
@@ -37,15 +40,18 @@ const MonitorVersion = styled.p`
     margin-right: 50px;
     margin-top: 24px;
     margin-bottom: 10px;
+    @media (max-height: 825px){
+        margin-top: 12px;
+        margin-bottom: 2px;
+     }
 `
-const MonitorName = styled.p`
+const MonitorName = styled(MonitorVersion)`
     margin-left: 50px;
-    margin-top: 24px;
-    margin-bottom: 10px;
+    margin-right: 0px;
 `
 const TopWrap = styled.div`
     display: flex;
-    z-index: 0;
+    // z-index: 0;
     width: 100vw;
 `
 const InnerTop = styled.div`
@@ -68,12 +74,18 @@ const MonitorBottom = styled.div`
     background: linear-gradient(to right, rgb(227,219,188), rgb(227,219,188));
     box-shadow: 15px 9px 5px 12px black;
     height: 65px;
+    @media (max-height: 825px){
+        height: 35px;
+    }
 `
 const BottomWrap = styled.div`
     display: flex;
     z-index: 0;
     width: 100vw;
     height: 100%;
+    @media (max-height: 825px){
+        z-index: 1;
+    }
 `
 const InnerBottom = styled.div` 
     align-self: flex-start;
@@ -83,8 +95,10 @@ const InnerBottom = styled.div`
     border-bottom: 10px solid rgb(267,259,228);
     border-right: 10px solid transparent;
     box-sizing: border-box;
+    @media (max-height: 825px){
+        border-bottom: 8px solid rgb(267,259,228);
+    }
 `
-
 const Logo = styled.p`
     font-family: 'Diplomata', cursive;
     color: #755D4F;
@@ -113,6 +127,9 @@ const InnerRight = styled.div`
     border-right: 10px solid rgb(177,169,138);
     transform: translate(0px, -10px);
     border-bottom: 10px solid transparent;
+    @media (max-height: 825px){
+        border-bottom: 2px solid transparent;
+    }
 `
 const MonitorLeft = styled.div`
     display: flex;
@@ -131,6 +148,9 @@ const InnerLeft = styled.div`
     border-left: 10px solid rgb(177,169,138);;
     border-bottom: 10px solid transparent;
     transform: translate(0px, -10px);
+    @media (max-height: 825px){
+        border-bottom: 2px solid transparent;
+    }
 `
 
 const Monitor = () => {

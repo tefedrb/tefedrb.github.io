@@ -50,9 +50,13 @@ const InnerHome = styled.div`
     @media (max-width: 950px){
         flex-direction: column-reverse;
     }
+
+    @media (max-height: 825px){
+        height: 35px;
+        height: calc(100vh - 54px);
+    }
+
 `
-
-
 // Info needs to go from navigation through MainDisplay
 
 const Home = () => {
