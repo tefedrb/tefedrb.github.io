@@ -2,7 +2,6 @@ import React, { useContext } from 'react';
 import MiniFile from './File/MiniFile';
 import styled from 'styled-components';
 import PathToFile from './svgs/PathToFile';
-import { Context } from '../context';
 import { Link } from 'react-router-dom';
 
 const FileDropDownWrap = styled.div`
@@ -51,14 +50,14 @@ export const FileName = styled.p`
 // Instead of using media queries, we can use the event listener info to switch
 // from the vertical version of our nav to the horizontal version.
 const FileDropDown = (props) => {
-    const { globalState } = useContext(Context);
-
     const files = props?.files.map((fileData, key) => (
             <FileWrapper name={"fileWrapper"} key={key}>
+                <Link to={`/${fileData.link}`}>
                     <MiniFile 
                         data={fileData}
                         mini={true}
                     />
+                </Link>
                 <FileName>{fileData.name}</FileName>
             </FileWrapper>
         )

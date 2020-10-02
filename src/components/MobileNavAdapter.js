@@ -4,6 +4,8 @@ import NavigationPanel from './NavigationPanel';
 import MiniFile from './File/MiniFile';
 import { Context } from '../context';
 import { FileName, FileWrapper } from './FileDropDown';
+import { Link } from 'react-router-dom';
+
 
 const MobileFilePopUp = styled.div`
     display: none;
@@ -27,10 +29,12 @@ const MobileNavAdapter = (props) => {
     const files = () => {
         return filesDisplayed.map((file, key) => (
            <FileWrapper name={"FileWrap"} key={key}>
-                <MiniFile 
-                    data={file}
-                    mini={true}
-                />
+               <Link to={`/${file.link}`}>
+                    <MiniFile 
+                        data={file}
+                        mini={true}
+                    />
+                </Link>
                 <FileName>{file.name}</FileName>
             </FileWrapper>
         ))

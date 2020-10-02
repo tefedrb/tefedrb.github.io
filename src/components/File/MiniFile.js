@@ -4,14 +4,6 @@ import { GraphicWrapper, GraphicHeadWrapper, GraphicHead, GraphicFold, GraphicBo
 
 const MiniFile = (props) => {
 
-    const clickOpen = (e) => {
-        e.preventDefault();
-        console.log("clicked")
-        if(props.mini){
-            openFile(props.data);
-        }
-    }
-
     return (
         <GraphicWrapper 
             name={"file GraphicWrapper"} 
@@ -27,8 +19,6 @@ const MiniFile = (props) => {
                     mini={props.mini}
                     name={"head"}
                 >
-                    {props.source}
-                    {props.live}
                 </GraphicHead>
                 <GraphicFold 
                     name={"flap"}
@@ -37,14 +27,12 @@ const MiniFile = (props) => {
                 />
             </GraphicHeadWrapper>
             <GraphicBody
-                onClick={clickOpen}
                 name={"GraphicBody"} 
                 size={props.size} 
                 mini={props.mini}
             > 
-                {props.content}
             </GraphicBody>
-        </GraphicWrapper>
+        </GraphicWrapper>  
     )
 }
 

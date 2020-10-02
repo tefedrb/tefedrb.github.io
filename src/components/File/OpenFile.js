@@ -1,12 +1,26 @@
 import React, { useContext, useState, useRef, useEffect } from 'react';
 import { Context } from '../../context';
 import useViewportListener from '../hooks/useViewportListener';
+import Project from '../Projects/Project';
+import Equipped from '../Projects/Equipped';
+import Bookshop from '../Projects/Bookshop'
+import About from '../Projects/About';
+import { ProjLink } from '../Projects/ProjectCSS';
+
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Link,
+    useRouteMatch,
+    useParams
+  } from "react-router-dom";
 
 import { GraphicWrapper, GraphicHeadWrapper, GraphicHead, GraphicFold, GraphicBody }
     from './FileCss';
 
 const OpenFile = (props) => {
-    const { openFile, updateDisplay, verticalDisplay, updateViewport } = useContext(Context);
+    const { updateDisplay, verticalDisplay, updateViewport, files } = useContext(Context);
     const [ loaded, confirmLoaded ] = useState(false);
     const [ contentLoaded, saveContent ] = useState("");
        // Might want to consider inserting an if/else statement to avoid running
@@ -52,8 +66,16 @@ const OpenFile = (props) => {
                 <GraphicHead 
                     name={"head"}
                 >
-                    {props.source}
-                    {props.live}
+                    <Switch>
+                        <Route path="/Bookshop-Crutch">
+                            <ProjLink marginL={true}>[ View Source ]</ProjLink>
+                            <ProjLink marginL={true}>[ View Live ]</ProjLink>
+                        </Route>
+                        <Route path="/Equipped">
+                            <ProjLink marginL={true}>[ View Source ]</ProjLink>
+                            <ProjLink marginL={true}>[ View Live ]</ProjLink>
+                        </Route>
+                    </Switch>
                 </GraphicHead>
                 <GraphicFold 
                     name={"flap"}
@@ -65,7 +87,18 @@ const OpenFile = (props) => {
                 name={"GraphicBody"} 
                 size={props.size} 
             > 
-                {props.content}
+                <Switch>
+                    <Route path="/About">
+                        <Project flexbox={true} component={<About/>}/>
+                    </Route>
+                    <Route path="/Bookshop-Crutch">
+                        <Project component={<Bookshop/>}/>
+                    </Route>
+                    <Route path="/Equipped">
+                        <Project component={<Equipped/>}/>
+                    </Route>
+                </Switch>
+
             </GraphicBody>
         </GraphicWrapper>
     )

@@ -1,10 +1,7 @@
 import React, { useContext } from 'react';
 import styled from 'styled-components';
-import MiniFile from './File/MiniFile';
 import OpenFile from './File/OpenFile';
 import { Context } from '../context';
-import Project from './Projects/Project';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
 const Screen = styled.div`
     display: flex;
@@ -17,11 +14,7 @@ const Screen = styled.div`
 `
 
 const MainDisplay = () => {
-    const { fileOpen, files } = useContext(Context);
-
-    const displayProject = () => {
-        return <Project file={fileOpen}></Project>
-    }
+    const { fileOpen } = useContext(Context);
 
     return (
         <Screen name={"screen"}>
@@ -29,9 +22,6 @@ const MainDisplay = () => {
                 color={"green"} 
                 name={"file"}
                 size={{width: "63%", height: "100%"}}
-                content={displayProject()}
-                source={fileOpen?.source}
-                live={fileOpen?.live}
             />
         </Screen>
     )

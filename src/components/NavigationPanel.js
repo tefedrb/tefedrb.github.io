@@ -2,6 +2,8 @@ import React, { useState, useEffect, useContext } from 'react';
 import Folder from './Folder';
 import styled from 'styled-components';
 import { Context } from '../context';
+import { BrowserRouter as Router, 
+    Switch, Route, Link } from 'react-router-dom';
 
 const NavWrapper = styled.nav`
     pointer-events: auto;
@@ -47,7 +49,7 @@ const NavigationPanel = (props) => {
 
     // create a mobile view
     return (
-        <NavWrapper name={"navWrapper"}>
+        <NavWrapper name={"navWrapper"}> 
             <Folder
                 changeOpenFolder={changeOpenFolder} 
                 openFolder={openFolder} 

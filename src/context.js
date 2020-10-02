@@ -11,30 +11,26 @@ export const Provider = (props) => {
     const files = {
         "Projects": [
             {
-                name:"equipped.js", 
-                data: <Equipped />, 
-                source: <ProjLink offset={true}>[ View Source ]</ProjLink>,
-                live: <ProjLink offset={true}>[ View Live ]</ProjLink>
+                link: "Equipped",
+                name: "equipped.js"
             },
             {
-                name:"bookshop-crutch.js", 
-                data: <Bookshop />, 
-                source: <ProjLink offset={true}>[ View Source ]</ProjLink>,
-                live: <ProjLink offset={true}>[ View Live ]</ProjLink>
+                link: "Bookshop-Crutch",
+                name: "bookshop-crutch.js" 
             }, 
             {
-                name:"movie-db.js"
+                name: "movie-db.js"
             }
         ],
         "About": [
-            {
-                name:"about.java", 
-                data: <About />, 
-                flexbox: true
+            {   
+                link: "About",
+                name: "about.java"
             }],
         "Contact": [
-            {
-                name:"contact.js"
+            {   
+                link: "Contact",
+                name: "contact.js"
             }
         ]
     }
@@ -74,18 +70,14 @@ export const Provider = (props) => {
         })
     }
 
-    const [ fileOpen, openFile ] = useState(files["About"][0]);
-
     return (
         <Context.Provider 
             value={{ 
-                globalState,
-                fileOpen, 
+                globalState, 
                 files,
                 verticalDisplay,
                 updateViewport,
                 updateDisplay,
-                openFile,
                 saveFolderLoc,
                 filesFromFolder
              }}

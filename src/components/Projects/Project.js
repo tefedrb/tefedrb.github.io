@@ -26,9 +26,9 @@ const Display = styled.div`
 `
 const Project = (props) => {
     return (
-        <Display flexbox={props.file.flexbox} name={"display project"}>
-            <p style={{textAlign: "center"}}>{props.file.name}</p>
-            {props.file.data}
+        <Display flexbox={props.flexbox} name={"display project"}>
+            {/* <p style={{textAlign: "center"}}>{props.name}</p> */}
+            {props.component}
         </Display>
     )
 }
