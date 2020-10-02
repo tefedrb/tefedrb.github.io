@@ -35,9 +35,6 @@ const FolderInnerWrap = styled.div`
         color: green;
         font-size: 1em;
     }
-    // @media (max-height: 695px){
-    //     height: 40px;
-    // }
 `
 const FolderTab = styled.div`
     height: 10%;

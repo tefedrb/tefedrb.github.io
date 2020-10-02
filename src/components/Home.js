@@ -65,9 +65,6 @@ const InnerHome = styled.div`
 
 const Home = () => {
     const [ openFolder, changeFolder ] = useState("About");
-    // File information
-    // Home will know which file is open - will let MainDisplay know
-    // Create mobile option
 
     return (
         <HomeWrapper name={"home wrapper"}>

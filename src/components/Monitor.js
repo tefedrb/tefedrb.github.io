@@ -51,7 +51,6 @@ const MonitorName = styled(MonitorVersion)`
 `
 const TopWrap = styled.div`
     display: flex;
-    // z-index: 0;
     width: 100vw;
 `
 const InnerTop = styled.div`
@@ -68,9 +67,6 @@ const Bumper = styled.div`
     @media (max-width: 650px){
         width: 16px;
     }
-    // @media (max-width: 650px){
-    //     width: 38px;
-    // }
 `
 const MonitorBottom = styled.div`
     display: flex;

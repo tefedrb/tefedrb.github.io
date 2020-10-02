@@ -31,13 +31,6 @@ const NavWrapper = styled.nav`
         min-height: 45px;
     }
 `  
-const ControlHeader = styled.section`
-    position: absolute;
-    top: 0;
-    height: 25px;
-    width: 100%;
-    background: blue;
-`
 // The folder will hold it's own files, and will inform the NavigationPanel
 // that it's open or closed.
 

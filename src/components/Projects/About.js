@@ -11,8 +11,8 @@ const About = () => {
             </Text>
             <Text>
             I've worn the hat of a developer, filmmaker, photographer, customer service representative 
-            & teacher. In every role, I've always had an incessant drive to create things that those around me can enjoy and/or 
-            benefit from.
+            & teacher. Although the context varies, the essence of what drives me has been the same: 
+            an incessant drive to create things that others can enjoy and/or benefit from.
             </Text>
             <Text>
             I am currently volunteering with Code Nation and working at Nebula Academy as an Associate Teacher & Software Engineer,

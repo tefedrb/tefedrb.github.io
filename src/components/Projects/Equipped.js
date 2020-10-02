@@ -1,19 +1,11 @@
 import React from 'react';
-import styled from 'styled-components';
 import equipmentImg from '../../imgs/Equipped_Equipment.png';
-import { TextWrap, Text } from './ProjectCSS';
+import { TextWrap, Text, AppUI } from './ProjectCSS';
 
-const EquippedUI = styled.img`
-    height: auto;
-    width: 100%;
-    margin: 0 auto;
-    max-width: 620px;
-    display: block;
-`
 const Equipped = () => {
     return (
         <>
-            <EquippedUI src={equipmentImg} />
+            <AppUI src={equipmentImg} />
             <TextWrap>
                 <Text>
                     Equipped is a video & photography equipment management application, 

@@ -12,8 +12,4 @@ const App = () => (
     </Provider>
 );
 
-// App.propTypes = {
-//     message: PropTypes.string
-// };
-
 export default hot(module)(App);

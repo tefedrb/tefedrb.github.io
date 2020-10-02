@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import styled from 'styled-components';
 import NavigationPanel from './NavigationPanel';
-import File from './File';
+import MiniFile from './File/MiniFile';
 import { Context } from '../context';
 import { FileName, FileWrapper } from './FileDropDown';
 
@@ -27,7 +27,7 @@ const MobileNavAdapter = (props) => {
     const files = () => {
         return filesDisplayed.map((file, key) => (
            <FileWrapper name={"FileWrap"} key={key}>
-                <File 
+                <MiniFile 
                     data={file}
                     mini={true}
                 />

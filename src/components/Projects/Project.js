@@ -25,8 +25,6 @@ const Display = styled.div`
     }
 `
 const Project = (props) => {
-    // const displayEl = useRef(452);
-    console.log(props.file.flexbox, "FLEX")
     return (
         <Display flexbox={props.file.flexbox} name={"display project"}>
             <p style={{textAlign: "center"}}>{props.file.name}</p>

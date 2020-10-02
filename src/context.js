@@ -1,19 +1,42 @@
 import React, { useState } from 'react';
 import About from './components/Projects/About';
 import Equipped from './components/Projects/Equipped';
+import Bookshop from './components/Projects/Bookshop';
+import { ProjLink } from './components/Projects/ProjectCSS';
 
 export const Context = React.createContext();
 
 export const Provider = (props) => {
-    // Here is our state that the rest of the app will share
+    // Here is our state that the rest of the app will share..
     const files = {
         "Projects": [
-            {name:"equipped.js", data: <Equipped />},
-            {name:"bookshop-crutch.js"}, 
-            {name:"movie-db.js"}
+            {
+                name:"equipped.js", 
+                data: <Equipped />, 
+                source: <ProjLink offset={true}>[ View Source ]</ProjLink>,
+                live: <ProjLink offset={true}>[ View Live ]</ProjLink>
+            },
+            {
+                name:"bookshop-crutch.js", 
+                data: <Bookshop />, 
+                source: <ProjLink offset={true}>[ View Source ]</ProjLink>,
+                live: <ProjLink offset={true}>[ View Live ]</ProjLink>
+            }, 
+            {
+                name:"movie-db.js"
+            }
         ],
-        "About": [{name:"about.java", data: <About />, flexbox: true}],
-        "Contact": [{name:"contact.js"}]
+        "About": [
+            {
+                name:"about.java", 
+                data: <About />, 
+                flexbox: true
+            }],
+        "Contact": [
+            {
+                name:"contact.js"
+            }
+        ]
     }
 
     const [ globalState, setGlobalState ] = useState({
@@ -53,17 +76,12 @@ export const Provider = (props) => {
 
     const [ fileOpen, openFile ] = useState(files["About"][0]);
 
-    const projects = {
-
-    }
-
     return (
         <Context.Provider 
             value={{ 
                 globalState,
                 fileOpen, 
                 files,
-                projects,
                 verticalDisplay,
                 updateViewport,
                 updateDisplay,

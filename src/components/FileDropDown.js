@@ -1,19 +1,14 @@
 import React, { useContext } from 'react';
-import File from './File';
+import MiniFile from './File/MiniFile';
 import styled from 'styled-components';
 import PathToFile from './svgs/PathToFile';
 import { Context } from '../context';
+import { Link } from 'react-router-dom';
 
 const FileDropDownWrap = styled.div`
     display: flex;
     height: 100%;
     width: 50%;
-    @media (max-width: 950px){
-        flex-direction: column;
-        justify-content: center;
-        // background-color: rgba(79, 79, 79, 0.73);
-        background-color: blue;
-    }
 `
 const AllFilesWrap = styled.div`
     display: flex;
@@ -60,10 +55,10 @@ const FileDropDown = (props) => {
 
     const files = props?.files.map((fileData, key) => (
             <FileWrapper name={"fileWrapper"} key={key}>
-                <File 
-                    data={fileData}
-                    mini={true}
-                />
+                    <MiniFile 
+                        data={fileData}
+                        mini={true}
+                    />
                 <FileName>{fileData.name}</FileName>
             </FileWrapper>
         )
@@ -71,13 +66,13 @@ const FileDropDown = (props) => {
 
     return (
         <FileDropDownWrap name={"fileDropDown"}>
-            {props.display ? <PathToFile numOfFiles={props?.files.length}/> : ""}
-            <AllFilesWrap 
-                numOfFiles={props?.files.length} 
-                name={"AllFilesWrap"}
-            >
-                {props.display ? files : ""}
-            </AllFilesWrap>
+                {props.display ? <PathToFile numOfFiles={props?.files.length}/> : ""}
+                <AllFilesWrap 
+                    numOfFiles={props?.files.length} 
+                    name={"AllFilesWrap"}
+                >
+                    {props.display ? files : ""}
+                </AllFilesWrap>
         </FileDropDownWrap>
     )
 }
