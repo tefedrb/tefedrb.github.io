@@ -5,6 +5,7 @@ import Project from '../Projects/Project';
 import Equipped from '../Projects/Equipped';
 import Bookshop from '../Projects/Bookshop'
 import About from '../Projects/About';
+import Contact from '../Projects/Contact';
 import { ProjLink } from '../Projects/ProjectCSS';
 
 import {
@@ -97,8 +98,13 @@ const OpenFile = (props) => {
                     <Route path="/Equipped">
                         <Project component={<Equipped/>}/>
                     </Route>
+                    <Route path="/Contact">
+                        <Project flexbox={true} component={<Contact/>}/>
+                    </Route>
+                    <Route path="/">
+                        <Project flexbox={true} component={<About/>}/>
+                    </Route>
                 </Switch>
-
             </GraphicBody>
         </GraphicWrapper>
     )

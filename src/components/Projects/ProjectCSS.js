@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const TextWrap = styled.div`
-    max-width: 780px;
+    max-width: 650px;
     margin: 0 auto;
     @media(max-height: 825px){
         margin: 0 auto;
@@ -37,4 +37,5 @@ export const AppUI = styled.img`
     margin: 0 auto;
     max-width: 715px;
     display: block;
+    box-shadow: 1px 1px 16px -3px rgba(0,0,0,1);
 `

@@ -4,6 +4,8 @@ import { TextWrap, Text } from './ProjectCSS';
 const About = () => {
     return (
         <TextWrap name={"textWrap"}>
+            <Text>about.java</Text>
+            <Text>Tefé Del Rosario-Bell</Text>
             <Text>
             I've found myself in the world of performing arts since I was young, 
             and in front of a computer since I was younger. I've always had an affinity for problem-solving and creativity,
@@ -16,7 +18,7 @@ const About = () => {
             </Text>
             <Text>
             I am currently volunteering with Code Nation and working at Nebula Academy as an Associate Teacher & Software Engineer,
-            where I am hoping I can make an impact teaching Software Engineering and Web Development to 
+            where I am hoping I can make an impact teaching Software Engineering to 
             students who are from underrepresented & underserved populations, like myself, to get ready for a career in tech.
             </Text>
         </TextWrap> 

@@ -63,7 +63,6 @@ const NavigationPanel = (props) => {
                 files={files["About"]}
             />
             <Folder 
-                
                 changeOpenFolder={changeOpenFolder} 
                 openFolder={openFolder}
                 title={"Contact"}

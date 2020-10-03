@@ -6,7 +6,6 @@ import { Context } from '../context';
 import { FileName, FileWrapper } from './FileDropDown';
 import { Link } from 'react-router-dom';
 
-
 const MobileFilePopUp = styled.div`
     display: none;
     @media (max-width: 950px){

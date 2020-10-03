@@ -3,14 +3,7 @@ import MainDisplay from './MainDisplay';
 import MobileNavAdapter from './MobileNavAdapter';
 import styled, { keyframes } from 'styled-components';
 import paper from '../imgs/paper.png';
-import {
-    BrowserRouter as Router,
-    Switch,
-    Route,
-    Link,
-    useRouteMatch,
-    useParams
-  } from "react-router-dom";
+import { BrowserRouter as Router } from "react-router-dom";
 
 const grain = keyframes` 
     0%, 100% { transform:translate(0, 0) }

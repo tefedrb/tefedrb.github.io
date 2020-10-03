@@ -1,8 +1,6 @@
 import React, { useContext } from 'react';
 import styled from 'styled-components';
 import OpenFile from './File/OpenFile';
-import { Context } from '../context';
-
 const Screen = styled.div`
     display: flex;
     flex-direction: column;
@@ -14,8 +12,6 @@ const Screen = styled.div`
 `
 
 const MainDisplay = () => {
-    const { fileOpen } = useContext(Context);
-
     return (
         <Screen name={"screen"}>
             <OpenFile

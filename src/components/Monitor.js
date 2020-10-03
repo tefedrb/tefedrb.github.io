@@ -34,7 +34,7 @@ const MonitorInfo = styled.div`
     justify-content: space-between;
     font-family: 'Open Sans', sans-serif;
     color: #755D4F;
-    font-size: 13px;
+    font-size: 14px;
 `
 const MonitorVersion = styled.p`
     margin-right: 50px;

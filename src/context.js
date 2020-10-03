@@ -1,8 +1,4 @@
 import React, { useState } from 'react';
-import About from './components/Projects/About';
-import Equipped from './components/Projects/Equipped';
-import Bookshop from './components/Projects/Bookshop';
-import { ProjLink } from './components/Projects/ProjectCSS';
 
 export const Context = React.createContext();
 
