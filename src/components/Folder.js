@@ -40,7 +40,6 @@ const FolderInnerWrap = styled.div`
         width: 27px;
         color: green;
         font-size: 1em;
-        background-color: blue;
     }
 
 `

@@ -31,7 +31,7 @@ const InnerHome = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    height: calc(100vh - 118px);
+    height: calc(100% - 118px);
     width: calc(100% - 90px);
     margin: 0;
     background-color: black;
