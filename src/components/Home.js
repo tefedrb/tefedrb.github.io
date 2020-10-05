@@ -55,11 +55,13 @@ const InnerHome = styled.div`
 
     @media (max-height: 825px){
         height: 35px;
-        height: calc(100% - 80px);
+        // height: calc(100% - 80px);
+        height: calc(100% - 3.2em);
     }
 
     @media (max-width: 650px){
-        width: calc(100% - 45px); 
+        // width: calc(100% - 45px); 
+        width: calc(100% - 3.2em); 
     }
 
     @media (max-width: 305px), (max-height: 455px){
