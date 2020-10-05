@@ -4,13 +4,16 @@ import { Context } from '../../context';
 import { getViewportXY } from '../helperFunctions/helperFunctions';
 
 const PathWrap = styled.div`
-  
+    @media(max-height: 700px){
+        display: none;
+    }
 `
 
 const Lines = styled.svg`
     height: 100vh;
     width: 100vw;
     position: absolute;
+    
 `
 
 // I can get the height and width of the window to adjust the size of the svg
@@ -77,10 +80,15 @@ const PathToFile = (props) => {
 
         return (
             <svg style={{height: `${props.numOfFiles == 1 ? "50px" : "100%"}`, width: "20px"}}>
-                <path d={`M 10 10 V 40 H 20${buildString()}`} fill="transparent" stroke="rgba(255, 255, 255, .3)" />
+                <path 
+                    d={`M 10 10 V 40 H 20${buildString()}`} 
+                    fill="transparent" 
+                    stroke="rgba(255, 255, 255, .3)" 
+                />
             </svg>
         )
     }
+    
 
     const buildAltPath = () => {
         const length = props.numOfFiles;

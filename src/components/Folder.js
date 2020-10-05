@@ -25,16 +25,24 @@ const FolderInnerWrap = styled.div`
     &:hover {
         cursor: pointer;
     }
-    @media (max-width: 950px){
+    @media screen and (max-width: 950px), screen and (max-height: 700px){
         height: 65px;
         width: 55px;
     }
+
+    @media (max-height: 590px){
+        height: 55px;
+        width: 45px;
+    }
+
     @media (max-width: 650px){
         height: 30px;
         width: 27px;
         color: green;
         font-size: 1em;
+        background-color: blue;
     }
+
 `
 const FolderTab = styled.div`
     height: 10%;

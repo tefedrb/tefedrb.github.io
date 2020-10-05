@@ -1,27 +1,29 @@
 import React, { useContext, useState, useRef, useEffect } from 'react';
 import { Context } from '../../context';
 import useViewportListener from '../hooks/useViewportListener';
-import Project from '../Projects/Project';
-import Equipped from '../Projects/Equipped';
-import Bookshop from '../Projects/Bookshop'
-import About from '../Projects/About';
-import Contact from '../Projects/Contact';
-import { ProjLink } from '../Projects/ProjectCSS';
-
+import Project from '../FolderContents/Project';
+import Equipped from '../FolderContents/Equipped';
+import Bookshop from '../FolderContents/Bookshop'
+import About from '../FolderContents/About';
+import Contact from '../FolderContents/Contact';
+import { ProjLink } from '../FolderContents/ProjectCSS';
+import styled from 'styled-components';
 import {
-    BrowserRouter as Router,
     Switch,
     Route,
-    Link,
-    useRouteMatch,
-    useParams
   } from "react-router-dom";
 
 import { GraphicWrapper, GraphicHeadWrapper, GraphicHead, GraphicFold, GraphicBody }
     from './FileCss';
 
+const LinkWrap = styled.div`
+  display: flex;
+  justify-content: center;
+  margin-left: 75px;
+`
+
 const OpenFile = (props) => {
-    const { updateDisplay, verticalDisplay, updateViewport, files } = useContext(Context);
+    const { updateDisplay, verticalDisplay, updateViewport, updateBlueScreen, blueScreen, files } = useContext(Context);
     const [ loaded, confirmLoaded ] = useState(false);
     const [ contentLoaded, saveContent ] = useState("");
        // Might want to consider inserting an if/else statement to avoid running
@@ -46,6 +48,11 @@ const OpenFile = (props) => {
             updateDisplay(true);
             updateViewport(viewport);
         }
+        // here I can use logic to give a blue screen.
+        if(viewport?.[0] <= 305 && !blueScreen){
+            // activate blue screen
+            updateBlueScreen(true);
+        }
         if(contentLoaded !== props?.content?.props?.file?.name){
             saveContent(props?.content?.props?.file?.name);
         }
@@ -67,16 +74,18 @@ const OpenFile = (props) => {
                 <GraphicHead 
                     name={"head"}
                 >
-                    <Switch>
-                        <Route path="/Bookshop-Crutch">
-                            <ProjLink marginL={true}>[ View Source ]</ProjLink>
-                            <ProjLink marginL={true}>[ View Live ]</ProjLink>
-                        </Route>
-                        <Route path="/Equipped">
-                            <ProjLink marginL={true}>[ View Source ]</ProjLink>
-                            <ProjLink marginL={true}>[ View Live ]</ProjLink>
-                        </Route>
-                    </Switch>
+                    <LinkWrap>
+                        <Switch>
+                            <Route path="/Bookshop-Crutch">
+                                <ProjLink >[ View Source ]</ProjLink>
+                                <ProjLink >[ View Live ]</ProjLink>
+                            </Route>
+                            <Route path="/Equipped">
+                                <ProjLink >[ View Source ]</ProjLink>
+                                <ProjLink >[ View Live ]</ProjLink>
+                            </Route>
+                        </Switch>
+                    </LinkWrap>
                 </GraphicHead>
                 <GraphicFold 
                     name={"flap"}

@@ -21,7 +21,6 @@ export const ProjNav = styled.div`
     height: auto;
 `
 export const ProjLink = styled.a`
-    margin-left: ${props => props.marginL ? "75px" : "0"};
     // background-color: rgba(216,212,79,1);
     background-color: transparent;
     // box-shadow: 1px -5px 16px -7px rgba(216,212,79,1);

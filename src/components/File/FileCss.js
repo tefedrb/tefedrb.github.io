@@ -47,7 +47,7 @@ export const GraphicBody = styled.div`
     width: 100%;
     box-shadow: 1px -5px 27px -7px ${props => props.mini ? "transparent" : "rgba(42, 160, 42, 1)"};
     background-color: ${props => props.mini ? "rgba(255, 255, 255, 0.83)" : "rgba(42, 160, 42, 1)"};
-    @media (max-width: 950px){
+    @media (max-width: 950px), (max-height: 700px){
         height: ${props => props.mini ? "20px" : "90%"};
     }
     @media(max-height: 885px){

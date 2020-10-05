@@ -1,12 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
-import { AppUI } from './ProjectCSS';
 
 const ContactOuterWrap = styled.div`
     border: 2px solid black;
     height: 70%;
     width: 70%;
     margin: auto;
+    text-align: center;
 `
 const ContactInnerWrap = styled.div`
     display: grid;
@@ -37,27 +37,27 @@ const WindowTop = styled.div`
     padding: 0;
 `
 
-
 const Contact = () => {
     return (
         <ContactOuterWrap>
             <WindowTop />
+            contact.js
             <ContactInnerWrap>
                 <ContactDiv>
-                    <Icon src="https://img.icons8.com/ios-filled/50/000000/github.png"/>
-                    https://github.com/tefedrb
+                    <Icon src="src/imgs/icons/github.png"/>
+                    <a src="https://github.com/tefedrb">GitHub</a>
                 </ContactDiv>
                 <ContactDiv>
-                    <Icon src="https://img.icons8.com/ios-filled/50/000000/linkedin.png"/>
-                    https://www.linkedin.com/in/tefedrb/
+                    <Icon src="src/imgs/icons/linkedin.png"/>
+                    <a src="https://www.linkedin.com/in/tefedrb/">LinkedIn</a>  
                 </ContactDiv>
                 <ContactDiv>
-                    <Icon src="https://img.icons8.com/ios-filled/50/000000/gmail.png"/>
+                    <Icon src="src/imgs/icons/gmail.png"/>
                     tefebell@gmail.com
                 </ContactDiv>
                 <ContactDiv>
-                    <Icon src="https://img.icons8.com/ios/50/000000/twitter.png"/>
-                    https://twitter.com/HypedOnTofu
+                    <Icon src="src/imgs/icons/twitter.png"/>
+                    <a src="https://twitter.com/HypedOnTofu">Twitter</a>
                 </ContactDiv>
             </ContactInnerWrap>
         </ContactOuterWrap>

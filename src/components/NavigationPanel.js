@@ -2,8 +2,6 @@ import React, { useState, useEffect, useContext } from 'react';
 import Folder from './Folder';
 import styled from 'styled-components';
 import { Context } from '../context';
-import { BrowserRouter as Router, 
-    Switch, Route, Link } from 'react-router-dom';
 
 const NavWrapper = styled.nav`
     pointer-events: auto;
@@ -22,6 +20,11 @@ const NavWrapper = styled.nav`
     @media (max-width: 1245px){
         min-width: 135px;
     }
+
+    @media (max-height: 700px){
+        min-width: 110px;
+    }
+
     @media (max-width: 950px){
         flex-direction: row;
         min-width: 95%;

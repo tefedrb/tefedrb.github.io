@@ -18,6 +18,9 @@ const AllFilesWrap = styled.div`
         justify-content: space-around;
         align-items: center;
     }
+    @media (max-height: 700px){
+        padding-left: 70%;
+    }
 `
 export const FileWrapper = styled.div`
     display: flex;
@@ -32,6 +35,9 @@ export const FileWrapper = styled.div`
         margin: 0;
         justify-content: center;
         padding: 2px;
+    }
+    @media (max-height: 700px){
+        margin: 10px 0;
     }
 `
 

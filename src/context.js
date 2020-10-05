@@ -3,7 +3,6 @@ import React, { useState } from 'react';
 export const Context = React.createContext();
 
 export const Provider = (props) => {
-    // Here is our state that the rest of the app will share..
     const files = {
         "Projects": [
             {
@@ -14,9 +13,9 @@ export const Provider = (props) => {
                 link: "Bookshop-Crutch",
                 name: "bookshop-crutch.js" 
             }, 
-            {
-                name: "movie-db.js"
-            }
+            // {
+            //     name: "movie-db.js"
+            // }
         ],
         "About": [
             {   
@@ -31,13 +30,14 @@ export const Provider = (props) => {
         ]
     }
 
+    const [ blueScreen, updateBlueScreen ] = useState(false);
+
     const [ globalState, setGlobalState ] = useState({
         folderLoc: [100, 20],
         filesDisplayed: [{name:"about.java"}]
     });
 
     const [ verticalDisplay, updateDisplay ] = useState(false);
-    // Below are functions that our app state will hold
     const saveFolderLoc = (loc) => {
         console.log(loc, "LOC");
         setGlobalState(prev => {
@@ -72,10 +72,12 @@ export const Provider = (props) => {
                 globalState, 
                 files,
                 verticalDisplay,
+                blueScreen,
                 updateViewport,
                 updateDisplay,
                 saveFolderLoc,
-                filesFromFolder
+                filesFromFolder,
+                updateBlueScreen
              }}
         >
             { props.children }
