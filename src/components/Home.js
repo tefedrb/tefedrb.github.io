@@ -55,7 +55,7 @@ const InnerHome = styled.div`
 
     @media (max-height: 825px){
         height: 35px;
-        height: calc(100vh - 80px);
+        height: calc(100% - 80px);
     }
 
     @media (max-width: 650px){
