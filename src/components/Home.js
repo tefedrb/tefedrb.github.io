@@ -31,8 +31,8 @@ const InnerHome = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    height: calc(100% - 118px);
-    width: calc(100% - 90px);
+    height: calc(100% - 7.2em);
+    width: calc(100% - 5em);
     margin: 0;
     background-color: black;
 
@@ -54,7 +54,7 @@ const InnerHome = styled.div`
     }
 
     @media (max-height: 825px){
-        height: 35px;
+        // height: 35px;
         // height: calc(100% - 80px);
         height: calc(100% - 3.2em);
     }

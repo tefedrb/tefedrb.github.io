@@ -29,6 +29,9 @@ export const ProjLink = styled.a`
     justify-content: center;
     align-items: center;
     padding: 10px;
+    @media (max-width: 650px){
+        font-size: .2em;
+    }
 `
 export const AppUI = styled.img`
     height: auto;

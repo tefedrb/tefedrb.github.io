@@ -7,8 +7,8 @@ const MonitorWrapper = styled.div`
     display: flex;
     flex-direction: column;
     background-color: transparent;
-    height: 100vh;
-    width: 100vw;
+    height: 100%;
+    width: 100%;
     justify-content: space-between;
     z-index: 1;
 `
@@ -19,13 +19,13 @@ const MonitorTop = styled.div`
     justify-content: center;
     align-items: center;
     z-index: 1;
-    height: 75px;
-    width: 100vw;
+    height: 3.9em;
+    width: 100%;
     background: linear-gradient(to right, rgb(227,219,188), rgb(227,219,188));
     color: black;
     box-shadow: 15px 9px 5px -5px black;
     @media (max-height: 825px){
-       height: 45px;
+       height: 2.5em;
     }
 `
 const MonitorInfo = styled.div`
@@ -34,15 +34,15 @@ const MonitorInfo = styled.div`
     justify-content: space-between;
     font-family: 'Open Sans', sans-serif;
     color: #755D4F;
-    font-size: 14px;
+    font-size: .8em;
 `
 const MonitorVersion = styled.p`
     margin-right: 50px;
-    margin-top: 24px;
+    margin-top: 2em;
     margin-bottom: 10px;
     @media (max-height: 825px){
-        margin-top: 12px;
-        margin-bottom: 2px;
+        margin-top: .6em;
+        margin-bottom: .2em;
      }
 `
 const MonitorName = styled(MonitorVersion)`
@@ -51,7 +51,7 @@ const MonitorName = styled(MonitorVersion)`
 `
 const TopWrap = styled.div`
     display: flex;
-    width: 100vw;
+    width: 100%;
 `
 const InnerTop = styled.div`
     width: 100%;
@@ -62,10 +62,10 @@ const InnerTop = styled.div`
     box-sizing: border-box;
 `
 const Bumper = styled.div`
-    width: 37px;
-    height: 10px;
+    width: 2.2em;
+    height: .7em;
     @media (max-width: 650px){
-        width: 16px;
+        width: 1.1em;
     }
 `
 const MonitorBottom = styled.div`
@@ -75,9 +75,9 @@ const MonitorBottom = styled.div`
     align-items: center;
     background: linear-gradient(to right, rgb(227,219,188), rgb(227,219,188));
     box-shadow: 15px 9px 5px 12px black;
-    height: 65px;
+    height: 3.6em;
     @media (max-height: 825px){
-        height: 35px;
+        height: 2.1em;
     }
 `
 const BottomWrap = styled.div`
@@ -106,8 +106,8 @@ const Logo = styled.p`
     color: #755D4F;
     margin-top: 0px;
     @media (max-height: 825px){
-        margin-bottom: 11px;
-        margin-top: 6px;
+        margin-bottom: .5em;
+        margin-top: .4em;
     }
 `
 const InnerMonitor = styled.div`
@@ -115,18 +115,32 @@ const InnerMonitor = styled.div`
     display: flex;
     width: 100%;
     justify-content: space-between;
-    height: 105%;
+    height: 100%;
 `
 const MonitorRight = styled.div`
     pointer-events: none;
     display: flex;
     z-index: 1;
     background: linear-gradient(to right, rgb(227,219,188), rgb(227,219,188));
-    width: 45px;
+    width: 2.8em;
     height: 100%;
     box-shadow: -9px 0px 8px -8px black;
+    @media(max-width: 1420px){
+        width: 2.7em;
+    }
+    // @media (max-width: 1132px){
+    //     width: 2.70em;
+    // }
+
+    // @media(max-width: 930px){
+    //     width: 2.7
+    // }
+    
+    @media(max-width: 746px){
+        width: 2.7em;
+    }
     @media (max-width: 650px){
-        width: 25px;
+        width: 1.6em;
     }
 `
 const InnerRight = styled.div`
@@ -158,7 +172,7 @@ const InnerLeft = styled.div`
     }
 `
 
-const Monitor = () => {
+const Monitor = (props) => {
     return (
         <MonitorWrapper name={"Monitor Wrap"}>
             <MonitorTop name={"Monitor Top"}>
@@ -175,7 +189,8 @@ const Monitor = () => {
             <InnerMonitor name={"Inner Monitor"}>
                 <MonitorLeft name={"Monitor Left"}>
                     <InnerLeft name={"Inner Left"}/>
-                </MonitorLeft>   
+                </MonitorLeft>  
+                {props.children} 
                 <MonitorRight name={"Monitor Right"}>
                     <InnerRight name={"Inner Right"}/>
                 </MonitorRight>
