@@ -19,7 +19,8 @@ const MonitorTop = styled.div`
     justify-content: center;
     align-items: center;
     z-index: 1;
-    height: 3.9em;
+    // height: 3.9em;
+    height: 4.1em;
     width: 100%;
     background: linear-gradient(to right, rgb(227,219,188), rgb(227,219,188));
     color: black;
@@ -34,7 +35,7 @@ const MonitorInfo = styled.div`
     justify-content: space-between;
     font-family: 'Open Sans', sans-serif;
     color: #755D4F;
-    font-size: .8em;
+    font-size: .9em;
 `
 const MonitorVersion = styled.p`
     margin-right: 50px;
@@ -56,13 +57,13 @@ const TopWrap = styled.div`
 const InnerTop = styled.div`
     width: 100%;
     z-index: 1;
-    border-left: 10px solid transparent;
+    // border-left: 10px solid transparent;
     border-top: 10px solid rgb(127,119,88);
-    border-right: 10px solid transparent;
+    // border-right: 10px solid transparent;
     box-sizing: border-box;
 `
 const Bumper = styled.div`
-    width: 2.2em;
+    width: 2.3em;
     height: .7em;
     @media (max-width: 650px){
         width: 1.1em;
@@ -106,8 +107,8 @@ const Logo = styled.p`
     color: #755D4F;
     margin-top: 0px;
     @media (max-height: 825px){
-        margin-bottom: .5em;
-        margin-top: .4em;
+        // margin-bottom: .5em;
+        // margin-top: .5em;
     }
 `
 const InnerMonitor = styled.div`
@@ -149,7 +150,7 @@ const InnerRight = styled.div`
     border-top: 10px solid transparent;
     border-right: 10px solid rgb(177,169,138);
     transform: translate(0px, -10px);
-    border-bottom: 10px solid transparent;
+    // border-bottom: 10px solid transparent;
     @media (max-height: 825px){
         border-bottom: 2px solid transparent;
     }
@@ -162,16 +163,25 @@ const MonitorLeft = styled(MonitorRight)`
 const InnerLeft = styled.div`
     width: 0;
     height: 100%;
-    z-index: 3;
+    z-index: 3s;
     border-top: 10px solid transparent;
     border-left: 10px solid rgb(177,169,138);;
-    border-bottom: 10px solid transparent;
+    // border-bottom: 10px solid transparent;
     transform: translate(0px, -10px);
     @media (max-height: 825px){
         border-bottom: 2px solid transparent;
     }
 `
-
+const BottomInnerWrap = styled.div`
+    width: 100%;
+    height: 10px;
+    background-color: rgb(177,169,138);
+`
+const SideInnerWrap = styled.div`
+    width: 10px;
+    height: 100%;
+    background-color: rgb(127,119,88);
+`
 const Monitor = (props) => {
     return (
         <MonitorWrapper name={"Monitor Wrap"}>
@@ -188,17 +198,23 @@ const Monitor = (props) => {
             </MonitorTop>
             <InnerMonitor name={"Inner Monitor"}>
                 <MonitorLeft name={"Monitor Left"}>
-                    <InnerLeft name={"Inner Left"}/>
+                    <SideInnerWrap>
+                        <InnerLeft name={"Inner Left"}/>
+                    </SideInnerWrap>
                 </MonitorLeft>  
                 {props.children} 
                 <MonitorRight name={"Monitor Right"}>
-                    <InnerRight name={"Inner Right"}/>
+                    <SideInnerWrap>
+                        <InnerRight name={"Inner Right"}/>
+                    </SideInnerWrap>
                 </MonitorRight>
             </InnerMonitor>
             <MonitorBottom name={"Monitor Bottom"}>
                 <BottomWrap name={"Bottom Wrap"}>
                     <Bumper name={"Right Bumper 2"}/>
-                    <InnerBottom />
+                    <BottomInnerWrap>
+                        <InnerBottom />
+                    </BottomInnerWrap>
                     <Bumper name={"Left Bumper 2"}/>
                 </BottomWrap>
                 <Logo>PONY</Logo>
