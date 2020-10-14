@@ -119,7 +119,6 @@ const InnerMonitor = styled.div`
     height: 100%;
 `
 const MonitorRight = styled.div`
-    pointer-events: none;
     display: flex;
     z-index: 1;
     background: linear-gradient(to right, rgb(227,219,188), rgb(227,219,188));

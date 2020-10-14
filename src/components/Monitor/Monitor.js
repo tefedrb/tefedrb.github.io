@@ -30,7 +30,7 @@ const Monitor = (props) => {
                 <div className="bottomEdge"></div>
             </div>
             <div className="monitorBottom">
-                <p className="logo">Pony</p>
+                <p className="logo">PONY</p>
             </div>
         </div>
     )

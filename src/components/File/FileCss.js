@@ -1,17 +1,18 @@
 import styled from 'styled-components';
 
 export const GraphicWrapper = styled.div`
+    pointer-events: auto;
     width: ${props => props.mini ? "30px" : "90%"};
     max-width: 900px;
     height: ${props => props.mini ? "auto" : "95%"};
     margin-bottom: ${props => props.mini ? 35 : props.size.height <= 35 ? "0" : "20px"};
     margin-top: ${props => props.mini ? "0" : "20px"};
-    @media (max-width: 950px){
+    @media (max-width: 948px){
        width: ${props => props.mini ? "20px" : "90%"};
        margin-bottom: ${props => props.mini ? "0" : "10px"};
        margin-top: ${props => props.mini ? "0" : "25px"};
     }
-    @media (max-width: 950px){
+    @media (max-width: 948px){
         height: ${props => props.mini ? "auto" : "93%"};
     }
     @media (max-width: 650px){
@@ -44,16 +45,18 @@ export const GraphicBody = styled.div`
     // position: relative;
     
     height: ${props => props.mini ? "35px" : "90%"};
-    width: 100%;
+    width: ${props => props.mini ? "100%" : "90%"};
     box-shadow: 1px -5px 27px -7px ${props => props.mini ? "transparent" : "rgba(42, 160, 42, 1)"};
     background-color: ${props => props.mini ? "rgba(255, 255, 255, 0.83)" : "rgba(42, 160, 42, 1)"};
-    @media (max-width: 950px), (max-height: 700px){
-        height: ${props => props.mini ? "20px" : "90%"};
+    @media (max-width: 948px), (max-height: 700px){
+        height: ${props => props.mini ? "20px" : "93%"};
     }
     @media(max-height: 885px){
         overflow: auto;
     }
-    @media(max-width: 650px){
+
+    // screen and (max-height: 757px)
+    @media screen and (max-width: 650px), {
         font-size: .75em;
         height: ${props => props.mini ? "15px" : "90%"};
     }

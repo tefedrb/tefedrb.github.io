@@ -1,5 +1,4 @@
 .monitorWrap {
-    position: fixed;
     pointer-events: none;
     background-color: transparent;
     height: 100%;
@@ -11,7 +10,7 @@
     grid-template-areas: 
         "topA topA topA topA topA"
         "monLeft tEdge tEdge tEdge monRight"
-        "monLeft lEdge auto rEdge monRight"
+        "monLeft lEdge centerA rEdge monRight"
         "monLeft bEdge bEdge bEdge monRight"
         "bottomA bottomA bottomA bottomA bottomA"
     ;
@@ -72,8 +71,7 @@
 
 .monitorLeft {
     grid-area: monLeft;
-    pointer-events: none;
-    z-index: 1;
+    z-index: 2;
     background: linear-gradient(to right, rgb(227,219,188), rgb(227,219,188));
 }
 
@@ -95,7 +93,6 @@
 
 .monitorRight {
     grid-area: monRight;
-    pointer-events: none;
     z-index: 1;
     background: linear-gradient(to right, rgb(227,219,188), rgb(227,219,188));
 }
@@ -117,6 +114,7 @@
 
 .monitorBottom {
     grid-Area: bottomA;
+    z-index: 1;
     display: flex;
     flex-direction: column;
     justify-content: center;

@@ -9,13 +9,18 @@ const FolderWrapper = styled.div`
     width: 55%;
     height: 100%;
     margin-right: 12%;
-    @media (max-width: 950px){
+    @media (max-width: 948px){
         width: auto;
-        height: 100%;
+        height: 0;
         margin-right:0;
         flex-direction: row;
         justify-content: space-around;
         align-items: center;
+    }
+    @media screen and (max-width: 651px), screen and (max-height: 757px){
+        color: green;
+        flex-direction: column;
+        justify-content: center;
     }
 `
 const FolderInnerWrap = styled.div`
@@ -25,23 +30,25 @@ const FolderInnerWrap = styled.div`
     &:hover {
         cursor: pointer;
     }
-    @media screen and (max-width: 950px), screen and (max-height: 700px){
+    @media screen and (max-width: 948px), screen and (max-height: 700px){
         height: 65px;
         width: 55px;
+        // height: 30px;
+        // width: 27px;
     }
 
-    @media (max-height: 590px){
-        height: 55px;
-        width: 45px;
-    }
+    // @media (max-height: 590px){
+    //     height: 55px;
+    //     width: 45px;
+    // }
 
-    @media (max-width: 650px){
+    // screen and (max-height: 757px)
+    @media (max-width: 650px), {
         height: 30px;
         width: 27px;
         color: green;
         font-size: 1em;
     }
-
 `
 const FolderTab = styled.div`
     height: 10%;
@@ -78,8 +85,21 @@ const FolderFront = styled.div`
     background-color: rgba(216, 212, 79, 1);
 `
 const Contents = styled.p`
-    // width: 1032px;
+// screen and (max-height: 757px)
+    @media screen and (max-width: 651px), {
+        display: none;
+    }
 `
+const SmScrnContents = styled.p`
+    display: none;
+    // screen and (max-height: 757px)
+    @media screen and (max-width: 651px){
+        display: block;
+        margin: 0px;
+        margin-top: 1px;
+    }
+`
+
 const Folder = (props) => {
     const [ openFolder, toggleState ] = useState(false);
     const [ styledCompProps, changeStyledProps ] = useState();
@@ -129,14 +149,22 @@ const Folder = (props) => {
 
     return (  
         <FolderWrapper name={"folderWrap"}>
-            <FolderInnerWrap id="innerWrap" ref={folderNode} name={"folderInnerWrap"} onClick={handleClick}>
+            <FolderInnerWrap id="innerWrap" 
+                ref={folderNode} 
+                name={"folderInnerWrap"} 
+                onClick={handleClick}
+            >
                 <FolderTab name={"tab"}/>
                 <FolderBack name={"folder back"}/>
-                <Paper name={"paper"} toggle={styledCompProps} />
-                <FolderFront id="folderFront" name={"folder front"} toggle={styledCompProps}>
+                <Paper name={"paper"} toggle={styledCompProps}/>
+                <FolderFront id="folderFront" 
+                    name={"folder front"} 
+                    toggle={styledCompProps}
+                >
                     <Contents>{props.title}</Contents>
                 </FolderFront>
             </FolderInnerWrap>
+            <SmScrnContents>{props.title}</SmScrnContents>
             {displayDropDown()}
         </FolderWrapper>
     )

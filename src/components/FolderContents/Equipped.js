@@ -1,4 +1,5 @@
 import React from 'react';
+// import styled from 'styled-components';
 import equipmentImg from '../../imgs/Equipped_Equipment.png';
 import { TextWrap, Text, AppUI } from './ProjectCSS';
 
