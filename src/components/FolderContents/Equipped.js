@@ -6,6 +6,7 @@ import { TextWrap, Text, AppUI } from './ProjectCSS';
 const Equipped = () => {
     return (
         <>
+            <h1>Equipped</h1>
             <AppUI src={equipmentImg} />
             <TextWrap>
                 <Text>
