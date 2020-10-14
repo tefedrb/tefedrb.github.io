@@ -62,6 +62,8 @@ export const GraphicBody = styled.div`
     }
 
     @media screen and (max-width: 650px) and (max-height: 736px){
-        max-height: 450px;
+        max-height: 400px;
+        background-color: red;
+        width: 95%;
     }
 `
