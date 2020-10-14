@@ -6,14 +6,18 @@ import Equipped from '../FolderContents/Equipped';
 import Bookshop from '../FolderContents/Bookshop'
 import About from '../FolderContents/About';
 import Contact from '../FolderContents/Contact';
-import { ProjLink } from '../FolderContents/ProjectCSS';
+// import { ProjLink } from '../FolderContents/ProjectCSS';
 import styled from 'styled-components';
 import {
     Switch,
     Route,
   } from "react-router-dom";
 
-import { GraphicWrapper, GraphicHeadWrapper, GraphicHead, GraphicFold, GraphicBody }
+import { GraphicWrapper, 
+        GraphicHeadWrapper, 
+        GraphicHead, 
+        GraphicFold, 
+        GraphicBody }
     from './FileCss';
 
 const LinkWrap = styled.div`
@@ -29,11 +33,11 @@ const OpenFile = (props) => {
        // Might want to consider inserting an if/else statement to avoid running
     // useEffect more than needed.
     let viewport = useViewportListener();
-    const headerEl = useRef("75");
+    // const headerEl = useRef("75");
 
-    const getDynamicFoldHeight = () => {
-        return headerEl.current.offsetHeight;
-    }
+    // const getDynamicFoldHeight = () => {
+    //     return headerEl.current.offsetHeight;
+    // }
 
     useEffect(() => {
         // If viewport width is less than 950
@@ -62,37 +66,37 @@ const OpenFile = (props) => {
     }, [viewport, verticalDisplay, loaded, props.content, props?.content?.props?.file?.name]);
 
     return (
-        <GraphicWrapper 
-            name={"file GraphicWrapper"} 
-            size={props.size} 
-        >
-            <GraphicHeadWrapper 
-                ref={headerEl} 
-                name={"GraphicHeadWrapper"}
-                foldSize={props.foldSize} 
-            >
-                <GraphicHead 
-                    name={"head"}
-                >
-                    <LinkWrap>
-                        <Switch>
-                            <Route path="/Bookshop-Crutch">
-                                <ProjLink >[ View Source ]</ProjLink>
-                                <ProjLink >[ View Live ]</ProjLink>
-                            </Route>
-                            <Route path="/Equipped">
-                                <ProjLink >[ View Source ]</ProjLink>
-                                <ProjLink >[ View Live ]</ProjLink>
-                            </Route>
-                        </Switch>
-                    </LinkWrap>
-                </GraphicHead>
-                <GraphicFold 
-                    name={"flap"}
-                    foldSize={props.foldSize}
-                    dynamicHeight={getDynamicFoldHeight()}
-                />
-            </GraphicHeadWrapper>
+        // <GraphicWrapper 
+        //     name={"file GraphicWrapper"} 
+        //     size={props.size} 
+        // >
+        //     <GraphicHeadWrapper 
+        //         ref={headerEl} 
+        //         name={"GraphicHeadWrapper"}
+        //         foldSize={props.foldSize} 
+        //     >
+        //         <GraphicHead 
+        //             name={"head"}
+        //         >
+        //             <LinkWrap>
+        //                 <Switch>
+        //                     <Route path="/Bookshop-Crutch">
+        //                         <ProjLink >[ View Source ]</ProjLink>
+        //                         <ProjLink >[ View Live ]</ProjLink>
+        //                     </Route>
+        //                     <Route path="/Equipped">
+        //                         <ProjLink >[ View Source ]</ProjLink>
+        //                         <ProjLink >[ View Live ]</ProjLink>
+        //                     </Route>
+        //                 </Switch>
+        //             </LinkWrap>
+        //         </GraphicHead>
+        //         <GraphicFold 
+        //             name={"flap"}
+        //             foldSize={props.foldSize}
+        //             dynamicHeight={getDynamicFoldHeight()}
+        //         />
+        //     </GraphicHeadWrapper>
             <GraphicBody
                 name={"GraphicBody"} 
                 size={props.size} 
@@ -115,7 +119,7 @@ const OpenFile = (props) => {
                     </Route>
                 </Switch>
             </GraphicBody>
-        </GraphicWrapper>
+        // </GraphicWrapper>
     )
 }
 

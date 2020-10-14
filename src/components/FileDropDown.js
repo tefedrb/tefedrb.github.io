@@ -13,7 +13,7 @@ const AllFilesWrap = styled.div`
     display: flex;
     flex-direction: column;
     width: 100%;
-    @media (max-width: 950px){
+    @media (max-width: 948px){
         flex-direction: row;
         justify-content: space-around;
         align-items: center;
@@ -23,6 +23,7 @@ const AllFilesWrap = styled.div`
     }
 `
 export const FileWrapper = styled.div`
+    pointer-events: auto;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -31,7 +32,7 @@ export const FileWrapper = styled.div`
     width: 100%;
     color: green;
     font-size: 12px;
-    @media (max-width: 950px){
+    @media (max-width: 948px){
         margin: 0;
         justify-content: center;
         padding: 2px;
@@ -48,7 +49,7 @@ export const FileName = styled.p`
     margin: 2px;
     white-space: nowrap;
     font-size: 14px;
-    @media (max-width: 950px){
+    @media (max-width: 948px){
         margin-right: 5px;
         margin-left: 5px;
     }

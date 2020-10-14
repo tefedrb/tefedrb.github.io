@@ -25,15 +25,16 @@ const NavWrapper = styled.nav`
         min-width: 110px;
     }
 
-    @media (max-width: 950px){
+    @media (max-width: 948px){
         flex-direction: row;
         min-width: 95%;
-        min-height: 85px;
-        margin-top: 0px
+        min-height: 10.5%;
+        margin-top: 0px;
+        margin-bottom: 10px;
     }
 
     @media(max-width: 650px){
-        min-height: 45px;
+        // min-height: 45px;
     }
 `  
 // The folder will hold it's own files, and will inform the NavigationPanel

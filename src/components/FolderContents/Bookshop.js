@@ -5,6 +5,7 @@ import { TextWrap, Text, AppUI } from './ProjectCSS';
 const Bookshop = () => {
     return (
         <>
+            <h1>Bookshop-Crutch</h1>
             <AppUI src={bookshopImg} />
             <TextWrap>
                 <p style={{textAlign: "center"}}>

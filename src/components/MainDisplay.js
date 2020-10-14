@@ -1,14 +1,17 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import OpenFile from './File/OpenFile';
+
 const Screen = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     background-color: transparent;
     height: 100%;
     width: 100%;
     overflow: auto;
+    pointer-events: auto;
 `
 
 const MainDisplay = () => {

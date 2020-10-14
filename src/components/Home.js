@@ -24,20 +24,24 @@ const HomeWrapper = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: 100%;
+    z-index: -1;
+    grid-area: centerA;
+    @media (max-width: 948px){
+        height: 100%;
+    }
 `
 
 const InnerHome = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    height: calc(100% - 7.2em);
-    width: calc(100% - 5em);
+    height: 100%;
+    width: 100%;
     margin: 0;
     background-color: black;
 
     &:after {
-        pointer-events: none;
         top: -100%;
         left: -50%;
         position: fixed;
@@ -49,19 +53,19 @@ const InnerHome = styled.div`
         animation: ${grain} 8s steps(10) infinite;
     }
 
-    @media (max-width: 950px){
+    @media (max-width: 948px){
         flex-direction: column-reverse;
     }
 
     @media (max-height: 825px){
         // height: 35px;
         // height: calc(100% - 80px);
-        height: calc(100% - 3.2em);
+        // height: calc(100% - 3.2em);
     }
 
     @media (max-width: 650px){
         // width: calc(100% - 45px); 
-        width: calc(100% - 3.2em); 
+        // width: calc(100% - 3.2em); 
     }
 
     @media (max-width: 305px), (max-height: 455px){

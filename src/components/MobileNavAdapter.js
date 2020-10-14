@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 
 const MobileFilePopUp = styled.div`
     display: none;
-    @media (max-width: 950px){
+    @media (max-width: 948px){
         display: flex;
         background-color: rgba(79,79,79,0.73);
         height: auto;

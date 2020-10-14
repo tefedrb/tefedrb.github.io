@@ -1,10 +1,12 @@
 import React from 'react';
+// import styled from 'styled-components';
 import equipmentImg from '../../imgs/Equipped_Equipment.png';
 import { TextWrap, Text, AppUI } from './ProjectCSS';
 
 const Equipped = () => {
     return (
         <>
+            <h1>Equipped</h1>
             <AppUI src={equipmentImg} />
             <TextWrap>
                 <Text>
