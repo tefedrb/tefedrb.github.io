@@ -56,8 +56,13 @@ export const GraphicBody = styled.div`
     }
 
     // screen and (max-height: 757px)
-    @media screen and (max-width: 650px), {
+    @media screen and (max-width: 650px) {
         font-size: .75em;
         height: ${props => props.mini ? "15px" : "90%"};
+    }
+
+    @media screen and (max-width: 650px) and (max-height: 736px){
+        max-height: 375px;
+        width: 95%;
     }
 `
