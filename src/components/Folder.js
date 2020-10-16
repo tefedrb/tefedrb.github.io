@@ -86,14 +86,14 @@ const FolderFront = styled.div`
 `
 const Contents = styled.p`
 // screen and (max-height: 757px)
-    @media screen and (max-width: 651px), {
+    @media screen and (max-width: 650px){
         display: none;
     }
 `
 const SmScrnContents = styled.p`
     display: none;
     // screen and (max-height: 757px)
-    @media screen and (max-width: 651px){
+    @media screen and (max-width: 650px){
         display: block;
         margin: 0px;
         margin-top: 1px;
