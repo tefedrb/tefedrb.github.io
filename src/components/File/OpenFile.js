@@ -103,7 +103,7 @@ const OpenFile = (props) => {
             > 
                 <Switch>
                     <Route path="/About">
-                        <Project flexbox={true} component={<About/>}/>
+                        <Project component={<About/>}/>
                     </Route>
                     <Route path="/Bookshop-Crutch">
                         <Project component={<Bookshop/>}/>
@@ -112,10 +112,10 @@ const OpenFile = (props) => {
                         <Project component={<Equipped/>}/>
                     </Route>
                     <Route path="/Contact">
-                        <Project flexbox={true} component={<Contact/>}/>
+                        <Project component={<Contact/>}/>
                     </Route>
                     <Route path="/">
-                        <Project flexbox={true} component={<About/>}/>
+                        <Project component={<About/>}/>
                     </Route>
                 </Switch>
             </GraphicBody>

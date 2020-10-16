@@ -68,7 +68,7 @@ const InnerHome = styled.div`
         // width: calc(100% - 3.2em); 
     }
 
-    @media (max-width: 305px), (max-height: 455px){
+    @media (max-width: 305px), (max-height: 400px){
         display: none;
     }
 `
@@ -76,9 +76,9 @@ const InnerHome = styled.div`
 const BlueScreen = styled.div`
     display: none;
     background-color: blue;
-    width: 100vw;
-    height: 100vh;
-    @media (max-width: 305px), (max-height: 455px){
+    width: 100%;
+    height: 100%;
+    @media (max-width: 305px), (max-height: 400px){
         display: flex;
         flex-direction: column;
         align-items: center;
