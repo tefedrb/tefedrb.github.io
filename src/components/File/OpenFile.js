@@ -112,7 +112,7 @@ const OpenFile = (props) => {
                         <Project component={<Equipped/>}/>
                     </Route>
                     <Route path="/Contact">
-                        <Project component={<Contact/>}/>
+                        <Project flexbox={true} component={<Contact/>}/>
                     </Route>
                     <Route path="/">
                         <Project component={<About/>}/>

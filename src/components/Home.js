@@ -98,7 +98,7 @@ const Home = () => {
                 <p>001359: C56</p>
             </BlueScreen>
             <InnerHome name={"inner home"}>
-                <Router>
+                {/* <Router> */}
                     <MobileNavAdapter 
                         changeFolder={changeFolder}
                         name={"mobileNav"}
@@ -107,7 +107,7 @@ const Home = () => {
                         openFolder={openFolder}
                         name={"main display"}
                     />
-                </Router>
+                {/* </Router> */}
             </InnerHome>
         </HomeWrapper>
     )
