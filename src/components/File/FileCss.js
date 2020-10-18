@@ -58,6 +58,7 @@ export const GraphicBody = styled.div`
     @media (max-width: 948px) and (max-height: 835px){
         max-height: 500px;
     }
+    
     @media(max-height: 885px){
         overflow: auto;
     }
@@ -73,7 +74,7 @@ export const GraphicBody = styled.div`
     }
 
     @media screen and (max-width: 650px) and (max-height: 736px){
-        max-height: 375px;
+        max-height: 90%;
         width: 95%;
     }
     @media screen and (max-height: 590px){

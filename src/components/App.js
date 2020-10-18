@@ -3,13 +3,17 @@ import { hot } from 'react-hot-loader';
 import Home from './Home';
 import { Provider } from '../context';
 import Monitor from './Monitor/Monitor';
+import { BrowserRouter as Router } from "react-router-dom";
+
 
 const App = () => (
-    <Provider>
-        <Monitor>
-            <Home />
-        </Monitor> 
-    </Provider>
+    <Router>
+        <Provider>
+            <Monitor>
+                <Home />
+            </Monitor> 
+        </Provider>
+    </Router>
 );
 
 export default hot(module)(App);
