@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
-  "homepage": "https://tefedrb.github.io/",
+  "homepage": "https://tefedrb.com",
   "dependencies": {
     "lodash": "^4.17.20",
     "react": "^16.13.1",

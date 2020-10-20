@@ -1,5 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
+import gitHubImg from '../../imgs/icons/github.png';
+import linkedInImg from '../../imgs/icons/linkedin.png';
+import gmailImg from '../../imgs/icons/gmail.png';
+import twitterImg from '../../imgs/icons/twitter.png';
 
 const ContactOuterWrap = styled.div`
     border: 2px solid black;
@@ -44,20 +48,20 @@ const Contact = () => {
             contact.js
             <ContactInnerWrap>
                 <ContactDiv>
-                    <Icon src="src/imgs/icons/github.png"/>
-                    <a src="https://github.com/tefedrb">GitHub</a>
+                    <Icon src={gitHubImg}/>
+                    <a href="https://github.com/tefedrb">GitHub</a>
                 </ContactDiv>
                 <ContactDiv>
-                    <Icon src="src/imgs/icons/linkedin.png"/>
-                    <a src="https://www.linkedin.com/in/tefedrb/">LinkedIn</a>  
+                    <Icon src={linkedInImg}/>
+                    <a href="https://www.linkedin.com/in/tefedrb/">LinkedIn</a>  
                 </ContactDiv>
                 <ContactDiv>
-                    <Icon src="src/imgs/icons/gmail.png"/>
+                    <Icon src={gmailImg}/>
                     tefebell@gmail.com
                 </ContactDiv>
                 <ContactDiv>
-                    <Icon src="src/imgs/icons/twitter.png"/>
-                    <a src="https://twitter.com/HypedOnTofu">Twitter</a>
+                    <Icon src={twitterImg}/>
+                    <a href="https://twitter.com/HypedOnTofu">Twitter</a>
                 </ContactDiv>
             </ContactInnerWrap>
         </ContactOuterWrap>

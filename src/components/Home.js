@@ -30,6 +30,7 @@ const HomeWrapper = styled.div`
     @media (max-width: 948px){
         height: 100%;
     }
+    background-color: rgb(5, 5, 5);
 `
 
 const InnerHome = styled.div`
@@ -39,7 +40,8 @@ const InnerHome = styled.div`
     height: 100%;
     width: 100%;
     margin: 0;
-    background-color: black;
+    background-color: rgb(10, 10, 10);
+    border-radius: 28px;
 
     &:after {
         top: -100%;
