@@ -4,7 +4,6 @@ import MobileNavAdapter from './MobileNavAdapter';
 import styled, { keyframes } from 'styled-components';
 import paper from '../imgs/paper.png';
 import { Context } from '../context';
-import { BrowserRouter as Router } from "react-router-dom";
 
 const grain = keyframes` 
     0%, 100% { transform:translate(0, 0) }
@@ -100,7 +99,6 @@ const Home = () => {
                 <p>001359: C56</p>
             </BlueScreen>
             <InnerHome name={"inner home"}>
-                {/* <Router> */}
                     <MobileNavAdapter 
                         changeFolder={changeFolder}
                         name={"mobileNav"}
@@ -109,7 +107,6 @@ const Home = () => {
                         openFolder={openFolder}
                         name={"main display"}
                     />
-                {/* </Router> */}
             </InnerHome>
         </HomeWrapper>
     )

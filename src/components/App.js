@@ -7,13 +7,11 @@ import TestComponent from '../components/TestComponent';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 const App = () => (
-    <Router>
-        <Provider>
-            <Monitor>
-                <Home />
-            </Monitor> 
-        </Provider>
-    </Router>
+    <Provider>
+        <Monitor>
+            <Home />
+        </Monitor> 
+    </Provider>
 );
 
 export default hot(module)(App);

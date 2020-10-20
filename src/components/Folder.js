@@ -127,7 +127,7 @@ const Folder = (props) => {
 
     useEffect(() => {
         if(props?.title === props?.openFolder){
-            props.listFiles ? props.listFiles(props.files) : null;
+            // props.listFiles ? props.listFiles(props.files) : null;
             toggleState(true);
         } else { 
             toggleState(false);
