@@ -1,33 +1,20 @@
 import React, { useContext, useState, useRef, useEffect } from 'react';
 import { Context } from '../../context';
 import useViewportListener from '../hooks/useViewportListener';
-import Project from '../FolderContents/Project';
-import Equipped from '../FolderContents/Equipped';
-import Bookshop from '../FolderContents/Bookshop'
-import About from '../FolderContents/About';
-import Contact from '../FolderContents/Contact';
 // import { ProjLink } from '../FolderContents/ProjectCSS';
 import styled from 'styled-components';
-import {
-    Switch,
-    Route,
-  } from "react-router-dom";
 
-import { GraphicWrapper, 
-        GraphicHeadWrapper, 
-        GraphicHead, 
-        GraphicFold, 
-        GraphicBody }
-    from './FileCss';
+import { GraphicBody } from './FileCss';
 
-const LinkWrap = styled.div`
-  display: flex;
-  justify-content: center;
-  margin-left: 75px;
-`
+// const LinkWrap = styled.div`
+//   display: flex;
+//   justify-content: center;
+//   margin-left: 75px;
+// `
 
 const OpenFile = (props) => {
-    const { updateDisplay, verticalDisplay, updateViewport, updateBlueScreen, blueScreen, files } = useContext(Context);
+    const { updateDisplay, verticalDisplay, updateViewport, updateBlueScreen, blueScreen, files, globalState } = useContext(Context);
+    
     const [ loaded, confirmLoaded ] = useState(false);
     const [ contentLoaded, saveContent ] = useState("");
        // Might want to consider inserting an if/else statement to avoid running
@@ -63,7 +50,7 @@ const OpenFile = (props) => {
         if(!loaded){ 
             confirmLoaded(true);
         }
-    }, [viewport, verticalDisplay, loaded, props.content, props?.content?.props?.file?.name]);
+    }, [viewport, verticalDisplay, loaded, props?.content, props?.content?.props?.file?.name]);
 
     return (
         // <GraphicWrapper 
@@ -97,27 +84,30 @@ const OpenFile = (props) => {
         //             dynamicHeight={getDynamicFoldHeight()}
         //         />
         //     </GraphicHeadWrapper>
+        // TOOK OUT THIS CODE BECAUSE REACT-ROUTER DOESN'T WORK PROPERLY
+        // WITH GITHUB PAGES
+        // <Switch>
+        //             <Route path="/About">
+        //                 <Project component={<About/>}/>
+        //             </Route>
+        //             <Route path="/Bookshop-Crutch">
+        //                 <Project component={<Bookshop/>}/>
+        //             </Route>
+        //             <Route path="/Equipped">
+        //                 <Project component={<Equipped/>}/>
+        //             </Route>
+        //             <Route path="/Contact">
+        //                 <Project flexbox={true} component={<Contact/>}/>
+        //             </Route>
+        //             <Route path="/">
+        //                 <Project component={<About/>}/>
+        //             </Route>
+        //         </Switch>
             <GraphicBody
                 name={"GraphicBody"} 
                 size={props.size} 
             > 
-                <Switch>
-                    <Route path="/About">
-                        <Project component={<About/>}/>
-                    </Route>
-                    <Route path="/Bookshop-Crutch">
-                        <Project component={<Bookshop/>}/>
-                    </Route>
-                    <Route path="/Equipped">
-                        <Project component={<Equipped/>}/>
-                    </Route>
-                    <Route path="/Contact">
-                        <Project flexbox={true} component={<Contact/>}/>
-                    </Route>
-                    <Route path="/">
-                        <Project component={<About/>}/>
-                    </Route>
-                </Switch>
+                {files[globalState.fileLoaded]?.content || ""}
             </GraphicBody>
         // </GraphicWrapper>
     )

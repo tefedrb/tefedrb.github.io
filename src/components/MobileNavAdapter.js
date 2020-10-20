@@ -4,7 +4,6 @@ import NavigationPanel from './NavigationPanel';
 import MiniFile from './File/MiniFile';
 import { Context } from '../context';
 import { FileName, FileWrapper } from './FileDropDown';
-import { Link } from 'react-router-dom';
 
 const MobileFilePopUp = styled.div`
     display: none;
@@ -21,19 +20,31 @@ const MobileFilePopUp = styled.div`
     }
 `
 const MobileNavAdapter = (props) => {
-    const { globalState } = useContext(Context);
-    const { filesDisplayed } = globalState;
+    const { globalState, updateRenderedFile } = useContext(Context);
+    const { filesDisplayed, fileLoaded } = globalState;
     // When clicking on folder - get element 
     // and see if you can get the height / width
+
+    // REMOVED CODE BECAUSE OF REACT ROUTER & GITHUB PAGES
+    // <FileWrapper name={"FileWrap"} key={key}>
+    //            <Link to={`/${file.link}`}>
+    //                 <MiniFile 
+    //                     data={file}
+    //                     mini={true}
+    //                 />
+    //             </Link>
+    //             <FileName>{file.name}</FileName>
+    //         </FileWrapper>
+
     const files = () => {
         return filesDisplayed.map((file, key) => (
            <FileWrapper name={"FileWrap"} key={key}>
-               <Link to={`/${file.link}`}>
-                    <MiniFile 
+               <span onClick={() => updateRenderedFile(file.name)}>
+                    <MiniFile
                         data={file}
                         mini={true}
                     />
-                </Link>
+                </span>
                 <FileName>{file.name}</FileName>
             </FileWrapper>
         ))

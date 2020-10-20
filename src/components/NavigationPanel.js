@@ -42,13 +42,13 @@ const NavWrapper = styled.nav`
 
 const NavigationPanel = (props) => {
     const [ openFolder, changeOpenFolder ] = useState("About");
-    const { files, filesFromFolder } = useContext(Context);
+    const { folder, filesFromFolder } = useContext(Context);
     // We need to tell our folder components not to render dropdowns
     // if our global verticalDisplay is set to true
 
     useEffect(() => {
         props.changeFolder(openFolder);
-        filesFromFolder(files[openFolder]);
+        filesFromFolder(folder[openFolder]);
     }, [openFolder]);
 
     // create a mobile view
@@ -58,19 +58,19 @@ const NavigationPanel = (props) => {
                 changeOpenFolder={changeOpenFolder} 
                 openFolder={openFolder} 
                 title={"Projects"}
-                files={files["Projects"]}
+                files={folder["Projects"]}
             />
             <Folder      
                 changeOpenFolder={changeOpenFolder} 
                 openFolder={openFolder} 
                 title={"About"}
-                files={files["About"]}
+                files={folder["About"]}
             />
             <Folder 
                 changeOpenFolder={changeOpenFolder} 
                 openFolder={openFolder}
                 title={"Contact"}
-                files={files["Contact"]}
+                files={folder["Contact"]}
             />
         </NavWrapper>
     )
