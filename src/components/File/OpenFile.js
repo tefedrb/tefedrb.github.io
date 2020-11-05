@@ -13,7 +13,7 @@ import { GraphicBody } from './FileCss';
 // `
 
 const OpenFile = (props) => {
-    const { updateDisplay, verticalDisplay, updateViewport, updateBlueScreen, blueScreen, files, globalState } = useContext(Context);
+    const { isVerticalDisplay, verticalDisplay, updateViewport, updateBlueScreen, blueScreen, files, globalState } = useContext(Context);
     
     const [ loaded, confirmLoaded ] = useState(false);
     const [ contentLoaded, saveContent ] = useState("");
@@ -30,13 +30,14 @@ const OpenFile = (props) => {
         // If viewport width is less than 950
         // We want to check to see if the file name changed - then re-render
         // we want to re-render because our fold gets out of place otherwise
+        console.log(viewport, "viewport")
         
-        if(viewport?.[0] > 950 && verticalDisplay){
-            updateDisplay(false);
+        if(viewport?.[0] > 950 && verticalDisplay || viewport?.[0] <= 950 && viewport?.[1] <= 500 && verticalDisplay){
+            isVerticalDisplay(false);
         }
         // Might actually want to use useLayouteffect here because of flash
-        if(viewport?.[0] <= 950 && !verticalDisplay){
-            updateDisplay(true);
+        if(viewport?.[0] <= 950 && viewport?.[1] >= 500 && !verticalDisplay){
+            isVerticalDisplay(true);
             updateViewport(viewport);
         }
         // here I can use logic to give a blue screen.

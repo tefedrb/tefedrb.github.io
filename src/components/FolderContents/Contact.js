@@ -49,11 +49,11 @@ const Contact = () => {
             <ContactInnerWrap>
                 <ContactDiv>
                     <Icon src={gitHubImg}/>
-                    <a href="https://github.com/tefedrb">GitHub</a>
+                    <a href="https://github.com/tefedrb" target="_blank" rel="noopener">GitHub</a>
                 </ContactDiv>
                 <ContactDiv>
                     <Icon src={linkedInImg}/>
-                    <a href="https://www.linkedin.com/in/tefedrb/">LinkedIn</a>  
+                    <a href="https://www.linkedin.com/in/tefedrb/" target="_blank" rel="noopener">LinkedIn</a>  
                 </ContactDiv>
                 <ContactDiv>
                     <Icon src={gmailImg}/>
@@ -61,7 +61,7 @@ const Contact = () => {
                 </ContactDiv>
                 <ContactDiv>
                     <Icon src={twitterImg}/>
-                    <a href="https://twitter.com/HypedOnTofu">Twitter</a>
+                    <a href="https://twitter.com/HypedOnTofu" target="_blank" rel="noopener">Twitter</a>
                 </ContactDiv>
             </ContactInnerWrap>
         </ContactOuterWrap>
