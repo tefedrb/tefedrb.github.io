@@ -6,19 +6,22 @@ import { Context } from '../context';
 
 const FileDropDownWrap = styled.div`
     display: flex;
-    height: 100%;
-    width: 50%;
+    // Removed for mobile view testing....
+    // height: 100%;
+    width: 100%;
 `
 const AllFilesWrap = styled.div`
     display: flex;
     flex-direction: column;
     width: 100%;
-    @media (max-width: 948px){
+    // ADJUSTED FOR MOBILE VIEW
+    @media (max-width: 948px) and (min-height: 500px){
         flex-direction: row;
         justify-content: space-around;
         align-items: center;
     }
-    @media (max-height: 700px){
+    // ADJUSTED FOR MOBILE VIEW
+    @media (max-height: 700px) and (min-height: 500px){
         padding-left: 70%;
     }
 `
@@ -57,7 +60,7 @@ export const FileName = styled.p`
 // Instead of using media queries, we can use the event listener info to switch
 // from the vertical version of our nav to the horizontal version.
 const FileDropDown = (props) => {
-    const { updateRenderedFile } = useContext(Context)
+    const { updateRenderedFile } = useContext(Context);
     const files = props?.files.map((fileData, key) => (
             <FileWrapper name={"fileWrapper"} key={key}>
                 <span onClick={() => updateRenderedFile(fileData.name)}>

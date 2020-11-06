@@ -59,7 +59,7 @@ export const Provider = (props) => {
         fileLoaded: "about.java"
     });
 
-    const [ verticalDisplay, updateDisplay ] = useState(false);
+    const [ verticalDisplay, isVerticalDisplay ] = useState(false);
     const saveFolderLoc = (loc) => {
         setGlobalState(prev => {
             return {
@@ -107,7 +107,7 @@ export const Provider = (props) => {
                 blueScreen,
                 updateRenderedFile,
                 updateViewport,
-                updateDisplay,
+                isVerticalDisplay,
                 saveFolderLoc,
                 filesFromFolder,
                 updateBlueScreen

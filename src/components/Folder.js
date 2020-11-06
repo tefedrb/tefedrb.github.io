@@ -9,7 +9,8 @@ const FolderWrapper = styled.div`
     width: 55%;
     height: 100%;
     margin-right: 12%;
-    @media (max-width: 948px){
+    // ADJUSTING FOR MOBILE VIEW 
+    @media (max-width: 948px) and (min-height: 500px){
         width: auto;
         height: 0;
         margin-right:0;
@@ -136,6 +137,7 @@ const Folder = (props) => {
     }, [props.openFolder, openFolder]);
 
     const displayDropDown = () => {
+        console.log("here we are")
         return ( 
             openFolder && !verticalDisplay ? 
             <FileDropDown

@@ -7,7 +7,8 @@ import { FileName, FileWrapper } from './FileDropDown';
 
 const MobileFilePopUp = styled.div`
     display: none;
-    @media (max-width: 948px){
+    // MOBILE VIEW ALTERATION -> testing and min-height
+    @media (max-width: 948px) and (min-height: 500px) {
         display: flex;
         background-color: rgba(79,79,79,0.73);
         height: auto;
