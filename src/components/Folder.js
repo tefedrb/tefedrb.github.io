@@ -31,11 +31,17 @@ const FolderInnerWrap = styled.div`
     &:hover {
         cursor: pointer;
     }
-    @media screen and (max-width: 948px), screen and (max-height: 700px){
+
+    @media screen and (max-width: 948px) and (max-height: 700px){
         height: 65px;
         width: 55px;
         // height: 30px;
         // width: 27px;
+    }
+
+    @media (max-width: 948px) and (max-height: 500px){
+        height: 45px;
+        width: 45px;
     }
 
     // @media (max-height: 590px){
@@ -44,7 +50,7 @@ const FolderInnerWrap = styled.div`
     // }
 
     // screen and (max-height: 757px)
-    @media (max-width: 650px), {
+    @media (max-width: 650px){
         height: 30px;
         width: 27px;
         color: green;
