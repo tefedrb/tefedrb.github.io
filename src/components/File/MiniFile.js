@@ -5,7 +5,7 @@ import { GraphicWrapper, GraphicHeadWrapper, GraphicHead, GraphicFold, GraphicBo
 const MiniFile = (props) => {
 
     return (
-        <GraphicWrapper 
+        <GraphicWrapper
             name={"file GraphicWrapper"} 
             size={props.size} 
             mini={props.mini}

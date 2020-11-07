@@ -33,6 +33,7 @@ const OpenFile = (props) => {
         
         if((viewport?.[0] > 950 && verticalDisplay) || (viewport?.[0] <= 950 && viewport?.[1] <= 500 && verticalDisplay)){
             isVerticalDisplay(false);
+            updateViewport(viewport);
         }
         // Might actually want to use useLayouteffect here because of flash
         if(viewport?.[0] <= 950 && viewport?.[1] >= 500 && !verticalDisplay){
@@ -42,6 +43,7 @@ const OpenFile = (props) => {
         // here I can use logic to give a blue screen.
         if(viewport?.[0] <= 305 && !blueScreen){
             // activate blue screen
+            updateViewport(viewport);
             updateBlueScreen(true);
         }
         if(contentLoaded !== props?.content?.props?.file?.name){
