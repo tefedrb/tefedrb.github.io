@@ -140,7 +140,7 @@ const Folder = (props) => {
             toggleState(false);
         }
         changeStyledProps(setFolderProp());
-    }, [props.openFolder, openFolder]);
+    }, [props.openFolder, openFolder, verticalDisplay]);
 
     const displayDropDown = () => {
         console.log("here we are")
