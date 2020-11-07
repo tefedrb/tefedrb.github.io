@@ -10,13 +10,15 @@ const MobileFilePopUp = styled.div`
     // MOBILE VIEW ALTERATION -> testing and min-height
     @media (max-width: 948px) and (min-height: 500px) {
         display: flex;
-        background-color: rgba(79,79,79,0.73);
+        // background-color: rgba(79,79,79,0.73);
+        background-color: blue;
+
         height: auto;
         width: auto;
         padding: .2em;
         align-items: center;
         justify-content: space-around;
-        color: white;
+        // color: blue;
         // transform: translateY(-6px);
     }
 `

@@ -13,6 +13,7 @@ const NavWrapper = styled.nav`
     background-color: rgba(79, 79, 79, 0.73);
     box-shadow: 1px -5px 27px -7px rgba(79,79,79,0.73);
     min-height: 95%;
+
     // MOBILE VIEW ALTERATION -> Adjusted margin: 20px to margin-left: 20px;
     margin-left: 10px;
     margin-right: 10px;
@@ -29,12 +30,14 @@ const NavWrapper = styled.nav`
 
     // MOBILE VIEW ALTERATION -> Adding "and" and value to try and remedy mobile
     // horizontal view -> testing "and min-height", removing (max-height: 745px)
+
     @media (max-width: 948px) and (min-height: 500px){
         flex-direction: row;
         min-width: 95%;
         min-height: 10.5%;
         margin-top: 0px;
         margin-bottom: 10px;
+        background-color: red;
     }
 
     @media(max-width: 650px){

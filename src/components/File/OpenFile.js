@@ -2,7 +2,6 @@ import React, { useContext, useState, useRef, useEffect } from 'react';
 import { Context } from '../../context';
 import useViewportListener from '../hooks/useViewportListener';
 // import { ProjLink } from '../FolderContents/ProjectCSS';
-import styled from 'styled-components';
 
 import { GraphicBody } from './FileCss';
 
@@ -32,7 +31,7 @@ const OpenFile = (props) => {
         // we want to re-render because our fold gets out of place otherwise
         console.log(viewport, "viewport")
         
-        if(viewport?.[0] > 950 && verticalDisplay || viewport?.[0] <= 950 && viewport?.[1] <= 500 && verticalDisplay){
+        if((viewport?.[0] > 950 && verticalDisplay) || (viewport?.[0] <= 950 && viewport?.[1] <= 500 && verticalDisplay)){
             isVerticalDisplay(false);
         }
         // Might actually want to use useLayouteffect here because of flash
