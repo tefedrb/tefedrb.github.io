@@ -11,5 +11,5 @@ const App = () => (
         </Monitor> 
     </Provider>
 );
-
-export default hot(module)(App);
+// hot(module)(App)
+export default App;

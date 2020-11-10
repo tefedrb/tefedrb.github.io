@@ -5,39 +5,45 @@ import { Context } from '../context';
 
 const NavWrapper = styled.nav`
     pointer-events: auto;
-    position: relative; 
+    // position: relative; 
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
-    background-color: rgba(79, 79, 79, 0.73);
-    box-shadow: 1px -5px 27px -7px rgba(79,79,79,0.73);
-    min-height: 95%;
+    flex-grow: 1;
+    width: 100%;
+
+    background-color: red;
+    // background-color: rgba(79, 79, 79, 0.73);
+    // box-shadow: 1px -5px 27px -7px rgba(79,79,79,0.73);
+    // height: 100%;
 
     // MOBILE VIEW ALTERATION -> Adjusted margin: 20px to margin-left: 20px;
-    margin-left: 10px;
-    margin-right: 10px;
-    min-width: 150px;
-    overflow: hidden;
+    // margin-left: 10px;
+    // margin-right: 10px;
+    // min-width: 150px;
+    // overflow: hidden;
 
-    @media (max-width: 1245px){
-        min-width: 135px;
-    }
+    // @media (max-width: 1245px){
+    //     min-width: 135px;
+    // }
 
-    @media (max-height: 700px){
-        min-width: 110px;
-    }
+    // @media (max-height: 700px) and (max-width: 948){
+    //     min-width: 110px;
+    // }
 
     // MOBILE VIEW ALTERATION -> Adding "and" and value to try and remedy mobile
     // horizontal view -> testing "and min-height", removing (max-height: 745px)
 
     @media (max-width: 948px) and (min-height: 500px){
         flex-direction: row;
-        min-width: 95%;
-        min-height: 10.5%;
+        // min-width: 95%;
+        // min-height: 10.5%;
         margin-top: 0px;
-        margin-bottom: 10px;
-        background-color: red;
+        // margin-bottom: 10px;
+        background-color: rgba(79, 79, 79, 0.73);
+        box-shadow: 1px -5px 27px -7px rgba(79,79,79,0.73);
+
     }
 
     @media(max-width: 650px){

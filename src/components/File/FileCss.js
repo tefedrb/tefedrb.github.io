@@ -85,6 +85,6 @@ export const GraphicBody = styled.div`
         max-height: 400px;
     }
     @media screen and (max-height: 480px){
-        max-height: 350px;
+        max-height: 300px;
     }
 `
