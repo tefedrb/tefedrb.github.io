@@ -13,28 +13,22 @@ const NavWrapper = styled.nav`
     flex-grow: 1;
     width: 100%;
 
-    background-color: red;
+    // background-color: red;
     // background-color: rgba(79, 79, 79, 0.73);
+
     // box-shadow: 1px -5px 27px -7px rgba(79,79,79,0.73);
     // height: 100%;
 
-    // MOBILE VIEW ALTERATION -> Adjusted margin: 20px to margin-left: 20px;
-    // margin-left: 10px;
-    // margin-right: 10px;
-    // min-width: 150px;
-    // overflow: hidden;
-
-    // @media (max-width: 1245px){
-    //     min-width: 135px;
-    // }
-
-    // @media (max-height: 700px) and (max-width: 948){
-    //     min-width: 110px;
-    // }
+    @media (max-height: 700px), (max-width: 948){
+        width: 80%;
+    }
 
     // MOBILE VIEW ALTERATION -> Adding "and" and value to try and remedy mobile
     // horizontal view -> testing "and min-height", removing (max-height: 745px)
 
+    @media (max-width: 948px){
+        padding: 1%;
+    }
     @media (max-width: 948px) and (min-height: 500px){
         flex-direction: row;
         // min-width: 95%;

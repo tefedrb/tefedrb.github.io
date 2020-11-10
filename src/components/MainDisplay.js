@@ -12,6 +12,10 @@ const Screen = styled.div`
     width: 100%;
     overflow: auto;
     pointer-events: auto;
+
+    @media (max-width: 400px) and (max-height: 500px), (min-height: 650px){
+        height: 80%;
+    }
 `
 
 const MainDisplay = () => {

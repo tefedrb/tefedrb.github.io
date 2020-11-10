@@ -26,7 +26,7 @@ const AllFilesWrap = styled.div`
     }
     // ADJUSTED FOR MOBILE VIEW
     @media (max-height: 700px) and (min-height: 500px){
-        padding-left: 70%;
+        padding-left: 12%;
     }
 `
 export const FileWrapper = styled.div`

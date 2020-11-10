@@ -21,7 +21,9 @@ const FolderWrapper = styled.div`
     @media(max-width: 667px) and (max-height: 375px){
         margin-right: 6%;
     }
+
     @media screen and (max-width: 651px), screen and (max-height: 757px){
+        margin-top: 2%;
         color: green;
         flex-direction: column;
         justify-content: center;
@@ -35,14 +37,14 @@ const FolderInnerWrap = styled.div`
         cursor: pointer;
     }
 
-    @media screen and (max-width: 948px) and (max-height: 700px){
+    @media screen and (max-width: 948px), (max-height: 700px){
         height: 65px;
         width: 55px;
         // height: 30px;
         // width: 27px;
     }
 
-    @media (max-width: 948px) and (max-height: 500px){
+    @media screen and (max-width: 500px) and (max-height: 700px), (max-height: 400px){
         height: 30px;
         width: 30px;
     }
@@ -53,12 +55,13 @@ const FolderInnerWrap = styled.div`
     // }
 
     // screen and (max-height: 757px)
-    @media (max-width: 650px){
-        height: 30px;
-        width: 27px;
-        color: green;
-        font-size: 1em;
-    }
+
+    // @media (max-width: 650px){
+    //     height: 30px;
+    //     width: 27px;
+    //     color: green;
+    //     font-size: 1em;
+    // }
 `
 const FolderTab = styled.div`
     height: 10%;
@@ -94,15 +97,13 @@ const FolderFront = styled.div`
     background-color: rgba(216, 212, 79, 1);
 `
 const Contents = styled.p`
-// screen and (max-height: 757px)
-    @media screen and (max-width: 650px), (max-width: 670px) and (max-height: 375px){
+    @media screen and (max-width: 650px), (max-width: 948px) and (max-height: 375px){
         display: none;
     }
 `
 const SmScrnContents = styled.p`
     display: none;
-    // screen and (max-height: 757px)
-    @media screen and (max-width: 650px), (max-width: 670px) and (max-height: 375px){
+    @media screen and (max-width: 650px), (max-width: 948px) and (max-height: 375px){
         display: block;
         margin: 0px;
         margin-top: 1px;
@@ -172,7 +173,7 @@ const Folder = (props) => {
                     <Contents>{props.title}</Contents>
                 </FolderFront>
             </FolderInnerWrap>
-            <SmScrnContents>{props.title}</SmScrnContents>
+            <SmScrnContents name={"small scrn"}>{props.title}</SmScrnContents>
             {displayDropDown()}
         </FolderWrapper>
     )

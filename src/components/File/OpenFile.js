@@ -14,12 +14,12 @@ const OpenFile = (props) => {
 
     useEffect(() => {
         
-        if((viewport?.[0] > 950 && verticalDisplay) || (viewport?.[0] <= 950 && viewport?.[1] <= 500 && verticalDisplay)){
+        if((viewport?.[0] > 948 && verticalDisplay) || (viewport?.[0] <= 948 && viewport?.[1] <= 500 && verticalDisplay)){
             isVerticalDisplay(false);
             updateViewport(viewport);
         }
         // Might actually want to use useLayouteffect here because of flash
-        if(viewport?.[0] <= 950 && viewport?.[1] >= 500 && !verticalDisplay){
+        if(viewport?.[0] <= 948 && viewport?.[1] >= 500 && !verticalDisplay){
             
             isVerticalDisplay(true);
             updateViewport(viewport);
