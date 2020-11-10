@@ -25,10 +25,11 @@ const HomeWrapper = styled.div`
     align-items: center;
     height: 100%;
     z-index: -1;
+    overflow: auto;
     grid-area: centerA;
-    @media (max-width: 948px){
-        height: 100%;
-    }
+    // @media (max-width: 948px){
+    //     height: 100%;
+    // }
     background-color: rgb(5, 5, 5);
 `
 
@@ -97,19 +98,19 @@ const Home = () => {
 
     return (
         <HomeWrapper name={"home wrapper"}>
-            <BlueScreen>
+            {/* <BlueScreen>
                 <p>Error!</p>
                 <p>001359: C56</p>
-            </BlueScreen>
+            </BlueScreen> */}
             <InnerHome name={"inner home"}>
-                    <MobileNavAdapter 
-                        changeFolder={changeFolder}
-                        name={"mobileNav"}
-                    />
-                    <MainDisplay
-                        openFolder={openFolder}
-                        name={"main display"}
-                    />
+                <MobileNavAdapter 
+                    changeFolder={changeFolder}
+                    name={"mobileNav"}
+                />
+                <MainDisplay
+                    openFolder={openFolder}
+                    name={"main display"}
+                />
             </InnerHome>
         </HomeWrapper>
     )

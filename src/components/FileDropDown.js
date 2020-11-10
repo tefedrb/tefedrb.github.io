@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import MiniFile from './File/MiniFile';
 import styled from 'styled-components';
 import PathToFile from './svgs/PathToFile';
@@ -8,6 +8,9 @@ const FileDropDownWrap = styled.div`
     display: flex;
     // Removed for mobile view testing....
     // height: 100%;
+    @media (max-width: 948px) and (min-height: 500px){
+        display: none;
+    }
     width: 100%;
 `
 const AllFilesWrap = styled.div`
@@ -16,9 +19,10 @@ const AllFilesWrap = styled.div`
     width: 100%;
     // ADJUSTED FOR MOBILE VIEW
     @media (max-width: 948px) and (min-height: 500px){
-        flex-direction: row;
-        justify-content: space-around;
-        align-items: center;
+        display: none;
+        // flex-direction: row;
+        // justify-content: space-around;
+        // align-items: center;
     }
     // ADJUSTED FOR MOBILE VIEW
     @media (max-height: 700px) and (min-height: 500px){
@@ -40,9 +44,9 @@ export const FileWrapper = styled.div`
         justify-content: center;
         padding: 2px;
     }
-    @media (max-height: 700px){
-        margin: 10px 0;
-    }
+    // @media (max-height: 700px){
+    //     margin: 10px 0;
+    // }
 `
 
 export const FileName = styled.p`
@@ -63,32 +67,34 @@ const FileDropDown = (props) => {
     const { updateRenderedFile } = useContext(Context);
     const { verticalDisplay, globalState } = useContext(Context);
     const { viewport } = globalState;
-    console.log(globalState, "vew!!!!")
+    // const [vertical, isVertical] = useState(verticalDisplay);
+    console.log(viewport, "vew!!!!")
     const files = props?.files.map((fileData, key) => (
             <FileWrapper name={"fileWrapper"} key={key}>
                 <span onClick={() => updateRenderedFile(fileData.name)}>
-                    {verticalDisplay ? <MiniFile 
+                    <MiniFile 
                         data={fileData}
                         mini={true}
-                    /> : verticalDisplay.toString() + viewport?.toString()}
+                    />
                 </span>
                 <FileName>{fileData.name}</FileName>
             </FileWrapper>
         )
     );
-
-    useEffect(() =>{
-        console.log("VIEW PORT")
-    }, [viewport?.[0]])
+    console.log("A RELOAD?!")
+    // useEffect(() => {
+    //     console.log(verticalDisplay,)
+    //     isVertical(verticalDisplay)
+    // }, [verticalDisplay])
 
     return (
-        <FileDropDownWrap name={"fileDropDown"}>
+        <FileDropDownWrap vertical={verticalDisplay} name={"fileDropDown"}>
                 {props.display ? <PathToFile numOfFiles={props?.files.length}/> : ""}
                 <AllFilesWrap 
                     numOfFiles={props?.files.length} 
                     name={"AllFilesWrap"}
                 >
-                    {props.display ? files : ""}
+                    {props.display && !verticalDisplay ? files : ""}
                 </AllFilesWrap>
         </FileDropDownWrap>
     )

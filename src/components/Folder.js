@@ -12,11 +12,14 @@ const FolderWrapper = styled.div`
     // ADJUSTING FOR MOBILE VIEW 
     @media (max-width: 948px) and (min-height: 500px){
         width: auto;
-        height: 0;
+        height: auto;
         margin-right:0;
         flex-direction: row;
         justify-content: space-around;
         align-items: center;
+    }
+    @media(max-width: 667px) and (max-height: 375px){
+        margin-right: 6%;
     }
     @media screen and (max-width: 651px), screen and (max-height: 757px){
         color: green;
@@ -40,8 +43,8 @@ const FolderInnerWrap = styled.div`
     }
 
     @media (max-width: 948px) and (max-height: 500px){
-        height: 45px;
-        width: 45px;
+        height: 30px;
+        width: 30px;
     }
 
     // @media (max-height: 590px){
@@ -61,7 +64,6 @@ const FolderTab = styled.div`
     height: 10%;
     width: 15%;
     background-color: rgba(190, 186, 63, 1);
-    
 `
 const FolderBack = styled.div`
     height: 90%;
@@ -93,20 +95,19 @@ const FolderFront = styled.div`
 `
 const Contents = styled.p`
 // screen and (max-height: 757px)
-    @media screen and (max-width: 650px){
+    @media screen and (max-width: 650px), (max-width: 670px) and (max-height: 375px){
         display: none;
     }
 `
 const SmScrnContents = styled.p`
     display: none;
     // screen and (max-height: 757px)
-    @media screen and (max-width: 650px){
+    @media screen and (max-width: 650px), (max-width: 670px) and (max-height: 375px){
         display: block;
         margin: 0px;
         margin-top: 1px;
     }
 `
-
 const Folder = (props) => {
     const [ openFolder, toggleState ] = useState(false);
     const [ styledCompProps, changeStyledProps ] = useState();
@@ -143,7 +144,6 @@ const Folder = (props) => {
     }, [props.openFolder, openFolder, verticalDisplay]);
 
     const displayDropDown = () => {
-        console.log("here we are")
         return ( 
             openFolder && !verticalDisplay ? 
             <FileDropDown

@@ -8,8 +8,11 @@ export const TextWrap = styled.div`
     }
 `
 export const Text = styled.p`
-    font-size: 1.4em;
+    font-size: 1.5em;
     text-align: center;
+    @media (max-width: 948px) and (min-height: 500px){
+        font-size: 1.4em;
+    }
 `
 export const DisplayWrap = styled.div`
     
