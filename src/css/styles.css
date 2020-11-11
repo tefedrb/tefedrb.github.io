@@ -11,8 +11,11 @@ html, body {
     margin: 0 auto;
     height: 100%;
     width: 100%;
-    background: transparent;
     vertical-align: baseline;
+}
+
+body {
+    overflow-x: hidden;
 }
 
 .canvas {
@@ -23,7 +26,8 @@ html, body {
 }
 
 #root{
-    overflow: hidden;
-    height:100%;
+    overflow-x: hidden;
+    height: 100%;
     pointer-events: none;
+    /* background-color: blue; */
 }

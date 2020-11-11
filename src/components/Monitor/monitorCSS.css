@@ -1,4 +1,5 @@
 .monitorWrap {
+    /* overflow: hidden; */
     pointer-events: none;
     background-color: transparent;
     height: 100%;
