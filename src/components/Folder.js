@@ -97,13 +97,13 @@ const FolderFront = styled.div`
     background-color: rgba(216, 212, 79, 1);
 `
 const Contents = styled.p`
-    @media screen and (max-width: 650px), (max-width: 948px) and (max-height: 375px){
+    @media screen and (max-width: 650px), (max-width: 948px) and (max-height: 400px){
         display: none;
     }
 `
 const SmScrnContents = styled.p`
     display: none;
-    @media screen and (max-width: 650px), (max-width: 948px) and (max-height: 375px){
+    @media screen and (max-width: 650px), (max-width: 948px) and (max-height: 400px){
         display: block;
         margin: 0px;
         margin-top: 1px;

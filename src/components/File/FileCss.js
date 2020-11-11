@@ -43,6 +43,7 @@ export const GraphicBody = styled.div`
     display: flex;
     justify-content: center;
     // position: relative;
+    overflow: auto;
     
     height: ${props => props.mini ? "35px" : "90%"};
     width: ${props => props.mini ? "100%" : "90%"};
@@ -52,22 +53,8 @@ export const GraphicBody = styled.div`
     
     @media (max-width: 948px){
         height: ${props => props.mini ? "20px" : "93%"};
-        // max-height: 500px;
     }
 
-    @media (max-width: 948px) and (max-height: 835px){
-        max-height: 500px;
-    }
-    
-    @media(max-height: 885px){
-        overflow: auto;
-    }
-
-    @media(max-height: 752px){
-        max-height: 500px;
-    }
-
-    // screen and (max-height: 757px)
     @media screen and (max-width: 650px) {
         font-size: .75em;
         height: ${props => props.mini ? "15px" : "90%"};
@@ -77,14 +64,5 @@ export const GraphicBody = styled.div`
         max-height: 90%;
         width: 95%;
     }
-    @media screen and (max-height: 590px){
-        max-height: 450px;
-    }
-
-    @media screen and (max-height: 534px){
-        max-height: 400px;
-    }
-    @media screen and (max-height: 480px){
-        max-height: 300px;
-    }
+    
 `

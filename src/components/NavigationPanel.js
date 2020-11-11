@@ -19,7 +19,7 @@ const NavWrapper = styled.nav`
     // box-shadow: 1px -5px 27px -7px rgba(79,79,79,0.73);
     // height: 100%;
 
-    @media (max-height: 700px), (max-width: 948){
+    @media (max-height: 400px) and (max-width: 700px){
         width: 80%;
     }
 
