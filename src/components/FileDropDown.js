@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext } from 'react';
 import MiniFile from './File/MiniFile';
 import styled from 'styled-components';
 import PathToFile from './svgs/PathToFile';
@@ -65,10 +65,8 @@ export const FileName = styled.p`
 // from the vertical version of our nav to the horizontal version.
 const FileDropDown = (props) => {
     const { updateRenderedFile } = useContext(Context);
-    const { verticalDisplay, globalState } = useContext(Context);
-    const { viewport } = globalState;
+    const { verticalDisplay } = useContext(Context);
     // const [vertical, isVertical] = useState(verticalDisplay);
-    console.log(viewport, "vew!!!!")
     const files = props?.files.map((fileData, key) => (
             <FileWrapper name={"fileWrapper"} key={key}>
                 <span onClick={() => updateRenderedFile(fileData.name)}>
@@ -81,11 +79,6 @@ const FileDropDown = (props) => {
             </FileWrapper>
         )
     );
-    console.log("A RELOAD?!")
-    // useEffect(() => {
-    //     console.log(verticalDisplay,)
-    //     isVertical(verticalDisplay)
-    // }, [verticalDisplay])
 
     return (
         <FileDropDownWrap vertical={verticalDisplay} name={"fileDropDown"}>
