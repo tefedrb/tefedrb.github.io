@@ -12,13 +12,17 @@ const Screen = styled.div`
     width: 100%;
     overflow: auto;
     pointer-events: auto;
+
+    @media (max-width: 400px) and (max-height: 500px), (max-width: 946px) and (min-height: 500px){
+        height: 80%;
+    }
 `
 
 const MainDisplay = () => {
     return (
         <Screen name={"screen"}>
             <OpenFile
-                color={"green"} 
+                color={"green"}
                 name={"file"}
                 size={{width: "63%", height: "100%"}}
             />

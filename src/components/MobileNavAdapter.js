@@ -35,25 +35,17 @@ const MobileNavWrapper = styled.div`
     margin-left: 10px;
     margin-right: 10px;
     min-width: 150px;
-    // overflow: hidden;
 
-    @media (max-width: 1245px){
-        min-width: 135px;
-    }
-
-    @media (max-height: 700px) and (max-width: 948){
+    @media (max-height: 700px) and (max-width: 948px){
         min-width: 110px;
     }
-
-    // MOBILE VIEW ALTERATION -> Adding "and" and value to try and remedy mobile
-    // horizontal view -> testing "and min-height", removing (max-height: 745px)
 
     @media (max-width: 948px) and (min-height: 500px){
         // flex-direction: row;
         min-width: 95%;
         min-height: 14.5%;
         margin-top: 0px;
-        margin-bottom: 20px;
+        margin-bottom: 10px;
         background-color: transparent;
         box-shadow: none;
     }
