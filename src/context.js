@@ -44,14 +44,26 @@ export const Provider = (props) => {
         "Contact": [files["contact.js"]],
     }
 
-    const pages = {
-        "About": <Project component={<About/>}/>,
-        "Bookshop": <Project component={<Bookshop/>}/>,
-        "Equipped": <Project component={<Equipped/>}/>,
-        "Contact": <Project flexbox={true} component={<Contact/>}/>
+    const [ blueScreen, updateBlueScreen ] = useState(false);
+
+    const [ isMobileHack, signalMobileHack ] = useState(false);
+
+    const saveStateForMobileHack = (item, value) => {
+        localStorage.setItem(`${item}`, `${value}`);
     }
 
-    const [ blueScreen, updateBlueScreen ] = useState(false);
+    const checkStorageForMobileHack = () => {
+        let mobileHack = localStorage.getItem('isMobileHack');
+        if(mobileHack === 'true'){
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    const rehydrateStateFromStorage = (item) => {
+        return localStorage.getItem(item);
+    }
 
     const [ globalState, setGlobalState ] = useState({
         folderLoc: [100, 20],
@@ -99,12 +111,16 @@ export const Provider = (props) => {
     return (
         <Context.Provider 
             value={{ 
-                pages,
                 globalState, 
                 files,
                 folder,
                 verticalDisplay,
                 blueScreen,
+                isMobileHack,
+                rehydrateStateFromStorage,
+                saveStateForMobileHack,
+                checkStorageForMobileHack,
+                signalMobileHack,
                 updateRenderedFile,
                 updateViewport,
                 isVerticalDisplay,

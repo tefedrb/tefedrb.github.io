@@ -90,7 +90,6 @@ const FolderFront = styled.div`
     height: 80%;
     bottom: 0;
     box-shadow: 1px -5px 16px -7px rgba(216,212,79,1);
-    // plus 8px (below)
     left: ${props => props?.toggle?.folderFront?.left || "10%"};
     width: 100%;
     transform: ${props => props?.toggle?.folderFront?.trans || "skew(-20deg)"};
@@ -117,7 +116,7 @@ const Folder = (props) => {
     
     const handleClick = () => {
         if(!openFolder){
-        toggleState(prevState => !prevState);
+            toggleState(prevState => !prevState);
             props.changeOpenFolder(props.title);
         }
     }
@@ -135,6 +134,9 @@ const Folder = (props) => {
     }
 
     useEffect(() => {
+        // if(openFolder && props.openFolder){
+        //     saveStateForMobileHack('folderOpen', props.title);
+        // }
         if(props?.title === props?.openFolder){
             // props.listFiles ? props.listFiles(props.files) : null;
             toggleState(true);

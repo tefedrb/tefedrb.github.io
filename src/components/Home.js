@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import MainDisplay from './MainDisplay';
 import MobileNavAdapter from './MobileNavAdapter';
 import styled, { keyframes } from 'styled-components';
@@ -93,8 +93,26 @@ const BlueScreen = styled.div`
 // Info needs to go from navigation through MainDisplay
 
 const Home = () => {
-    const { blueScreen } = useContext(Context);
+    const { checkStorageForMobileHack, saveStateForMobileHack } = useContext(Context);
     const [ openFolder, changeFolder ] = useState("About");
+
+    useEffect(() => {
+        console.log("11.11.20 v9");
+
+        if(!checkStorageForMobileHack()){
+            saveStateForMobileHack('isMobileHack', 'false');
+        }
+
+        const mobileHack = () => {
+            // Trigger mobile hack
+            console.log("triggered!")
+            saveStateForMobileHack('isMobileHack', 'true');
+            // signalMobileHack(true);
+            window.location.reload();
+        }
+        window.addEventListener('orientationchange', mobileHack);
+        () => window.removeEventListener('orientationchange', mobileHack);
+    }, []);
 
     return (
         <HomeWrapper name={"home wrapper"}>
