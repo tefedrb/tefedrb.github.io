@@ -1,4 +1,4 @@
-import { get } from "lodash";
+// import { get } from "lodash";
 
 export const getViewportXY = () => {
     let e = window, a = "inner";

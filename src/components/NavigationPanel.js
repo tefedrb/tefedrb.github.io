@@ -49,14 +49,33 @@ const NavWrapper = styled.nav`
 
 const NavigationPanel = (props) => {
     const [ openFolder, changeOpenFolder ] = useState("About");
-    const { folder, filesFromFolder } = useContext(Context);
+    const { folder, filesFromFolder, saveStateForMobileHack, 
+        rehydrateStateFromStorage, checkStorageForMobileHack, globalState, updateRenderedFile  } = useContext(Context);
+    const {fileLoaded} = globalState;
     // We need to tell our folder components not to render dropdowns
     // if our global verticalDisplay is set to true
 
     useEffect(() => {
+
+        /* TODO: Create a centralized function in context that has all the switches
+            and updates in it's own state - this function will rehydrate all the 
+            components when hack is initiated and window gets reloaded */
+
+
+        if(checkStorageForMobileHack()){
+            updateRenderedFile(rehydrateStateFromStorage('fileOpen'))
+            changeOpenFolder(rehydrateStateFromStorage('folderOpen'));
+
+            saveStateForMobileHack('isMobileHack', 'false');
+        } else {
+            saveStateForMobileHack('fileOpen', fileLoaded);
+            saveStateForMobileHack('folderOpen', openFolder);
+        }
+
         props.changeFolder(openFolder);
         filesFromFolder(folder[openFolder]);
-    }, [openFolder]);
+        
+    }, [openFolder, fileLoaded]);
 
     // create a mobile view
     return (
