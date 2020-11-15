@@ -4,7 +4,7 @@ import { TextWrap, Text } from './ProjectCSS';
 const About = () => {
     return (
         <TextWrap name={"textWrap"}>
-            <Text>about.java</Text>
+            <Text>about.js</Text>
             <Text>Tefé Del Rosario-Bell</Text>
             <Text>
             I've found myself in the world of performing arts since I was young, 

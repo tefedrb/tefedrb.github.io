@@ -9,10 +9,10 @@ import Contact from './components/FolderContents/Contact';
 
 export const Provider = (props) => {
     const files = {
-        "equipped.js":
+        "equipped.java":
             {
                 link: "Equipped",
-                name: "equipped.js",
+                name: "equipped.java",
                 content: <Project component={<Equipped/>}/>
             },
         "bookshop-crutch.js":
@@ -24,10 +24,10 @@ export const Provider = (props) => {
             // {
             //     name: "movie-db.js"
             // }
-        "about.java":
+        "about.js":
             {   
                 link: "About",
-                name: "about.java",
+                name: "about.js",
                 content: <Project component={<About/>}/>
             },
         "contact.js": 
@@ -39,8 +39,8 @@ export const Provider = (props) => {
     }
 
     const folder = {
-        "About": [files["about.java"]],
-        "Projects": [files["equipped.js"], files["bookshop-crutch.js"]],
+        "About": [files["about.js"]],
+        "Projects": [files["equipped.java"], files["bookshop-crutch.js"]],
         "Contact": [files["contact.js"]],
     }
 
@@ -67,8 +67,8 @@ export const Provider = (props) => {
 
     const [ globalState, setGlobalState ] = useState({
         folderLoc: [100, 20],
-        filesDisplayed: [{name:"about.java"}],
-        fileLoaded: "about.java"
+        filesDisplayed: [{name:"about.js"}],
+        fileLoaded: "about.js"
     });
 
     const [ verticalDisplay, isVerticalDisplay ] = useState(false);

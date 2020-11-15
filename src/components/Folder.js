@@ -40,28 +40,12 @@ const FolderInnerWrap = styled.div`
     @media screen and (max-width: 948px), (max-height: 700px){
         height: 65px;
         width: 55px;
-        // height: 30px;
-        // width: 27px;
     }
 
     @media screen and (max-width: 500px) and (max-height: 700px), (max-height: 400px){
         height: 30px;
         width: 30px;
     }
-
-    // @media (max-height: 590px){
-    //     height: 55px;
-    //     width: 45px;
-    // }
-
-    // screen and (max-height: 757px)
-
-    // @media (max-width: 650px){
-    //     height: 30px;
-    //     width: 27px;
-    //     color: green;
-    //     font-size: 1em;
-    // }
 `
 const FolderTab = styled.div`
     height: 10%;
@@ -134,11 +118,7 @@ const Folder = (props) => {
     }
 
     useEffect(() => {
-        // if(openFolder && props.openFolder){
-        //     saveStateForMobileHack('folderOpen', props.title);
-        // }
         if(props?.title === props?.openFolder){
-            // props.listFiles ? props.listFiles(props.files) : null;
             toggleState(true);
         } else { 
             toggleState(false);

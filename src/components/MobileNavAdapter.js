@@ -16,8 +16,6 @@ const MobileFilePopUp = styled.div`
         padding: .2em;
         align-items: center;
         justify-content: space-around;
-        // color: blue;
-        // transform: translateY(-6px);
     }
 `
 const MobileNavWrapper = styled.div`
@@ -41,7 +39,6 @@ const MobileNavWrapper = styled.div`
     }
 
     @media (max-width: 948px) and (min-height: 500px){
-        // flex-direction: row;
         min-width: 95%;
         min-height: 14.5%;
         margin-top: 0px;
@@ -49,28 +46,11 @@ const MobileNavWrapper = styled.div`
         background-color: transparent;
         box-shadow: none;
     }
-
-    @media(max-width: 650px){
-        // min-height: 45px;
-    }
 `
 const MobileNavAdapter = (props) => {
     const { globalState, updateRenderedFile } = useContext(Context);
-    const { filesDisplayed, fileLoaded } = globalState;
-    // When clicking on folder - get element 
-    // and see if you can get the height / width
-
-    // REMOVED CODE BECAUSE OF REACT ROUTER & GITHUB PAGES
-    // <FileWrapper name={"FileWrap"} key={key}>
-    //      <Link to={`/${file.link}`}>
-    //            <MiniFile 
-    //                data={file}
-    //                mini={true}
-    //            />
-    //        </Link>
-    //       <FileName>{file.name}</FileName>
-    //  </FileWrapper>
-
+    const { filesDisplayed } = globalState;
+  
     const files = () => {
         return filesDisplayed.map((file, key) => (
            <FileWrapper name={"FileWrap"} key={key}>

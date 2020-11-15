@@ -129,7 +129,6 @@
     box-shadow: 5px 9px 8px 6px black;
 }
 
-/* use to be .innerBottom */
 .bottomEdge {
     width: 100%;
     z-index: 1;

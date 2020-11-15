@@ -27,9 +27,6 @@ const HomeWrapper = styled.div`
     z-index: -1;
     overflow: auto;
     grid-area: centerA;
-    // @media (max-width: 948px){
-    //     height: 100%;
-    // }
     background-color: rgb(5, 5, 5);
 `
 
@@ -55,25 +52,8 @@ const InnerHome = styled.div`
         animation: ${grain} 8s steps(10) infinite;
     }
 
-    // MOBILE VIEW ALTERATION -> testing "and min-height" to allow for horizontal view
     @media (max-width: 948px) and (min-height: 500px){
         flex-direction: column-reverse;
-    }
-
-    @media (max-height: 825px){
-        // height: 35px;
-        // height: calc(100% - 80px);
-        // height: calc(100% - 3.2em);
-    }
-
-    @media (max-width: 650px){
-        // width: calc(100% - 45px); 
-        // width: calc(100% - 3.2em); 
-    }
-
-    // Trying to adjust for blue screen on mobile
-    @media (max-width: 305px), (max-height: 400px){
-        // display: none;
     }
 `
 
@@ -82,13 +62,6 @@ const BlueScreen = styled.div`
     background-color: blue;
     width: 100%;
     height: 100%;
-    // I need to check max-height: 400px; Mobile
-    // @media (max-width: 305px), (max-height: 350px){
-    //     display: flex;
-    //     flex-direction: column;
-    //     align-items: center;
-    //     justify-content: center;
-    // }
 `
 // Info needs to go from navigation through MainDisplay
 
@@ -105,9 +78,7 @@ const Home = () => {
 
         const mobileHack = () => {
             // Trigger mobile hack
-            console.log("triggered!")
             saveStateForMobileHack('isMobileHack', 'true');
-            // signalMobileHack(true);
             window.location.reload();
         }
         window.addEventListener('orientationchange', mobileHack);
@@ -116,10 +87,6 @@ const Home = () => {
 
     return (
         <HomeWrapper name={"home wrapper"}>
-            {/* <BlueScreen>
-                <p>Error!</p>
-                <p>001359: C56</p>
-            </BlueScreen> */}
             <InnerHome name={"inner home"}>
                 <MobileNavAdapter 
                     changeFolder={changeFolder}
