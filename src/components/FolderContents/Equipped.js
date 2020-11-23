@@ -1,12 +1,16 @@
 import React from 'react';
 // import styled from 'styled-components';
 import equipmentImg from '../../imgs/Equipped_Equipment.png';
-import { TextWrap, Text, AppUI } from './ProjectCSS';
+import { TextWrap, Text, AppUI, ProjLinkWrap, ProjLink } from './ProjectCSS';
 
 const Equipped = () => {
     return (
         <>
-            <h1>Equipped</h1>
+            <ProjLinkWrap>
+                <ProjLink>[ GitHub ]</ProjLink>
+                <ProjLink>[ Demo ]</ProjLink>
+            </ProjLinkWrap>
+            <h1 style={{marginTop: "0"}}>Equipped</h1>
             <AppUI src={equipmentImg} />
             <TextWrap>
                 <Text>
@@ -18,8 +22,8 @@ const Equipped = () => {
                     a history of the usage. There is also a message board that can utilized.
                 </Text>
                 <Text>
-                    I made this app after thinking about my time work for this small media company that
-                    was a little disorganized with their equipment. This could have been a useful way to keep track 
+                    I made this app after thinking about my time working for a small media company that
+                    could have used an equipment manager. This application would have been a good aid for keeping track 
                     of who was using what and when.
                 </Text>
             </TextWrap>

@@ -17,6 +17,12 @@ export const Text = styled.p`
 export const DisplayWrap = styled.div`
     
 `
+export const ProjLinkWrap = styled.div`
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    
+`
 export const ProjNav = styled.div`
     display: flex;
     justify-content: space-around;
@@ -29,6 +35,7 @@ export const ProjLink = styled.a`
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
     padding: 10px;
     @media (max-width: 650px){
         font-size: .2em;
