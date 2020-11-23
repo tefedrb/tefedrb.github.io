@@ -20,13 +20,13 @@ const AllFilesWrap = styled.div`
     // ADJUSTED FOR MOBILE VIEW
     @media (max-width: 948px) and (min-height: 500px){
         display: none;
-        // flex-direction: row;
-        // justify-content: space-around;
-        // align-items: center;
     }
     // ADJUSTED FOR MOBILE VIEW
     @media (max-height: 700px) and (min-height: 500px){
         padding-left: 12%;
+    }
+    @media (max-height: 380px){
+        margin-top: 12%;
     }
 `
 export const FileWrapper = styled.div`
@@ -44,9 +44,6 @@ export const FileWrapper = styled.div`
         justify-content: center;
         padding: 2px;
     }
-    // @media (max-height: 700px){
-    //     margin: 10px 0;
-    // }
 `
 
 export const FileName = styled.p`
@@ -66,7 +63,6 @@ export const FileName = styled.p`
 const FileDropDown = (props) => {
     const { updateRenderedFile } = useContext(Context);
     const { verticalDisplay } = useContext(Context);
-    // const [vertical, isVertical] = useState(verticalDisplay);
     const files = props?.files.map((fileData, key) => (
             <FileWrapper name={"fileWrapper"} key={key}>
                 <span onClick={() => updateRenderedFile(fileData.name)}>

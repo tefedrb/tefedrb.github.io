@@ -3,7 +3,6 @@ import { GraphicWrapper, GraphicHeadWrapper, GraphicHead, GraphicFold, GraphicBo
     from './FileCss';
 
 const MiniFile = (props) => {
-
     return (
         <GraphicWrapper
             name={"file GraphicWrapper"} 

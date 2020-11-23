@@ -6,18 +6,19 @@ import gmailImg from '../../imgs/icons/gmail.png';
 import twitterImg from '../../imgs/icons/twitter.png';
 
 const ContactOuterWrap = styled.div`
-    border: 2px solid black;
     height: 70%;
     width: 70%;
     margin: auto;
     text-align: center;
+    border: 2px solid black;
+
 `
 const ContactInnerWrap = styled.div`
     display: grid;
     grid-template-rows: repeat(2, minmax(0, .5fr));
     grid-template-columns: repeat(2, minmax(0, .5fr));
     align-items: center;
-    height: 100%;
+    height: 93%;
     width: 100%;
 `
 const ContactDiv = styled.div`
@@ -25,8 +26,8 @@ const ContactDiv = styled.div`
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    margin: 0 5px;
-    padding: 20px;
+    margin: 0;
+    padding: 0;
 `
 const Icon = styled.img`
     height: 60px;
@@ -34,8 +35,9 @@ const Icon = styled.img`
 `
 
 const WindowTop = styled.div`
+    color: white;
     width: 100%;
-    height: 10px;
+    height: 15px;
     background-color: black;
     margin: 0;
     padding: 0;
@@ -43,10 +45,10 @@ const WindowTop = styled.div`
 
 const Contact = () => {
     return (
-        <ContactOuterWrap>
-            <WindowTop />
-            contact.js
-            <ContactInnerWrap>
+        <ContactOuterWrap name={"contact-outer-wrap"}>
+            
+            <WindowTop><h1 style={{margin: "0", fontSize: "inherit"}}>contact.js</h1></WindowTop>
+            <ContactInnerWrap name={"contact-inner-wrap"}>
                 <ContactDiv>
                     <Icon src={gitHubImg}/>
                     <a href="https://github.com/tefedrb" target="_blank" rel="noopener">GitHub</a>
@@ -64,6 +66,7 @@ const Contact = () => {
                     <a href="https://twitter.com/HypedOnTofu" target="_blank" rel="noopener">Twitter</a>
                 </ContactDiv>
             </ContactInnerWrap>
+       
         </ContactOuterWrap>
     )
 }
