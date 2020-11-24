@@ -11,6 +11,9 @@ const ContactOuterWrap = styled.div`
     margin: auto;
     text-align: center;
     border: 2px solid black;
+    @media screen and (max-width: 651px), screen and (max-height: 757px){
+        height: 87%;
+    }
 
 `
 const ContactInnerWrap = styled.div`
@@ -21,7 +24,7 @@ const ContactInnerWrap = styled.div`
     height: 93%;
     width: 100%;
 `
-const ContactDiv = styled.div`
+const ContactDiv = styled.a`
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -29,6 +32,7 @@ const ContactDiv = styled.div`
     margin: 0;
     padding: 0;
 `
+
 const Icon = styled.img`
     height: 60px;
     width: 60px;
@@ -44,26 +48,27 @@ const WindowTop = styled.div`
 `
 
 const Contact = () => {
+
     return (
         <ContactOuterWrap name={"contact-outer-wrap"}>
             
             <WindowTop><h1 style={{margin: "0", fontSize: "inherit"}}>contact.js</h1></WindowTop>
             <ContactInnerWrap name={"contact-inner-wrap"}>
-                <ContactDiv>
+                <ContactDiv href="https://github.com/tefedrb" target="_blank" rel="noopener">
                     <Icon src={gitHubImg}/>
-                    <a href="https://github.com/tefedrb" target="_blank" rel="noopener">GitHub</a>
+                    <p>GitHub</p>
                 </ContactDiv>
-                <ContactDiv>
+                <ContactDiv href="https://www.linkedin.com/in/tefedrb/" target="_blank" rel="noopener">
                     <Icon src={linkedInImg}/>
-                    <a href="https://www.linkedin.com/in/tefedrb/" target="_blank" rel="noopener">LinkedIn</a>  
+                    <p>LinkedIn</p> 
                 </ContactDiv>
                 <ContactDiv>
                     <Icon src={gmailImg}/>
                     tefebell@gmail.com
                 </ContactDiv>
-                <ContactDiv>
+                <ContactDiv href="https://twitter.com/HypedOnTofu" target="_blank" rel="noopener">
                     <Icon src={twitterImg}/>
-                    <a href="https://twitter.com/HypedOnTofu" target="_blank" rel="noopener">Twitter</a>
+                    <p>Twitter</p>
                 </ContactDiv>
             </ContactInnerWrap>
        
