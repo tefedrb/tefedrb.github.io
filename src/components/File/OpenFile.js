@@ -3,7 +3,7 @@ import { Context } from '../../context';
 import { GraphicBody } from './FileCss';
 
 const OpenFile = (props) => {
-    const { files, globalState} = useContext(Context);
+    const { files, globalState } = useContext(Context);
     return (
         <GraphicBody
             name={"GraphicBody"} 
@@ -14,4 +14,4 @@ const OpenFile = (props) => {
     )
 }
 
-export default OpenFile
+export default OpenFile;

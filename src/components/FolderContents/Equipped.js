@@ -7,7 +7,7 @@ const Equipped = () => {
     return (
         <>
             <ProjLinkWrap>
-                <ProjLink>[ GitHub ]</ProjLink>
+                <ProjLink href="https://github.com/tefedrb/equipped" target="_blank">[ GitHub ]</ProjLink>
                 <ProjLink>[ Demo ]</ProjLink>
             </ProjLinkWrap>
             <h1 style={{marginTop: "0"}}>Equipped</h1>

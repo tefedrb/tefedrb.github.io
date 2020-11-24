@@ -13,7 +13,7 @@ const NavWrapper = styled.nav`
     width: 100%;
 
     @media (max-height: 400px) and (max-width: 700px){
-        width: 80%;
+        width: 100%;
     }
 
     @media (max-width: 948px){
@@ -31,7 +31,7 @@ const NavigationPanel = (props) => {
     const [ openFolder, changeOpenFolder ] = useState("About");
     const { folder, filesFromFolder, saveStateForMobileHack, 
         rehydrateStateFromStorage, checkStorageForMobileHack, globalState, updateRenderedFile  } = useContext(Context);
-    const {fileLoaded} = globalState;
+    const { fileLoaded } = globalState;
 
     useEffect(() => {
 

@@ -49,7 +49,7 @@ const MobileNavWrapper = styled.div`
 `
 const MobileNavAdapter = (props) => {
     const { globalState, updateRenderedFile } = useContext(Context);
-    const { filesDisplayed } = globalState;
+    const { filesDisplayed, fileLoaded } = globalState;
   
     const files = () => {
         return filesDisplayed.map((file, key) => (
@@ -60,7 +60,7 @@ const MobileNavAdapter = (props) => {
                         mini={true}
                     />
                 </span>
-                <FileName>{file.name}</FileName>
+                <FileName open={fileLoaded === file.name ? true : false}>{file.name}</FileName>
             </FileWrapper>
         ))
     }

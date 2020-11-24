@@ -67,7 +67,7 @@ export const Provider = (props) => {
 
     const [ globalState, setGlobalState ] = useState({
         folderLoc: [100, 20],
-        filesDisplayed: [{name:"about.js"}],
+        filesDisplayed: [{name: "about.js"}],
         fileLoaded: "about.js"
     });
 

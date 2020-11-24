@@ -47,31 +47,42 @@ export const FileWrapper = styled.div`
 `
 
 export const FileName = styled.p`
+    background-color: ${props => props.open ? "rgb(0,4,127)" : "none"}; 
     width: 100%;
+    padding: 5px;
     display: flex;
     justify-content: center;
+    align-text: center;
     margin: 2px;
-    white-space: nowrap;
-    font-size: 14px;
+    white-space: ${props => props.open ? "wrap" : "nowrap" };
+    font-size: 17px;
+
     @media (max-width: 948px){
         margin-right: 5px;
         margin-left: 5px;
+    }
+
+    @media screen and (max-width: 651px), screen and (max-height: 757px){
+        font-size: 14px;
     }
 `
 // Instead of using media queries, we can use the event listener info to switch
 // from the vertical version of our nav to the horizontal version.
 const FileDropDown = (props) => {
     const { updateRenderedFile } = useContext(Context);
-    const { verticalDisplay } = useContext(Context);
+    const { verticalDisplay, globalState } = useContext(Context);
+    const { fileLoaded } = globalState;
+
     const files = props?.files.map((fileData, key) => (
             <FileWrapper name={"fileWrapper"} key={key}>
                 <span onClick={() => updateRenderedFile(fileData.name)}>
                     <MiniFile 
                         data={fileData}
                         mini={true}
+                        open={fileLoaded === fileData.name ? true : false}
                     />
                 </span>
-                <FileName>{fileData.name}</FileName>
+                <FileName open={fileLoaded === fileData.name ? true : false}>{fileData.name}</FileName>
             </FileWrapper>
         )
     );
@@ -83,6 +94,7 @@ const FileDropDown = (props) => {
                     numOfFiles={props?.files.length} 
                     name={"AllFilesWrap"}
                 >
+                    {console.log(fileLoaded, "fileloaded")}
                     {props.display && !verticalDisplay ? files : ""}
                 </AllFilesWrap>
         </FileDropDownWrap>
