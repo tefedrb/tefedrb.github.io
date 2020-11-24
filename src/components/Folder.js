@@ -8,7 +8,7 @@ const FolderWrapper = styled.div`
     flex-direction: column;
     width: 55%;
     height: 100%;
-    margin-right: 12%;
+    margin-right: 18%;
     // ADJUSTING FOR MOBILE VIEW 
     @media (max-width: 948px) and (min-height: 500px){
         width: auto;
