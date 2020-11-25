@@ -40,17 +40,17 @@ const InnerHome = styled.div`
     background-color: rgb(10, 10, 10);
     border-radius: 28px;
 
-    &:after {
-        top: -100%;
-        left: -50%;
-        position: fixed;
-        opacity: .2;
-        content: "";
-        height: 300%;
-        width: 300%;
-        background-image: url(${paper});
-        animation: ${grain} 8s steps(10) infinite;
-    }
+    // &:after {
+    //     top: -100%;
+    //     left: -50%;
+    //     position: fixed;
+    //     opacity: .2;
+    //     content: "";
+    //     height: 300%;
+    //     width: 300%;
+    //     background-image: url(${paper});
+    //     animation: ${grain} 8s steps(10) infinite;
+    // }
 
     @media (max-width: 948px) and (min-height: 500px){
         flex-direction: column-reverse;
@@ -86,8 +86,8 @@ const Home = () => {
     }, []);
 
     return (
-        <HomeWrapper name={"home wrapper"}>
-            <InnerHome name={"inner home"}>
+        <HomeWrapper className="container" name={"home wrapper"}>
+            <InnerHome className="screen" name={"inner home"}>
                 <MobileNavAdapter 
                     changeFolder={changeFolder}
                     name={"mobileNav"}

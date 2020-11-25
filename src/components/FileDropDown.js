@@ -64,6 +64,7 @@ export const FileName = styled.p`
 
     @media screen and (max-width: 651px), screen and (max-height: 757px){
         font-size: 14px;
+        white-space: nowrap;
     }
 `
 // Instead of using media queries, we can use the event listener info to switch

@@ -31,6 +31,15 @@ const Monitor = (props) => {
             </div>
             <div className="monitorBottom">
                 <p className="logo">PONY</p>
+
+                {/* <div className="on-indicator"></div> */}
+
+                <div className="power-button">
+                    <img 
+                        src="src/imgs/power-button2.svg" 
+                    />
+                    
+                </div>
             </div>
         </div>
     )
