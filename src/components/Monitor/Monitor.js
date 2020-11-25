@@ -31,6 +31,10 @@ const Monitor = (props) => {
             </div>
             <div className="monitorBottom">
                 <p className="logo">PONY</p>
+
+                <div className="power-button">
+
+                </div>
             </div>
         </div>
     )

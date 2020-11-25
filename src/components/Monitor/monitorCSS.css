@@ -65,11 +65,6 @@
     box-sizing: border-box;
 }
 
-.logo {
-    color: #755D4F;
-    margin: 0;
-}
-
 .monitorLeft {
     grid-area: monLeft;
     z-index: 2;
@@ -116,11 +111,51 @@
 .monitorBottom {
     grid-Area: bottomA;
     z-index: 1;
-    display: flex;
-    flex-direction: column;
+
+    /* flex-direction: column; */
+    display: grid;
     justify-content: center;
+    grid-template-columns: 1fr [middleLeft] 1fr [middleRight] 1fr [last];
+    grid-template-rows: 1fr;
     align-items: center;
     background: linear-gradient(to right, rgb(227,219,188), rgb(227,219,188));
+}
+
+.logo-wrap {
+    /* display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; */
+}
+
+.power-button {
+    align-self: flex-end;
+    background-color:  rgb(227,219,188);
+    /* border-radius: 0%; */
+    /* border: solid black .5px; */
+    border-right: solid black .5px;
+    border-left: solid black .5px;
+    border-top: solid black .5px;
+    border-top-left-radius: 200px;
+    border-top-right-radius: 200px;
+    height: 20px;
+    width: 60px;
+    justify-self: center;
+    position: relative;
+    grid-column-start: middleRight;
+    grid-column-end: last;
+    grid-row-start: 1;
+    grid-row-end: 2;
+}
+
+.logo {
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    justify-self: center;
+    color: #755D4F;
+    margin: 0;
 }
 
 .bottomEdgeWrap {
