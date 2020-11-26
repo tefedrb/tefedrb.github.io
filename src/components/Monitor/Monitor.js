@@ -1,7 +1,17 @@
-import React from 'react';
-import './monitorCSS.css';
+import React, { useContext } from 'react';
+import { Context } from '../../context';
+import './monitorCSS.scss';
+import powerBtn from '../../imgs/power3.svg';
 
 const Monitor = (props) => {
+    const { globalState, globalStateUpdater } = useContext(Context);
+    
+    const { monitorPower } = globalState;
+
+    const powerHandler = () => {
+        globalStateUpdater("monitorPower", true, true);
+    }
+
     return (
         <div className="monitorWrap">
             <div className="monitorTop">
@@ -31,15 +41,16 @@ const Monitor = (props) => {
             </div>
             <div className="monitorBottom">
                 <p className="logo">PONY</p>
+                <div className={ `on-indicator ${monitorPower ? "none" : "off-indicator"}`}>
 
-                {/* <div className="on-indicator"></div> */}
-
-                <div className="power-button">
-                    <img 
-                        src="src/imgs/power-button2.svg" 
-                    />
-                    
                 </div>
+                <div onClick={powerHandler} className="power-button">
+                    <img 
+                        src={powerBtn}
+                        alt="powerbutton"
+                    />  
+                </div>
+                
             </div>
         </div>
     )
