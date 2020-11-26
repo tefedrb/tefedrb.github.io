@@ -1,5 +1,5 @@
 import React from 'react';
-import './monitorCSS.css';
+import './monitorCSS.scss';
 
 const Monitor = (props) => {
     return (
@@ -31,15 +31,16 @@ const Monitor = (props) => {
             </div>
             <div className="monitorBottom">
                 <p className="logo">PONY</p>
+                <div className="on-indicator">
 
-                {/* <div className="on-indicator"></div> */}
-
+                </div>
                 <div className="power-button">
                     <img 
-                        src="src/imgs/power-button2.svg" 
-                    />
-                    
+                        src="src/imgs/power3.svg"
+                        alt="powerbutton"
+                    />  
                 </div>
+                
             </div>
         </div>
     )
