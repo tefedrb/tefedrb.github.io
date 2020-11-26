@@ -25,7 +25,7 @@ const HomeWrapper = styled.div`
     align-items: center;
     height: 100%;
     z-index: -1;
-    overflow: auto;
+    overflow: hidden;
     grid-area: centerA;
     background-color: rgb(5, 5, 5);
 `
@@ -66,7 +66,8 @@ const BlueScreen = styled.div`
 // Info needs to go from navigation through MainDisplay
 
 const Home = () => {
-    const { checkStorageForMobileHack, saveStateForMobileHack } = useContext(Context);
+    const { checkStorageForMobileHack, saveStateForMobileHack, globalState } = useContext(Context);
+    const { monitorPower } = globalState;
     const [ openFolder, changeFolder ] = useState("About");
 
     useEffect(() => {
@@ -86,8 +87,8 @@ const Home = () => {
     }, []);
 
     return (
-        <HomeWrapper className="container" name={"home wrapper"}>
-            <InnerHome className="screen" name={"inner home"}>
+        <HomeWrapper className={`container ${monitorPower ? 'addFlicker' : 'none'} `} name={"home wrapper"}>
+            <InnerHome className={`screen ${monitorPower ? 'screenOn' : 'screenOff'}` } name={"inner home"}>
                 <MobileNavAdapter 
                     changeFolder={changeFolder}
                     name={"mobileNav"}
@@ -97,6 +98,10 @@ const Home = () => {
                     name={"main display"}
                 />
             </InnerHome>
+            <div className={`overlay ${monitorPower ? 'overlay-ani' : 'none'}`}>
+                <span>AV-1</span>
+            </div>
+
         </HomeWrapper>
     )
 }

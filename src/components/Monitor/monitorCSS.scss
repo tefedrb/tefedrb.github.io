@@ -185,6 +185,10 @@ $powerColor:rgb(227,219,188);
     box-shadow: inset 0px 0px 2px .5px rgba(0, 0, 0, 0.5);
 }
 
+.off-indicator{
+    background-color: black !important;
+}
+
 .logo {
     grid-column-start: 2;
     grid-column-end: 3;
@@ -200,7 +204,6 @@ $powerColor:rgb(227,219,188);
     background-color: rgb(177,169,138);
     box-shadow: 5px 9px 8px 6px black;
 }
-
 
 .bottomEdge {
     width: 100%;

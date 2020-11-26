@@ -1,15 +1,9 @@
-/**** Code adapted from Lucas Bebber of codepen ****/
+/**** Code adapted for my project, from Lucas Bebber's codepen ****/
 
 $ease-out-quint:cubic-bezier(0.230, 1.000, 0.320, 1.000);
 $ease-in-quint:cubic-bezier(0.755, 0.050, 0.855, 0.060);
 $screen-background:#121010;
 
-// body{
-//   background:#111;
-//   color:white;
-//   padding-top:20px;
-//   padding-left:20px;
-// }
 #switch{
   display:none;
 }
@@ -51,7 +45,6 @@ $screen-background:#121010;
   }
 }
 
-
 @keyframes flicker{
   $steps:20;
   @for $i from 0 through $steps{
@@ -62,14 +55,9 @@ $screen-background:#121010;
 }
 .container{
   background:$screen-background;
-//   width:800px;
-//   height:600px;
-//   margin-top:10px;
-//   position:relative;
-//   overflow:hidden;
-//   border:2px solid #666;
+  position:relative;
+  overflow:hidden;
 
-  // flicker
   &::after{
     content:" ";
     display:block;
@@ -82,7 +70,6 @@ $screen-background:#121010;
     opacity:0;
     z-index:2;
     pointer-events:none;
-    animation:flicker 0.15s infinite;
   }
   // scanlines
   &::before{
@@ -99,10 +86,10 @@ $screen-background:#121010;
     pointer-events:none;
   }
 }
-#switch:checked~.container::after{
+
+.addFlicker::after {
   animation:flicker 0.15s infinite;
 }
-
 
 @keyframes turn-on{
   0%{
@@ -126,8 +113,6 @@ $screen-background:#121010;
     filter:brightness(30);
     opacity:0;
   }
-  
-  
   
   11%{
     transform:scale(1,1) translate3d(0,0,0);
@@ -167,12 +152,14 @@ $screen-background:#121010;
   height:100%;
   border:none;
 }
-#switch~.container>.screen{
-  animation: turn-off 0.55s $ease-out-quint;
+
+.screenOn {
+  animation: turn-on 4s linear;
   animation-fill-mode:forwards;
 }
-#switch:checked~.container>.screen{
-  animation: turn-on 4s linear;
+
+.screenOff {
+  animation: turn-off 0.55s $ease-out-quint;
   animation-fill-mode:forwards;
 }
 
@@ -190,17 +177,26 @@ $screen-background:#121010;
     visibility:hidden;
   }
 }
+
 .overlay{
   color:#00FF00;
   position:absolute;
-  top:20px;
-  left:20px;
+  height: 100%;
+  width: 100%;
+  top:0;
+  left: 0;
   font-size:60px;
-  //text-shadow:2px 2px black,-2px -2px black, -2px 2px black, 2px -2px black;
+  // text-shadow:2px 2px black,-2px -2px black, -2px 2px black, 2px -2px black;
   visibility:hidden;
   pointer-events:none;
 }
-#switch:checked~.container .overlay{
+
+.overlay span {
+  margin-left: 20px;
+  margin-top: 20px;
+}
+
+.overlay-ani{
   animation:overlay-anim 5s linear;
   animation-fill-mode:forwards;
 }

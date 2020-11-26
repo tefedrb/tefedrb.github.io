@@ -68,10 +68,24 @@ export const Provider = (props) => {
     const [ globalState, setGlobalState ] = useState({
         folderLoc: [100, 20],
         filesDisplayed: [{name: "about.js"}],
-        fileLoaded: "about.js"
+        fileLoaded: "about.js",
+        monitorPower: true
     });
 
     const [ verticalDisplay, isVerticalDisplay ] = useState(false);
+
+    const globalStateUpdater = (prop, value, switcher) => {
+        if(switcher){
+            value = !globalState[prop];
+        }
+        setGlobalState(prev => {
+            return {
+                ...prev,
+                [prop]: value
+            }
+        })
+    }
+
     const saveFolderLoc = (loc) => {
         setGlobalState(prev => {
             return {
@@ -117,6 +131,7 @@ export const Provider = (props) => {
                 verticalDisplay,
                 blueScreen,
                 isMobileHack,
+                globalStateUpdater,
                 rehydrateStateFromStorage,
                 saveStateForMobileHack,
                 checkStorageForMobileHack,
