@@ -70,13 +70,13 @@ export const FileName = styled.p`
 // Instead of using media queries, we can use the event listener info to switch
 // from the vertical version of our nav to the horizontal version.
 const FileDropDown = (props) => {
-    const { updateRenderedFile } = useContext(Context);
+    const { globalStateUpdater } = useContext(Context);
     const { verticalDisplay, globalState } = useContext(Context);
     const { fileLoaded } = globalState;
 
     const files = props?.files.map((fileData, key) => (
             <FileWrapper name={"fileWrapper"} key={key}>
-                <span onClick={() => updateRenderedFile(fileData.name)}>
+                <span onClick={() => globalStateUpdater("fileLoaded", fileData.name)}>
                     <MiniFile 
                         data={fileData}
                         mini={true}

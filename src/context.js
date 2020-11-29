@@ -48,23 +48,7 @@ export const Provider = (props) => {
 
     const [ isMobileHack, signalMobileHack ] = useState(false);
 
-    const saveStateForMobileHack = (item, value) => {
-        localStorage.setItem(`${item}`, `${value}`);
-    }
-
-    const checkStorageForMobileHack = () => {
-        let mobileHack = localStorage.getItem('isMobileHack');
-        if(mobileHack === 'true'){
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    const rehydrateStateFromStorage = (item) => {
-        return localStorage.getItem(item);
-    }
-
+    
     const [ globalState, setGlobalState ] = useState({
         folderLoc: [100, 20],
         filesDisplayed: [{name: "about.js"}],
@@ -86,41 +70,23 @@ export const Provider = (props) => {
         })
     }
 
-    const saveFolderLoc = (loc) => {
-        setGlobalState(prev => {
-            return {
-                ...prev,
-                folderLoc: loc
-            }
-        })
+    const saveStateForMobileHack = (item, value) => {
+        localStorage.setItem(`${item}`, `${value}`);
     }
 
-    const updateRenderedFile = (fileName) => {
-        setGlobalState(prev => {
-            return {
-                ...prev,
-                fileLoaded: fileName
-            }
-        })
+    const checkStorageForMobileHack = () => {
+        let mobileHack = localStorage.getItem('isMobileHack');
+        if(mobileHack === 'true'){
+            return true;
+        } else {
+            return false;
+        }
     }
 
-    const filesFromFolder = (files) => {
-        setGlobalState(prev => {
-            return {
-                ...prev,
-                filesDisplayed: files
-            }
-        })
+    const rehydrateStateFromStorage = (item) => {
+        return localStorage.getItem(item);
     }
-    
-    const updateViewport = (viewportXY) => {
-        setGlobalState(prev => {
-            return {
-                ...prev,
-                viewport: viewportXY 
-            }
-        })
-    }
+
 
     return (
         <Context.Provider 
@@ -136,11 +102,7 @@ export const Provider = (props) => {
                 saveStateForMobileHack,
                 checkStorageForMobileHack,
                 signalMobileHack,
-                updateRenderedFile,
-                updateViewport,
                 isVerticalDisplay,
-                saveFolderLoc,
-                filesFromFolder,
                 updateBlueScreen
              }}
         >
