@@ -29,8 +29,9 @@ const NavWrapper = styled.nav`
 
 const NavigationPanel = (props) => {
     const [ openFolder, changeOpenFolder ] = useState("About");
-    const { folder, filesFromFolder, saveStateForMobileHack, 
-        rehydrateStateFromStorage, checkStorageForMobileHack, globalState, updateRenderedFile  } = useContext(Context);
+    const { folder, saveStateForMobileHack, 
+        rehydrateStateFromStorage, checkStorageForMobileHack, 
+        globalState, globalStateUpdater } = useContext(Context);
     const { fileLoaded } = globalState;
 
     useEffect(() => {
@@ -40,7 +41,7 @@ const NavigationPanel = (props) => {
             components when hack is initiated and window gets reloaded */
 
         if(checkStorageForMobileHack()){
-            updateRenderedFile(rehydrateStateFromStorage('fileOpen'))
+            globalStateUpdater("fileLoaded", rehydrateStateFromStorage('fileOpen'))
             changeOpenFolder(rehydrateStateFromStorage('folderOpen'));
 
             saveStateForMobileHack('isMobileHack', 'false');
@@ -50,7 +51,7 @@ const NavigationPanel = (props) => {
         }
 
         props.changeFolder(openFolder);
-        filesFromFolder(folder[openFolder]);
+        globalStateUpdater("filesDisplayed", folder[openFolder]);
         
     }, [openFolder, fileLoaded]);
 

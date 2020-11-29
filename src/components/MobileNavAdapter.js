@@ -48,13 +48,13 @@ const MobileNavWrapper = styled.div`
     }
 `
 const MobileNavAdapter = (props) => {
-    const { globalState, updateRenderedFile } = useContext(Context);
+    const { globalState, globalStateUpdater } = useContext(Context);
     const { filesDisplayed, fileLoaded } = globalState;
   
     const files = () => {
         return filesDisplayed.map((file, key) => (
            <FileWrapper name={"FileWrap"} key={key}>
-               <span onClick={() => updateRenderedFile(file.name)}>
+               <span onClick={() => globalStateUpdater("fileLoaded", file.name)}>
                     <MiniFile
                         data={file}
                         mini={true}
