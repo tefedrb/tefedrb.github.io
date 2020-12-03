@@ -87,7 +87,6 @@ export const Provider = (props) => {
         return localStorage.getItem(item);
     }
 
-
     return (
         <Context.Provider 
             value={{ 

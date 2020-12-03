@@ -12,7 +12,7 @@ const ContactOuterWrap = styled.div`
     text-align: center;
     border: 2px solid black;
     @media screen and (max-width: 651px), screen and (max-height: 757px){
-        height: 87%;
+        height: 98%;
     }
 
 `
@@ -48,10 +48,8 @@ const WindowTop = styled.div`
 `
 
 const Contact = () => {
-
     return (
         <ContactOuterWrap name={"contact-outer-wrap"}>
-            
             <WindowTop><h1 style={{margin: "0", fontSize: "inherit"}}>contact.js</h1></WindowTop>
             <ContactInnerWrap name={"contact-inner-wrap"}>
                 <ContactDiv href="https://github.com/tefedrb" target="_blank" rel="noopener">
@@ -71,7 +69,6 @@ const Contact = () => {
                     <p>Twitter</p>
                 </ContactDiv>
             </ContactInnerWrap>
-       
         </ContactOuterWrap>
     )
 }
