@@ -1,9 +1,9 @@
 import React, { useContext } from 'react';
 import styled from 'styled-components';
 import NavigationPanel from './NavigationPanel';
-import MiniFile from './File/MiniFile';
-import { Context } from '../context';
-import { FileName, FileWrapper } from './FileDropDown';
+import MiniFile from '../File/MiniFile';
+import { Context } from '../../context';
+import { FileName, FileWrapper } from '../File/FileDropDown';
 
 const MobileFilePopUp = styled.div`
     display: none;

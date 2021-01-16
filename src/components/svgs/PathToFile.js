@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react';
 import styled from 'styled-components';
 import { Context } from '../../context';
-import { getViewportXY } from '../helperFunctions/helperFunctions';
+import { getViewportXY } from '../../helperFunctions/helper';
 
 const PathWrap = styled.div`
     @media(max-height: 700px){

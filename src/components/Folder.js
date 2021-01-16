@@ -1,7 +1,7 @@
 import React, { useContext, useState, useEffect, useRef } from 'react';
 import styled from 'styled-components';
 import { Context } from '../context';
-import FileDropDown from '../components/FileDropDown';
+import FileDropDown from './File/FileDropDown';
 
 const FolderWrapper = styled.div`
     display: flex;
@@ -56,7 +56,7 @@ const FolderBack = styled.div`
     height: 90%;
     width: 100%;
     background-color: rgba(190, 186, 63, 1);
-    box-shadow: 1px -5px 8px -7px rgba(216,212,79,1);
+    box-shadow: 1px -5px 8px -7px rgba(216,212,79,0.3);
 `
 const Paper = styled.div`
     position: absolute;

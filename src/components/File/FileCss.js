@@ -42,15 +42,13 @@ export const GraphicBody = styled.div`
     cursor: ${props => props.mini ? "pointer" : ""};
     display: flex;
     justify-content: center;
-    // position: relative;
     overflow: auto;
     
     height: ${props => props.mini ? "35px" : "90%"};
     width: ${props => props.mini ? "100%" : "90%"};
-    box-shadow: 1px -5px 27px -7px ${props => props.mini ? "transparent" : "rgba(42, 160, 42, 1)"};
+    box-shadow: 1px -5px 27px -7px ${props => props.mini ? "transparent" : "rgba(42, 160, 42, 0.4)"};
     background-color: ${props => props.mini ? "rgba(255, 255, 255, 0.83)" : "rgba(42, 160, 42, 1)"};
-    
-    
+        
     @media (max-width: 948px){
         height: ${props => props.mini ? "20px" : "93%"};
     }

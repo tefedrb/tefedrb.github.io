@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { Context } from '../../context';
-import { GraphicBody } from './FileCss';
+import { GraphicBody } from './FileCSS';
 
 const OpenFile = (props) => {
     const { files, globalState } = useContext(Context);

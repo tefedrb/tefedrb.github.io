@@ -1,6 +1,6 @@
 import React, { useState, useContext, useEffect } from 'react';
 import MainDisplay from './MainDisplay';
-import MobileNavAdapter from './MobileNavAdapter';
+import MobileNavAdapter from './Navigation/MobileNavAdapter'
 import styled, { keyframes } from 'styled-components';
 import paper from '../imgs/paper.png';
 import { Context } from '../context';
