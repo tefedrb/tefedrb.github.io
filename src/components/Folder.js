@@ -1,7 +1,7 @@
 import React, { useContext, useState, useEffect, useRef } from 'react';
 import styled from 'styled-components';
 import { Context } from '../context';
-import FileDropDown from '../components/FileDropDown';
+import FileDropDown from './File/FileDropDown';
 
 const FolderWrapper = styled.div`
     display: flex;

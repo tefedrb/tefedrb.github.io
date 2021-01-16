@@ -54,7 +54,7 @@ const Contact = () => {
             <ContactInnerWrap name={"contact-inner-wrap"}>
                 <ContactDiv href="https://github.com/tefedrb" target="_blank" rel="noopener">
                     <Icon src={gitHubImg}/>
-                    <p>GitHub</p>
+                    <p>GitHub</p> 
                 </ContactDiv>
                 <ContactDiv href="https://www.linkedin.com/in/tefedrb/" target="_blank" rel="noopener">
                     <Icon src={linkedInImg}/>

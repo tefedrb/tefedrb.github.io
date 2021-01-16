@@ -1,8 +1,8 @@
 import React, { useContext } from 'react';
-import MiniFile from './File/MiniFile';
+import MiniFile from '../File/MiniFile';
 import styled from 'styled-components';
-import PathToFile from './svgs/PathToFile';
-import { Context } from '../context';
+import PathToFile from '../svgs/PathToFile';
+import { Context } from '../../context';
 
 const FileDropDownWrap = styled.div`
     display: flex;

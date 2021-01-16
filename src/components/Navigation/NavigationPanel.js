@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react';
-import Folder from './Folder';
+import Folder from '../Folder';
 import styled from 'styled-components';
-import { Context } from '../context';
+import { Context } from '../../context';
 
 const NavWrapper = styled.nav`
     pointer-events: auto;

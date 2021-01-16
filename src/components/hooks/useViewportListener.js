@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { throttle } from 'lodash';
-import { getViewportXY } from '../helperFunctions/helperFunctions';
+import { getViewportXY } from '../helperFunctions/helper';
 
 const useViewportListener = (cb) => {
 

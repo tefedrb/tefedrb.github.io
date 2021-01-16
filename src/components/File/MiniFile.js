@@ -1,6 +1,6 @@
 import React from 'react';
 import { GraphicWrapper, GraphicHeadWrapper, GraphicHead, GraphicFold, GraphicBody }
-    from './FileCss';
+    from './FileCSS';
 
 const MiniFile = (props) => {
     return (
