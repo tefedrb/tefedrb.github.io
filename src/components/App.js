@@ -3,6 +3,7 @@ import React from 'react';
 import Home from './Home';
 import { Provider } from '../context';
 import Monitor from './Monitor/Monitor';
+// import "98.css";
 
 const App = () => {
     return (

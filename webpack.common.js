@@ -24,7 +24,15 @@ module.exports = {
                     },
                   },
                 ],
-              },
+            },
+            {
+                test: /\.(woff(2)?|eot)(\?v=\d+\.\d+\.\d+)?$/,
+                use: [
+                  {
+                    loader: 'file-loader'
+                  }
+                ]
+            },
             {
                 test: /\.(ttf)/,
                 use: [
