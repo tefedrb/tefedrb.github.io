@@ -52,12 +52,3 @@ a:visited {
     background: rgb(240,235,223);
     box-shadow: inset -2px -2px 2px rgb(79, 79, 79), inset 2px 2px 2px rgb(246,243,237);
 } */
-
-::-webkit-scrollbar-button:single-button:vertical:decrement {
-    border-width: 0 8px 8px 8px;
-    border-color: transparent transparent #555555 transparent;
-}
-
-::-webkit-scrollbar-button:single-button:vertical:decrement:hover {
-    border-color: transparent transparent #777777 transparent;
-  }
